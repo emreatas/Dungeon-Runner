@@ -23,14 +23,11 @@ public class CharacterMovement : MonoBehaviour
     {
         MoveCharacter();
         
-        
-        
-
     }
     private void Update()
     {
         SetMovementInputs();
-        Debug.Log((_characterStats.horizontalMovementSpeed * _deltaPos.normalized.x * Time.fixedDeltaTime));
+        Debug.Log( _deltaPos.normalized.x );
     }
 
 
@@ -38,7 +35,7 @@ public class CharacterMovement : MonoBehaviour
     private void MoveCharacter()
     {
        
-        _rb.MovePosition(new Vector3(gameObject.transform.position.x + (_characterStats.horizontalMovementSpeed * _deltaPos.normalized.x * Time.fixedDeltaTime), gameObject.transform.position.y, gameObject.transform.position.z+1 * _characterStats.verticalMovementSpeed * Time.fixedDeltaTime));
+        _rb.MovePosition(new Vector3(gameObject.transform.position.x +1* (_characterStats.horizontalMovementSpeed * _deltaPos.normalized.x * Time.fixedDeltaTime), gameObject.transform.position.y, gameObject.transform.position.z+1 * _characterStats.verticalMovementSpeed * Time.fixedDeltaTime));
 
     }
 
