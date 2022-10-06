@@ -13,11 +13,13 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 _deltaPos;
 
     private Rigidbody _rb;
+    private Animator _anim;
 
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _anim = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
@@ -28,6 +30,7 @@ public class CharacterMovement : MonoBehaviour
     {
         SetMovementInputs();
         Debug.Log( _deltaPos.normalized.x );
+        
     }
 
 
@@ -35,8 +38,8 @@ public class CharacterMovement : MonoBehaviour
     private void MoveCharacter()
     {
        
-        _rb.MovePosition(new Vector3(gameObject.transform.position.x +1* (_characterStats.horizontalMovementSpeed * _deltaPos.normalized.x * Time.fixedDeltaTime), gameObject.transform.position.y, gameObject.transform.position.z+1 * _characterStats.verticalMovementSpeed * Time.fixedDeltaTime));
-
+        _rb.MovePosition(new Vector3(gameObject.transform.position.x , gameObject.transform.position.y, gameObject.transform.position.z+1 * _characterStats.verticalMovementSpeed * Time.fixedDeltaTime));
+      
     }
 
    
@@ -61,7 +64,8 @@ public class CharacterMovement : MonoBehaviour
             _mouseFirstPos = Vector3.zero;
             _deltaPos = Vector3.zero;
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+        }   
+        
     }
 
 
