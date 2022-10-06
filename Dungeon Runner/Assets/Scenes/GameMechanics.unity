@@ -1371,18 +1371,6 @@ CapsuleCollider:
   m_Height: 1.8739245
   m_Direction: 1
   m_Center: {x: -0.0065920353, y: 0.8681952, z: 0}
---- !u!114 &1634279234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116677193654315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a2773bc5009d64ca85eb608751573c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1634279235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,7 +1883,7 @@ GameObject:
   - component: {fileID: 1634279230}
   - component: {fileID: 1634279231}
   - component: {fileID: 1634279229}
-  - component: {fileID: 1634279234}
+  - component: {fileID: 95635281879722248}
   - component: {fileID: 1634279235}
   m_Layer: 0
   m_Name: Player
@@ -3462,6 +3450,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &95635281879722248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116677193654315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf04eddfc7ed41e44bcf1d0ae0da10ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleState: {fileID: 0}
+  movingState: {fileID: 0}
 --- !u!137 &137779829500545361
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
