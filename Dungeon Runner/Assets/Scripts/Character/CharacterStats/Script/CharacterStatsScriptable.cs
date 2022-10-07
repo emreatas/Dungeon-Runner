@@ -8,4 +8,6 @@ public class CharacterStatsScriptable : ScriptableObject
 {
     public float verticalMovementSpeed;
     public float horizontalMovementSpeed;
+
+    public float horizontalJumpSpeed;
 }

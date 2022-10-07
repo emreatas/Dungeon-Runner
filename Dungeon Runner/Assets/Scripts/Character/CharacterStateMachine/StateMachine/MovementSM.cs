@@ -8,6 +8,15 @@ public class MovementSM : StateMachine
     public Idle idleState;
     [HideInInspector]
     public Moving movingState;
+    [HideInInspector]
+    public Jump jumpingState;
+
+
+
+    
+    public Rigidbody rb;
+    public CharacterStatsScriptable characterStats;
+    public Animator anim;
 
    
 
@@ -15,9 +24,11 @@ public class MovementSM : StateMachine
     {
         idleState = new Idle(this);
         movingState = new Moving(this);
+        jumpingState = new Jump(this);
        
     }
    
+
     protected override BaseState GetInitialState()
     {
         return idleState;

@@ -25,6 +25,11 @@ public class Idle : BaseState
     {
         base.UpdateLogic();
         stateMachine.ChangeState(sm.movingState);
+        /* if (Mathf.Abs (sm.rb.velocity.magnitude)>Mathf.Epsilon)
+         {
+
+         }*/
+
 
     }
 

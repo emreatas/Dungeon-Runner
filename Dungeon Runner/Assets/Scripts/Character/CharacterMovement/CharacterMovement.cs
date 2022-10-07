@@ -20,6 +20,7 @@ public class CharacterMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
+        
     }
     private void FixedUpdate()
     {

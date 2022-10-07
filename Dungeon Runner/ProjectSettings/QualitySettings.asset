@@ -120,9 +120,9 @@ QualitySettings:
   m_PerPlatformDefaultQuality:
     Android: 1
     CloudRendering: 2
-    Lumin: 2
     GameCoreScarlett: 2
     GameCoreXboxOne: 2
+    Lumin: 2
     Nintendo Switch: 2
     PS4: 2
     PS5: 2
@@ -130,7 +130,7 @@ QualitySettings:
     Stadia: 2
     Standalone: 2
     WebGL: 1
-    Windows Store Apps: 2
+    Windows Store Apps: 0
     XboxOne: 2
     iPhone: 1
     tvOS: 1
