@@ -13,6 +13,14 @@ public class StateMachine : MonoBehaviour
             currentState.Enter();
     }
 
+    private void FixedUpdate()
+    {
+        if (currentState!=null)
+        {
+            currentState.FixedUpdatePhysics();
+        }
+    }
+
     void Update()
     {
         if (currentState != null)
