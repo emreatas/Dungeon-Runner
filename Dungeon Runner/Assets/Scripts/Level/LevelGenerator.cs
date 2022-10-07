@@ -20,15 +20,15 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        int counter = 0;
+
 
         while (true)
         {
             flag = Random.Range(0, 4);
 
             GameObject obj = objectPool.GetPooledObject(flag);
-            obj.transform.position = new Vector3(0, 0, counter * 15);
-            counter++;
+            obj.transform.position = new Vector3(0, 0, 15);
+
             yield return new WaitForSeconds(spawnInterval);
         }
     }
