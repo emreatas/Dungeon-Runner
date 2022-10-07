@@ -10,7 +10,8 @@ public class Moving : BaseState
     public enum JumpType
     {
         LeftJump,
-        RightJump
+        RightJump,
+        UpJump
     }
     public JumpType jumpType;
 
@@ -32,28 +33,13 @@ public class Moving : BaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        /* if (Mathf.Abs(sm.rb.velocity.magnitude) < Mathf.Epsilon)
-         {
-             stateMachine.ChangeState(sm.idleState);
-         }*/
         GetMouseInput();
        
     }
 
-    public override void UpdatePhysics()
-    {
-        base.UpdatePhysics();
-        MoveCharacter();
+   
 
-    }
-
-
-
-
-    private void MoveCharacter()
-    {
-       // sm.rb.MovePosition(new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y, sm.gameObject.transform.position.z + 1 *sm.characterStats.verticalMovementSpeed * Time.fixedDeltaTime));
-    }
+    //Add upJump State and mouse input control!!
     private void GetMouseInput()
     {
       
@@ -69,7 +55,8 @@ public class Moving : BaseState
             _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
 
             float deltaX = _mouseDeltaPos.x;
-            
+            float deltaY = _mouseDeltaPos.y;
+
 
             if ( _mouseDeltaPos != Vector2.zero)
             {
@@ -82,6 +69,18 @@ public class Moving : BaseState
                     jumpType = JumpType.LeftJump;
                 }
             }
+            else if (_mouseDeltaPos != Vector2.zero)
+            {
+                if (deltaY > 0)
+                {
+                    jumpType = JumpType.UpJump;
+                }
+                else
+                {
+                    //Add slideState
+                    //_movementBehaviour = Enums.BallMovementBehaviour.SwipedDown;
+                }
+            }
 
             Debug.Log(jumpType);
 
@@ -90,16 +89,14 @@ public class Moving : BaseState
         }
         if (Input.GetMouseButtonUp(0))
         {
-            if (_mouseDeltaPos != Vector2.zero)
-            {
+            
                
                 _mouseDeltaPos = Vector2.zero;
                 _mouseFirstPos = Vector2.zero;
                 _mouseCurrentPos = Vector2.zero;
                 sm.ChangeState(sm.jumpingState);
-                //_state = Enums.BallState.Moving;
-                //_movementBehaviour = Enums.BallMovementBehaviour.Idle;
-            }
+               
+            
 
         }
     }
