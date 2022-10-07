@@ -7,19 +7,26 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed;
     public float jumpPower;
     public GameObject caps;
-    void Update()
+    private Rigidbody _rb;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
     {
         playerMove();
     }
+    void Update()
+    {
+        
+    }
     void playerMove()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 way = Vector3.Normalize(new Vector3(z, 0, -x));
-        transform.Translate(way * walkSpeed * Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.Space) && caps.transform.position.y < 2)
-        {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpPower);
-        }
+        float x = Input.GetAxis("Vertical");
+        float z = Input.GetAxis("Horizontal");
+
+        _rb.MovePosition(new Vector3(gameObject.transform.position.x + x * walkSpeed * Time.fixedDeltaTime, gameObject.transform.position.y, gameObject.transform.position.z + z * walkSpeed * Time.fixedDeltaTime));
     }
 }
