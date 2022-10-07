@@ -7,30 +7,34 @@ using UnityEngine.Pool;
 public class LevelGenerator : MonoBehaviour
 {
 
-    [SerializeField] private float spawnInterval = 1;
+    public static LevelGenerator Instance;
+    private GameObject flagObj;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     [SerializeField] private ObjectPooler objectPool = null;
     int flag = 0;
 
     private void Start()
     {
 
-        StartCoroutine(Spawn());
+        GameObject obj = objectPool.GetPooledObject(flag);
+        obj.transform.position = new Vector3(0, 0, 15);
+        flagObj = obj;
+
     }
 
-
-    IEnumerator Spawn()
+    public void SpawnNewTile()
     {
+        flag = Random.Range(0, 4);
 
+        GameObject obj = objectPool.GetPooledObject(flag);
+        obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15);
+        flagObj = obj;
 
-        while (true)
-        {
-            flag = Random.Range(0, 4);
-
-            GameObject obj = objectPool.GetPooledObject(flag);
-            obj.transform.position = new Vector3(0, 0, 15);
-
-            yield return new WaitForSeconds(spawnInterval);
-        }
     }
 
 
