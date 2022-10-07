@@ -9,13 +9,15 @@ public class MovementSM : StateMachine
     [HideInInspector]
     public Moving movingState;
 
+   
+
     private void Awake()
     {
         idleState = new Idle(this);
         movingState = new Moving(this);
        
     }
-
+   
     protected override BaseState GetInitialState()
     {
         return idleState;

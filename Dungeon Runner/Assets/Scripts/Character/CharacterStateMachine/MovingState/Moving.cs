@@ -5,30 +5,28 @@ using UnityEngine;
 public class Moving : BaseState
 {
 
-    private MovementSM _stateMachine;
+    protected MovementSM sm;
 
-    private float _speed;
-    private Rigidbody _rb;
-    public Moving(MovementSM stateMachine) : base("Moving", stateMachine) {}
-
-    private void Start()
+    public Moving(MovementSM stateMachine) : base("Moving", stateMachine)
     {
-        _rb = GetComponent<Rigidbody>();
+        sm = (MovementSM)this.stateMachine;
     }
 
     public override void Enter()
     {
         base.Enter();
-        _speed = 0;
+
     }
 
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        _speed = _rb.velocity.magnitude;
-        if (_speed <Mathf.Epsilon)
-        {
-            stateMachine.ChangeState(((MovementSM)stateMachine).movingState);
-        }
+        stateMachine.ChangeState(sm.idleState);
+    }
+
+    public override void UpdatePhysics()
+    {
+        base.UpdatePhysics();
+
     }
 }
