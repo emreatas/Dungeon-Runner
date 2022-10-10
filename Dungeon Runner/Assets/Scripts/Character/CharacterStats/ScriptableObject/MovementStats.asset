@@ -15,5 +15,5 @@ MonoBehaviour:
   verticalMovementSpeed: 5
   horizontalJumpSpeed: 8
   horizontalJumpRange: 5
-  verticalJumpRange: 0
+  verticalJumpRange: -2
   verticalJumpSpeed: 5
