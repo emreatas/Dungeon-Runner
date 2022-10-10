@@ -35,7 +35,7 @@ public class LevelGenerator : MonoBehaviour
 
     public void SpawnNewTile()
     {
-        flag = Random.Range(0, 4);
+        flag = Random.Range(0, 5);
 
         GameObject obj = objectPool.GetPooledObject(flag);
         obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15);
