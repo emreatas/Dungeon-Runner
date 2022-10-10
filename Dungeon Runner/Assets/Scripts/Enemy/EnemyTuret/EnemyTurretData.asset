@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fe3400f280dee479ec0588ee304e30, type: 3}
   m_Name: EnemyTurretData
   m_EditorClassIdentifier: 
-  range: 40
+  range: 60
+  sightRange: 40
   playerTag: Player
+  health: 0
+  movementSpeed: 0
+  timeBetweenAttacks: 2
+  fireTile: {fileID: 1757850141521676795, guid: 7d85970ad8276ae489497ff912be8e4c,
+    type: 3}

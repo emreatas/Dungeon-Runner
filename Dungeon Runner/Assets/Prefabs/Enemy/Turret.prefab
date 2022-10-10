@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 72007741fd6ab64489e1e3aedac5d1c9, type: 2}
+  laser: {fileID: 2604559890898295555, guid: 848c31ce02680b94886d26ab914004f0, type: 3}
 --- !u!1 &1123714016733934560
 GameObject:
   m_ObjectHideFlags: 0
