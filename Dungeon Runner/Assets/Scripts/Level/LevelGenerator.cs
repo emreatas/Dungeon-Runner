@@ -20,10 +20,16 @@ public class LevelGenerator : MonoBehaviour
 
     private void Start()
     {
-
         GameObject obj = objectPool.GetPooledObject(flag);
         obj.transform.position = new Vector3(0, 0, 15);
         flagObj = obj;
+
+        for (int i = 0; i < 3; i++)
+        {
+            SpawnNewTile();
+        }
+
+
 
     }
 
