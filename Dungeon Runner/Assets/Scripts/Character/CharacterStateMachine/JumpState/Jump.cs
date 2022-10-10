@@ -26,6 +26,7 @@ public class Jump : Air
         if (sm.movingState.jumpType == Moving.JumpType.LeftJump)
         {
             sm.anim.SetBool("JumpLeft", true);
+            sm.anim.SetFloat("RandomAvoidAnimValue", Random.Range(0, 2));
             _targetX = sm.gameObject.transform.position.x - sm.characterStats.horizontalJumpRange;
 
 
@@ -33,11 +34,13 @@ public class Jump : Air
         if (sm.movingState.jumpType == Moving.JumpType.RightJump)
         {
             sm.anim.SetBool("JumpRight", true);
+            sm.anim.SetFloat("RandomAvoidAnimValue", Random.Range(0, 2));
             _targetX = sm.gameObject.transform.position.x + sm.characterStats.horizontalJumpRange;
 
         }
         if (sm.movingState.jumpType==Moving.JumpType.UpJump)
         {
+            sm.anim.SetFloat("RandomJumpAnimValue", Random.Range(0, 2));
             sm.anim.SetBool("JumpUp", true);
         }
 
@@ -122,6 +125,7 @@ public class Jump : Air
             if (sm.gameObject.transform.position==targetVec)
             {
                 sm.ChangeState(sm.movingState);
+                sm.rb.useGravity = true;
             }
 
 
