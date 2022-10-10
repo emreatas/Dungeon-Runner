@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Idle : BaseState
+public class Idle : Grounded
 {
 
-    protected MovementSM sm;
+   
 
     
 
     public Idle(MovementSM stateMachine) : base("Idle", stateMachine) { 
     
-        sm= (MovementSM)this.stateMachine;
+      
     }
 
     public override void Enter()

@@ -12,4 +12,8 @@ public class CharacterStatsScriptable : ScriptableObject
     public float horizontalJumpSpeed;
 
     public float horizontalJumpRange;
+
+    public float verticalJumpRange;
+
+    public float verticalJumpSpeed;
 }

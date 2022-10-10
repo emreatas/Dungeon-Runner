@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : BaseState
+public class Jump : Air
 {
-    protected MovementSM sm;
+    
 
 
-    private float targetX;
+    private float _targetX;
+    private float _jumpUpRange;
 
 
 
@@ -18,24 +19,27 @@ public class Jump : BaseState
 
     public override void Enter()
     {
-        sm.StartCoroutine(JumpFrame());
+        
         base.Enter();
 
-
+        _jumpUpRange = sm.gameObject.transform.position.y + sm.characterStats.horizontalJumpRange;
         if (sm.movingState.jumpType == Moving.JumpType.LeftJump)
         {
             sm.anim.SetBool("JumpLeft", true);
-            targetX = sm.gameObject.transform.position.x - sm.characterStats.horizontalJumpRange;
+            _targetX = sm.gameObject.transform.position.x - sm.characterStats.horizontalJumpRange;
 
 
         }
         if (sm.movingState.jumpType == Moving.JumpType.RightJump)
         {
             sm.anim.SetBool("JumpRight", true);
-            targetX = sm.gameObject.transform.position.x + sm.characterStats.horizontalJumpRange;
+            _targetX = sm.gameObject.transform.position.x + sm.characterStats.horizontalJumpRange;
 
         }
-
+        if (sm.movingState.jumpType==Moving.JumpType.UpJump)
+        {
+            sm.anim.SetBool("JumpUp", true);
+        }
 
 
 
@@ -52,14 +56,9 @@ public class Jump : BaseState
     {
         base.FixedUpdatePhysics();
         JumpSide();
+        JumpUp();
       
 
-
-    }
-    IEnumerator JumpFrame()
-    {
-        yield return new WaitForSecondsRealtime(0.4f);
-       
 
     }
     public override void Exit()
@@ -67,6 +66,7 @@ public class Jump : BaseState
         base.Exit();
         sm.anim.SetBool("JumpLeft", false);
         sm.anim.SetBool("JumpRight", false);
+        sm.anim.SetBool("JumpUp", false);
     }
 
     private void JumpSide()
@@ -76,7 +76,7 @@ public class Jump : BaseState
 
 
             
-            Vector3 targetVec = new Vector3(targetX, sm.gameObject.transform.position.y, sm.gameObject.transform.position.z);
+            Vector3 targetVec = new Vector3(_targetX, sm.gameObject.transform.position.y, sm.gameObject.transform.position.z);
             sm.gameObject.transform.position = Vector3.Lerp(sm.gameObject.transform.position, targetVec, sm.characterStats.horizontalJumpSpeed * Time.fixedDeltaTime);
             if (Vector3.Distance(sm.gameObject.transform.position, targetVec) < 0.1f)
             {
@@ -94,7 +94,7 @@ public class Jump : BaseState
 
 
             
-            Vector3 targetVec = new Vector3(targetX, sm.gameObject.transform.position.y, sm.gameObject.transform.position.z);
+            Vector3 targetVec = new Vector3(_targetX, sm.gameObject.transform.position.y, sm.gameObject.transform.position.z);
             sm.gameObject.transform.position = Vector3.Lerp(sm.gameObject.transform.position, targetVec, sm.characterStats.horizontalJumpSpeed * Time.fixedDeltaTime);
             if (Vector3.Distance(sm.gameObject.transform.position, targetVec) < 0.1f)
             {
@@ -104,6 +104,26 @@ public class Jump : BaseState
             {
                 sm.ChangeState(sm.movingState);
             }
+
+        }
+    }
+
+    private void JumpUp()
+    {
+        if (sm.movingState.jumpType==Moving.JumpType.UpJump)
+        {
+            sm.rb.useGravity = false;
+            Vector3 targetVec = new Vector3(sm.gameObject.transform.position.x, _jumpUpRange, sm.gameObject.transform.position.z);
+            sm.gameObject.transform.position = Vector3.Lerp(sm.gameObject.transform.position, targetVec, sm.characterStats.verticalJumpSpeed * Time.fixedDeltaTime);
+            if (Vector3.Distance(sm.gameObject.transform.position,targetVec)<0.1f)
+            {
+                sm.gameObject.transform.position = targetVec;
+            }
+            if (sm.gameObject.transform.position==targetVec)
+            {
+                sm.ChangeState(sm.movingState);
+            }
+
 
         }
     }
