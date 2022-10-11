@@ -44,6 +44,7 @@ public class Dash : Grounded
         base.FixedUpdatePhysics();
         JumpSide();
     }
+    
 
     public override void Exit()
     {

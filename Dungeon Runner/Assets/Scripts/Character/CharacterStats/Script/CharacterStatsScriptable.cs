@@ -18,9 +18,11 @@ public class CharacterStatsScriptable : ScriptableObject
 
     public float verticalJumpSpeed;
 
-    public float groundCheckDistance; 
+    public float groundCheckDistance;
 
+    [Header("Sliding")]
 
+    public float slidingTime;
    
        
 }

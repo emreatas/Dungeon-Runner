@@ -12,6 +12,8 @@ public class MovementSM : StateMachine
     public Jump jumpingState;
     [HideInInspector]
     public Dash dashState;
+    [HideInInspector]
+    public Sliding slidingState;
 
 
 
@@ -19,6 +21,7 @@ public class MovementSM : StateMachine
     public Rigidbody rb;
     public CharacterStatsScriptable characterStats;
     public Animator anim;
+    public CapsuleCollider characterCollider;
     public bool isGrounded;
 
    
@@ -29,6 +32,7 @@ public class MovementSM : StateMachine
         movingState = new Moving(this);
         jumpingState = new Jump(this);
         dashState = new Dash(this);
+        slidingState = new Sliding(this);
        
     }
   

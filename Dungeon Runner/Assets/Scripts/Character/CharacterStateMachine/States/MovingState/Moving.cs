@@ -6,6 +6,7 @@ public class Moving : Grounded
 {
     public enum JumpType
     {
+        Base,
         LeftJump,
         RightJump,
         UpJump
@@ -20,6 +21,11 @@ public class Moving : Grounded
     {
         
     }
+    public override void Enter()
+    {
+        base.Enter();
+        
+    }
     public override void UpdateLogic()
     {
         base.UpdateLogic();
@@ -27,10 +33,16 @@ public class Moving : Grounded
 
     }
 
+
     public override void Exit()
     {
+        Debug.Log("girdim exit");
+        _mouseDeltaPos = Vector2.zero;
+        _mouseFirstPos = Vector2.zero;
+        _mouseCurrentPos = Vector2.zero;
         base.Exit();
-    
+      
+
     }
 
     private void GetMouseInput()
@@ -46,14 +58,12 @@ public class Moving : Grounded
         {
             _mouseCurrentPos = Input.mousePosition;
             _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
-
             float deltaX = _mouseDeltaPos.x;
             float deltaY = _mouseDeltaPos.y;
 
             if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero)
             {
-                if (_mouseDeltaPos != Vector2.zero)
-                {
+               
                     if (deltaX > 0)
                     {
                         jumpType = JumpType.RightJump;
@@ -65,7 +75,9 @@ public class Moving : Grounded
                         jumpType = JumpType.LeftJump;
                         
                     }
-                }
+
+                Debug.Log(jumpType);
+                
                 sm.ChangeState(sm.dashState);
 
             }
@@ -73,33 +85,22 @@ public class Moving : Grounded
             {
                 if (deltaY > 0)
                 {
-                    jumpType = JumpType.UpJump;
-                   
+                    sm.ChangeState(sm.jumpingState);
+
                 }
                 else
                 {
-                    //Add slideState
-                    //_movementBehaviour = Enums.BallMovementBehaviour.SwipedDown;
+                    sm.ChangeState(sm.slidingState);
                 }
-                sm.ChangeState(sm.jumpingState);
+                
+                
                 
 
-                Debug.Log(jumpType);
+               
             }
 
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-
-
-            _mouseDeltaPos = Vector2.zero;
-            _mouseFirstPos = Vector2.zero;
-            _mouseCurrentPos = Vector2.zero;
-
-
-
-
-        }
+        
 
     }
 
