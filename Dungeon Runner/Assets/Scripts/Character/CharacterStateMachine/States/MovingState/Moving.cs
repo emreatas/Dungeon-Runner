@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Moving : Grounded
 {
+   
     public enum JumpType
     {
         Base,
@@ -20,29 +21,33 @@ public class Moving : Grounded
     Vector2 _mouseDeltaPos;
     public Moving(MovementSM stateMachine) : base("Moving", stateMachine)
     {
-        
+
     }
     public override void Enter()
     {
         base.Enter();
         jumpType = JumpType.Base;
+        _mouseDeltaPos = Vector2.zero;
+        _mouseFirstPos = Vector2.zero;
+        _mouseCurrentPos = Vector2.zero;
 
     }
     public override void UpdateLogic()
     {
+      
         base.UpdateLogic();
         GetMouseInput();
-        Debug.Log(_mouseDeltaPos);
+       
 
     }
 
 
+
     public override void Exit()
     {
-        
-        
         base.Exit();
-      
+       
+
 
     }
 
@@ -50,80 +55,78 @@ public class Moving : Grounded
     {
 
 
-
+        
         if (Input.GetMouseButtonDown(0))
         {
             _mouseFirstPos = Input.mousePosition;
+            Debug.Log(_mouseFirstPos + "firstPos");
+           
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
         {
-            _mouseCurrentPos = Input.mousePosition;
-            _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
-            float deltaX = _mouseDeltaPos.x;
-            float deltaY = _mouseDeltaPos.y;
-
-            if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero)
+            if (_mouseFirstPos!=Vector2.zero)
             {
-               
+                _mouseCurrentPos = Input.mousePosition;
+                Debug.Log(_mouseCurrentPos + "currentpos");
+                _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
+                float deltaX = _mouseDeltaPos.x;
+                float deltaY = _mouseDeltaPos.y;
+                if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero)
+                {
+
                     if (deltaX > 0)
                     {
                         jumpType = JumpType.RightJump;
-                        
+
 
                     }
                     else
                     {
                         jumpType = JumpType.LeftJump;
-                        
+
                     }
 
-              
-               
-
-            }
-            else if (_mouseDeltaPos != Vector2.zero)
-            {
-                if (deltaY > 0)
+                }
+                else if (_mouseDeltaPos != Vector2.zero)
                 {
-                    jumpType = JumpType.UpJump;
+                    if (deltaY > 0)
+                    {
+                        jumpType = JumpType.UpJump;
+
+                    }
+                    else
+                    {
+                        jumpType = JumpType.Slide;
+                    }
 
                 }
-                else
+
+                if (jumpType == JumpType.Slide)
                 {
-                    jumpType = JumpType.Slide;
+                    sm.ChangeState(sm.slidingState);
                 }
-                
-                
-                
+                if (jumpType == JumpType.UpJump)
+                {
+                    sm.ChangeState(sm.jumpingState);
+                }
+                if (jumpType == JumpType.LeftJump || jumpType == JumpType.RightJump)
+                {
+                    sm.ChangeState(sm.dashState);
+                }
+                _mouseDeltaPos = Vector2.zero;
+                _mouseFirstPos = Vector2.zero;
+                _mouseCurrentPos = Vector2.zero;
+                Debug.Log("lastenter");
 
-               
             }
-
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-            _mouseDeltaPos = Vector2.zero;
-            _mouseFirstPos = Vector2.zero;
-            _mouseCurrentPos = Vector2.zero;
-            if (jumpType==JumpType.Slide)
-            {
-                sm.ChangeState(sm.slidingState);
-            }
-            if (jumpType==JumpType.UpJump)
-            {
-                sm.ChangeState(sm.jumpingState);
-            }
-            if (jumpType==JumpType.LeftJump||jumpType==JumpType.RightJump)
-            {
-                sm.ChangeState(sm.dashState);
-            }
             
-        }
-        
+            
+
 
     }
 
-    
+
 
 
     private Vector2 CalculateDeltaPosition(Vector2 firstPos, Vector2 secondPos)

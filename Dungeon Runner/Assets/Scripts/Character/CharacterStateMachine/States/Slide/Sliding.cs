@@ -6,6 +6,7 @@ public class Sliding : Grounded
 {
 
     private Vector3 _colliderFirstCenterPos;
+    private float _colliderFirstHeight;
    
     public Sliding(MovementSM stateMachine) : base("Sliding", stateMachine) { }
 
@@ -13,6 +14,7 @@ public class Sliding : Grounded
     {
         base.Enter();
         _colliderFirstCenterPos = sm.characterCollider.center;
+        _colliderFirstHeight = sm.characterCollider.height;
         sm.anim.SetBool("Sliding", true);
         sm.StartCoroutine(SlideToMove());
     }
@@ -26,6 +28,7 @@ public class Sliding : Grounded
         sm.characterCollider.center = new Vector3(sm.characterCollider.center.x,0.2f, sm.characterCollider.center.z);
         yield return new WaitForSeconds(sm.characterStats.slidingTime);
         sm.anim.SetBool("Sliding", false);
+        sm.characterCollider.height = _colliderFirstHeight;
         sm.characterCollider.center = _colliderFirstCenterPos;
         sm.ChangeState(sm.movingState);
 

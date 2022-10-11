@@ -32,11 +32,7 @@ public class Jump : Air
 
     }
 
-    public override void UpdateLogic()
-    {
-        base.UpdateLogic();
-
-    }
+    
 
 
     public override void FixedUpdatePhysics()
@@ -47,11 +43,7 @@ public class Jump : Air
 
 
     }
-    public override void UpdatePhysics()
-    {
-        base.UpdatePhysics();
-        
-    }
+  
     public override void Exit()
     {
         base.Exit();
@@ -78,7 +70,7 @@ public class Jump : Air
         }
         else
         {
-            sm.gameObject.transform.position = Vector3.Lerp(sm.gameObject.transform.position, new Vector3(sm.gameObject.transform.position.x,_characterFirstPos.y,sm.gameObject.transform.position.z), 9.81f*Time.deltaTime);
+            sm.gameObject.transform.position = Vector3.Lerp(sm.gameObject.transform.position, new Vector3(sm.gameObject.transform.position.x,_characterFirstPos.y,sm.gameObject.transform.position.z), 9.81f*Time.fixedDeltaTime);
             if (sm.gameObject.transform.position.y-_characterFirstPos.y<0.1f)
             {
                 sm.gameObject.transform.position = new Vector3(sm.gameObject.transform.position.x, _characterFirstPos.y, sm.gameObject.transform.position.z);
