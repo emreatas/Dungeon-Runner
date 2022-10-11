@@ -9,7 +9,8 @@ public class Moving : Grounded
         Base,
         LeftJump,
         RightJump,
-        UpJump
+        UpJump,
+        Slide
 
     }
     public JumpType jumpType;
@@ -24,22 +25,22 @@ public class Moving : Grounded
     public override void Enter()
     {
         base.Enter();
-        
+        jumpType = JumpType.Base;
+
     }
     public override void UpdateLogic()
     {
         base.UpdateLogic();
         GetMouseInput();
+        Debug.Log(_mouseDeltaPos);
 
     }
 
 
     public override void Exit()
     {
-        Debug.Log("girdim exit");
-        _mouseDeltaPos = Vector2.zero;
-        _mouseFirstPos = Vector2.zero;
-        _mouseCurrentPos = Vector2.zero;
+        
+        
         base.Exit();
       
 
@@ -76,21 +77,20 @@ public class Moving : Grounded
                         
                     }
 
-                Debug.Log(jumpType);
-                
-                sm.ChangeState(sm.dashState);
+              
+               
 
             }
             else if (_mouseDeltaPos != Vector2.zero)
             {
                 if (deltaY > 0)
                 {
-                    sm.ChangeState(sm.jumpingState);
+                    jumpType = JumpType.UpJump;
 
                 }
                 else
                 {
-                    sm.ChangeState(sm.slidingState);
+                    jumpType = JumpType.Slide;
                 }
                 
                 
@@ -99,6 +99,25 @@ public class Moving : Grounded
                
             }
 
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            _mouseDeltaPos = Vector2.zero;
+            _mouseFirstPos = Vector2.zero;
+            _mouseCurrentPos = Vector2.zero;
+            if (jumpType==JumpType.Slide)
+            {
+                sm.ChangeState(sm.slidingState);
+            }
+            if (jumpType==JumpType.UpJump)
+            {
+                sm.ChangeState(sm.jumpingState);
+            }
+            if (jumpType==JumpType.LeftJump||jumpType==JumpType.RightJump)
+            {
+                sm.ChangeState(sm.dashState);
+            }
+            
         }
         
 

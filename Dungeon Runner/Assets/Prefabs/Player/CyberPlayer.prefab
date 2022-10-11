@@ -808,6 +808,7 @@ MonoBehaviour:
   rb: {fileID: 1842304178791916613}
   characterStats: {fileID: 11400000, guid: b6b5fa17c19682d4d9cbab8b41baf33a, type: 2}
   anim: {fileID: 1842304178791916616}
+  characterCollider: {fileID: 1842304178791916618}
   isGrounded: 0
 --- !u!1 &1783799923900672902
 GameObject:
