@@ -38,8 +38,10 @@ public class LevelGenerator : MonoBehaviour
         flag = Random.Range(0, 5);
 
         GameObject obj = objectPool.GetPooledObject(flag);
-        obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15);
+        obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z);
         flagObj = obj;
+
+        BackgroundMovement.Instance.SpawnNewBackground();
 
     }
 
