@@ -10,6 +10,8 @@ public class MovementSM : StateMachine
     public Moving movingState;
     [HideInInspector]
     public Jump jumpingState;
+    [HideInInspector]
+    public Dash dashState;
 
 
 
@@ -17,6 +19,7 @@ public class MovementSM : StateMachine
     public Rigidbody rb;
     public CharacterStatsScriptable characterStats;
     public Animator anim;
+    public bool isGrounded;
 
    
 
@@ -25,9 +28,10 @@ public class MovementSM : StateMachine
         idleState = new Idle(this);
         movingState = new Moving(this);
         jumpingState = new Jump(this);
+        dashState = new Dash(this);
        
     }
-   
+  
 
     protected override BaseState GetInitialState()
     {

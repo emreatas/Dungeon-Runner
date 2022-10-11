@@ -16,4 +16,5 @@ MonoBehaviour:
   horizontalJumpSpeed: 8
   horizontalJumpRange: 5
   verticalJumpRange: -2
-  verticalJumpSpeed: 5
+  verticalJumpSpeed: 9.81
+  groundCheckDistance: 0.1
