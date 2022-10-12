@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _xRightTransform: 8
-  _xLeftTransform: -12
+  _xLeftTransform: -11
   _objectPool: {fileID: 549157090}
 --- !u!114 &549157090
 MonoBehaviour:
@@ -281,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652617468}
   m_LocalRotation: {x: -0.16248049, y: -0.011133746, z: 0.0017488105, w: -0.98664737}
-  m_LocalPosition: {x: -2.5650134, y: 4.86305, z: -4.7928953}
+  m_LocalPosition: {x: -2.5650134, y: 4.86305, z: 5.207105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -364,7 +364,7 @@ PrefabInstance:
     - target: {fileID: 1786451155815450744, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1786451155815450744, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
         type: 3}
