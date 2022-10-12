@@ -346,6 +346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CyberPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 1783781758942966756, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1786451155815450744, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
         type: 3}
       propertyPath: m_RootOrder

@@ -14,7 +14,11 @@ public class LevelMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        LevelGenerator.Instance.SpawnNewTile();
+        if (other.gameObject.tag == "Player")
+        {
+            LevelGenerator.Instance.SpawnNewTile();
+
+        }
 
     }
 
