@@ -127,11 +127,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 64497911528531562, guid: 6c4bdd6e256cbdd40a60dd10c8c9ece8,
         type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 64497911528531562, guid: 6c4bdd6e256cbdd40a60dd10c8c9ece8,
-        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -200,11 +195,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 64115064426575940, guid: 86baf0ad2106d784e85554415e71f76e,
         type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 64115064426575940, guid: 86baf0ad2106d784e85554415e71f76e,
-        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -270,11 +260,6 @@ PrefabInstance:
     - target: {fileID: 4446601336402774, guid: fbd1c4ddd2887164ea0ecaa384c82b4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 64594919001316728, guid: fbd1c4ddd2887164ea0ecaa384c82b4a,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 64594919001316728, guid: fbd1c4ddd2887164ea0ecaa384c82b4a,
         type: 3}
