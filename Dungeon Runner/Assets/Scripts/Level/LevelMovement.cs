@@ -25,6 +25,9 @@ public class LevelMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        gameObject.SetActive(false);
+        if (other.gameObject.tag == "Player")
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
