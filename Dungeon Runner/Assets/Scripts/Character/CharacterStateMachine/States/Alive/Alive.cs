@@ -6,6 +6,8 @@ public class Alive : BaseState
 {
 
     protected MovementSM sm;
+
+    public bool gravityEnable=true;
     public Alive(string name, MovementSM stateMachine) : base(name, stateMachine)
     {
         sm = (MovementSM)this.stateMachine;
@@ -27,7 +29,22 @@ public class Alive : BaseState
         {
             sm.isGrounded = false;
         }
+        
 
 
+    }
+    public override void FixedUpdatePhysics()
+    {
+        base.FixedUpdatePhysics();
+        Gravity();
+    }
+
+
+    private void Gravity()
+    {
+        if (!sm.isGrounded && gravityEnable)
+        {
+            sm.transform.position = new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y - 1 * 9.81f * Time.fixedDeltaTime, sm.gameObject.transform.position.z);
+        }
     }
 }
