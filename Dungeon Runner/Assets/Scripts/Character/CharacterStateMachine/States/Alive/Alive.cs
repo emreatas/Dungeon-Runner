@@ -8,6 +8,8 @@ public class Alive : BaseState
     protected MovementSM sm;
 
     public bool gravityEnable=true;
+
+
     public Alive(string name, MovementSM stateMachine) : base(name, stateMachine)
     {
         sm = (MovementSM)this.stateMachine;
@@ -18,6 +20,14 @@ public class Alive : BaseState
         base.UpdatePhysics();
 
 
+       
+        
+
+
+    }
+    public override void FixedUpdatePhysics()
+    {
+        base.FixedUpdatePhysics();
         RaycastHit hit;
 
         //Debug.Log("giriyorum Grounded");
@@ -29,13 +39,6 @@ public class Alive : BaseState
         {
             sm.isGrounded = false;
         }
-        
-
-
-    }
-    public override void FixedUpdatePhysics()
-    {
-        base.FixedUpdatePhysics();
         Gravity();
         Debug.Log(gravityEnable + "gravityenable");
     }
