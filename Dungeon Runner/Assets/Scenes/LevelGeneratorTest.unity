@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86356a71aea24b245bbca8f8f18bc3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _xRightTransform: 8
+  _xLeftTransform: -12
   _objectPool: {fileID: 549157090}
 --- !u!114 &549157090
 MonoBehaviour:
@@ -192,6 +194,12 @@ MonoBehaviour:
       type: 3}
     _poolSize: 5
   - _objectPrefab: {fileID: 6825189841447629048, guid: 7212cb6b9c2dcc04a9824bb76f781fe9,
+      type: 3}
+    _poolSize: 5
+  - _objectPrefab: {fileID: 9193329517067494826, guid: dcbf7f47c4290dd44a28d3f6139c5c5c,
+      type: 3}
+    _poolSize: 5
+  - _objectPrefab: {fileID: 9193329517067494826, guid: eb6d7b026c5fe4f49835a62d1beb17db,
       type: 3}
     _poolSize: 5
 --- !u!1 &652617468
