@@ -59,7 +59,7 @@ public class Moving : Grounded
         if (Input.GetMouseButtonDown(0))
         {
             _mouseFirstPos = Input.mousePosition;
-            Debug.Log(_mouseFirstPos + "firstPos");
+            
            
         }
         if (Input.GetMouseButtonUp(0))
@@ -67,7 +67,6 @@ public class Moving : Grounded
             if (_mouseFirstPos!=Vector2.zero)
             {
                 _mouseCurrentPos = Input.mousePosition;
-                Debug.Log(_mouseCurrentPos + "currentpos");
                 _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
                 float deltaX = _mouseDeltaPos.x;
                 float deltaY = _mouseDeltaPos.y;
@@ -116,8 +115,7 @@ public class Moving : Grounded
                 _mouseDeltaPos = Vector2.zero;
                 _mouseFirstPos = Vector2.zero;
                 _mouseCurrentPos = Vector2.zero;
-                Debug.Log("lastenter");
-
+                
             }
         }
             

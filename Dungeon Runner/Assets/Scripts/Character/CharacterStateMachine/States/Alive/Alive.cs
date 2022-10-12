@@ -20,10 +20,6 @@ public class Alive : BaseState
         base.UpdatePhysics();
 
 
-       
-        
-
-
     }
     public override void FixedUpdatePhysics()
     {
@@ -48,8 +44,8 @@ public class Alive : BaseState
     {
         if (!sm.isGrounded && gravityEnable)
         {
-            sm.rb.MovePosition(new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y - 1 * 9.81f * Time.fixedDeltaTime, sm.gameObject.transform.position.z));
-            
+            //sm.rb.MovePosition(new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y - 1 * 9.81f * Time.fixedDeltaTime, sm.gameObject.transform.position.z));
+            sm.gameObject.transform.position = new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y - 1 * 9.81f * Time.fixedDeltaTime, sm.gameObject.transform.position.z);
         }
     }
 }
