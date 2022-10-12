@@ -42,9 +42,10 @@ public class Alive : BaseState
 
     private void Gravity()
     {
-        if (!sm.isGrounded && gravityEnable)
+        /*if (!sm.isGrounded && gravityEnable)
         {
-            sm.transform.position = new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y - 1 * 9.81f * Time.fixedDeltaTime, sm.gameObject.transform.position.z);
-        }
+            sm.rb.MovePosition(new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y - 1 * 9.81f * Time.fixedDeltaTime, sm.gameObject.transform.position.z));
+            
+        }*/
     }
 }
