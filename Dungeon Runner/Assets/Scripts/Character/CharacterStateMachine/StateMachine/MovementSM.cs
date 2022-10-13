@@ -11,31 +11,35 @@ public class MovementSM : StateMachine
     [HideInInspector]
     public Jump jumpingState;
     [HideInInspector]
-    public Dash dashState;
-    [HideInInspector]
     public Sliding slidingState;
+    [HideInInspector]
+    public LeftDash leftDashState;
+    [HideInInspector]
+    public RightDash rightDashState;
 
 
 
-    
+
+
     public Rigidbody rb;
     public CharacterStatsScriptable characterStats;
     public Animator anim;
     public CapsuleCollider characterCollider;
     public bool isGrounded;
 
-   
+
 
     private void Awake()
     {
         idleState = new Idle(this);
         movingState = new Moving(this);
         jumpingState = new Jump(this);
-        dashState = new Dash(this);
         slidingState = new Sliding(this);
-       
+        leftDashState = new LeftDash(this);
+        rightDashState = new RightDash(this);
+
     }
-  
+
 
     protected override BaseState GetInitialState()
     {

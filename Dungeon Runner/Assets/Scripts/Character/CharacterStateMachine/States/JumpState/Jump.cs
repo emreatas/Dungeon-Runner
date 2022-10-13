@@ -45,7 +45,7 @@ public class Jump : Air
         base.FixedUpdatePhysics();
 
         JumpUp();
-        sm.dashState.JumpSide();
+       
 
 
     }
@@ -55,6 +55,7 @@ public class Jump : Air
         base.Exit();
         sm.anim.SetBool("JumpUp", false);
         _reachedPos = false;
+        //jumpType = JumpType.Base;
     }
 
 

@@ -8,22 +8,26 @@ public class Alive : BaseState
     protected MovementSM sm;
 
     public bool gravityEnable = true;
+  
+
+    Vector2 _mouseFirstPos;
+    Vector2 _mouseCurrentPos;
+    Vector2 _mouseDeltaPos;
 
 
     public Alive(string name, MovementSM stateMachine) : base(name, stateMachine)
     {
         sm = (MovementSM)this.stateMachine;
     }
+
+    
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        
-    }
-    public override void UpdatePhysics()
-    {
-        base.UpdatePhysics();
+        GetMouseInput();
 
     }
+   
     public override void FixedUpdatePhysics()
     {
         base.FixedUpdatePhysics();
@@ -40,7 +44,7 @@ public class Alive : BaseState
         //Debug.Log("giriyorum Grounded");
 
         Gravity();
-        Debug.Log(gravityEnable + "gravityenable");
+        
     }
 
 
@@ -53,4 +57,80 @@ public class Alive : BaseState
             //sm.gameObject.transform.position = new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y - 1 * 9.81f*sm.characterStats.fallSpeed * Time.fixedDeltaTime, sm.gameObject.transform.position.z);
         }
     }
+    private void GetMouseInput()
+    {
+
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            _mouseFirstPos = Input.mousePosition;
+
+
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (_mouseFirstPos != Vector2.zero)
+            {
+                _mouseCurrentPos = Input.mousePosition;
+                _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
+                float deltaX = _mouseDeltaPos.x;
+                float deltaY = _mouseDeltaPos.y;
+                if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero)
+                {
+
+                    if (deltaX > 0)
+                    {
+                        
+                        sm.ChangeState(sm.rightDashState);
+
+                    }
+                    else
+                    {
+                       
+                        sm.ChangeState(sm.leftDashState);
+
+                    }
+
+                }
+                else if (_mouseDeltaPos != Vector2.zero)
+                {
+                    if (deltaY > 0)
+                    {
+                       
+                        sm.ChangeState(sm.jumpingState);
+
+                    }
+                    else
+                    {
+                        
+                        sm.ChangeState(sm.slidingState);
+                    }
+
+                }
+
+              
+                _mouseDeltaPos = Vector2.zero;
+                _mouseFirstPos = Vector2.zero;
+                _mouseCurrentPos = Vector2.zero;
+
+            }
+        }
+
+
+
+
+    }
+
+
+
+
+    private Vector2 CalculateDeltaPosition(Vector2 firstPos, Vector2 secondPos)
+    {
+        Vector2 distanceVector;
+        distanceVector = secondPos - firstPos;
+
+        return distanceVector;
+    }
+
 }
