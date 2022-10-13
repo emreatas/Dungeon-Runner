@@ -17,8 +17,7 @@ public class Alive : BaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-
-
+        
     }
     public override void UpdatePhysics()
     {

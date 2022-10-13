@@ -56,8 +56,9 @@ public class Dash : Grounded
         sm.anim.SetBool("JumpRight", false);
     }
 
-    private void JumpSide()
+    public void JumpSide()
     {
+       
         if (sm.movingState.jumpType == Moving.JumpType.RightJump)
         {
 

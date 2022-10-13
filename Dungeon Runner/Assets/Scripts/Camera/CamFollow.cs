@@ -6,8 +6,10 @@ public class CamFollow : MonoBehaviour
 {
 
     private Vector3 _distance;
+    [SerializeField]private Transform _lookAt;
     [SerializeField] private GameObject _followedbyCamObject;
-    private Quaternion _firstRotation;
+    private Quaternion _targetRotationLeft;
+    private Quaternion _targetRotationRight;
 
     private float _rightPosition;
     private float _leftPosition;
@@ -30,13 +32,13 @@ public class CamFollow : MonoBehaviour
 
     private void GameManager_DashLeft()
     {
-        Debug.Log("leftDash");
-        LeftDash();
+       // StartCoroutine(LeftDash());
     }
 
     private void GameManager_DashRight()
     {
-        RightDash();
+        
+        //StartCoroutine(RightDash());
 
     }
 
@@ -48,7 +50,8 @@ public class CamFollow : MonoBehaviour
     void Start()
     {
         _distance = _followedbyCamObject.transform.position - gameObject.transform.position;
-        _firstRotation = gameObject.transform.rotation;
+        _targetRotationLeft = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y - _rotationDistance, gameObject.transform.rotation.z, 0);
+        _targetRotationRight= new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y + _rotationDistance, gameObject.transform.rotation.z, 0);
         _firstPos = gameObject.transform.position.x;
        
     }
@@ -56,26 +59,44 @@ public class CamFollow : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+        //gameObject.transform.LookAt(_lookAt);
         Vector3 followPos = (_followedbyCamObject.transform.position - _distance);
         gameObject.transform.position = new Vector3(followPos.x, followPos.y, gameObject.transform.position.z);
+        
        
 
     }
 
 
-    private void LeftDash()
+  
+    IEnumerator LeftDash()
     {
-        //gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, new Quaternion(gameObject.transform.rotation.x - _rotationDistance, gameObject.transform.rotation.y, gameObject.transform.rotation.z,1), _cameraMovementSpeed * Time.fixedDeltaTime);
-        
-            gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, new Quaternion(gameObject.transform.rotation.x - _rotationDistance, gameObject.transform.rotation.y, gameObject.transform.rotation.z, 1), _cameraMovementSpeed * Time.fixedDeltaTime);
-        
+        yield return new WaitForFixedUpdate();
+        if (gameObject.transform.rotation.y != _targetRotationLeft.y)
+        {
+            gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation,_targetRotationLeft , _cameraMovementSpeed * Time.fixedDeltaTime);
+            StartCoroutine(LeftDash());
+        }
+        else
+        {
+            StopCoroutine(LeftDash());
+        }
     }
 
-    private void RightDash()
+
+    IEnumerator RightDash()
     {
-            gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, new Quaternion(gameObject.transform.rotation.x + _rotationDistance, gameObject.transform.rotation.y, gameObject.transform.rotation.z, 1), _cameraMovementSpeed * Time.fixedDeltaTime);
-        
-       
+        yield return new WaitForFixedUpdate();
+        if (gameObject.transform.rotation.y != _targetRotationRight.y)
+        {
+            gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, _targetRotationRight, _cameraMovementSpeed * Time.fixedDeltaTime);
+            StartCoroutine(RightDash());
+        }
+        else
+        {
+            StopCoroutine(RightDash());
+        }
     }
 
 

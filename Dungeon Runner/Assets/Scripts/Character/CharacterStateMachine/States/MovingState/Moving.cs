@@ -27,9 +27,7 @@ public class Moving : Grounded
     {
         base.Enter();
         jumpType = JumpType.Base;
-        _mouseDeltaPos = Vector2.zero;
-        _mouseFirstPos = Vector2.zero;
-        _mouseCurrentPos = Vector2.zero;
+        
 
     }
     public override void UpdateLogic()
