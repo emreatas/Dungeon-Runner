@@ -23,6 +23,7 @@ public class Jump : Air
     {
 
         base.Enter();
+        sm.rb.useGravity = false;
         _canJump = sm.isGrounded;
         _characterFirstPos = sm.gameObject.transform.position;
         _jumpUpRange = sm.gameObject.transform.position.y + sm.characterStats.horizontalJumpRange;
@@ -59,23 +60,25 @@ public class Jump : Air
     {
         if (!_reachedPos && _canJump)
         {
-            //sm.rb.useGravity = false;
-            gravityEnable = false;
+            sm.rb.velocity = Vector3.zero;
+            //gravityEnable = false;
             Vector3 targetVec = new Vector3(sm.gameObject.transform.position.x, _jumpUpRange, sm.gameObject.transform.position.z);
             sm.gameObject.transform.position = Vector3.Lerp(sm.gameObject.transform.position, targetVec, sm.characterStats.verticalJumpSpeed * Time.fixedDeltaTime);
             if (Vector3.Distance(sm.gameObject.transform.position, targetVec) < 0.1f)
             {
+                Debug.Log("eq");
                 sm.gameObject.transform.position = new Vector3(sm.gameObject.transform.position.x, targetVec.y, sm.gameObject.transform.position.z);
                 _reachedPos = true;
                 _canJump = false;
                 gravityEnable = true;
+               
             }
-
+           
 
         }
         else
         {
-            //sm.rb.useGravity = true;
+            sm.rb.useGravity = true;
 
             if (sm.isGrounded)
             {
