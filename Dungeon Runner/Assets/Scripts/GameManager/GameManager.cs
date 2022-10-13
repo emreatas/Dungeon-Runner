@@ -15,4 +15,18 @@ public class GameManager : MonoBehaviour
 
     public static event Action OnSlideLeft;
 
+
+    private int currentTile = 0;
+
+    public int GetCurrentTile()
+    {
+        return currentTile;
+    }
+    public void SetCurrentTile()
+    {
+        currentTile++;
+
+    }
+
+
 }
