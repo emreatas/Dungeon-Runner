@@ -9,8 +9,8 @@ public class LevelGenerator : MonoBehaviour
 
     public static LevelGenerator Instance;
     private GameObject flagObj;
-    private bool obstacleTile = true;
-
+    [SerializeField] private int spawnedTile = 0;
+    [SerializeField] private int wave = 0;
     private void Awake()
     {
         Instance = this;
@@ -33,21 +33,55 @@ public class LevelGenerator : MonoBehaviour
 
     public void SpawnObstacleTile()
     {
-        flag = Random.Range(2, 5);
 
-        GameObject obj = objectPool.GetPooledObject(flag);
-        obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z);
-        flagObj = obj;
+
+        if (spawnedTile == wave * 20 + 20)
+        {
+
+            GameObject marketTile = objectPool.GetPooledObject(5);
+            marketTile.transform.position = new Vector3(0, 0, flagObj.transform.position.z + marketTile.GetComponent<Collider>().bounds.size.z);
+            flagObj = marketTile;
+            wave++;
+            spawnedTile = 0;
+
+        }
+        else
+        {
+            flag = Random.Range(2, 5);
+
+            GameObject obj = objectPool.GetPooledObject(flag);
+            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z);
+            flagObj = obj;
+            spawnedTile++;
+
+        }
 
     }
 
     public void SpawnNonObstacleTile()
     {
-        flag = Random.Range(0, 2);
 
-        GameObject obj = objectPool.GetPooledObject(flag);
-        obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z);
-        flagObj = obj;
+
+        if (spawnedTile == wave * 20 + 20)
+        {
+
+            GameObject marketTile = objectPool.GetPooledObject(5);
+            marketTile.transform.position = new Vector3(0, 0, flagObj.transform.position.z + marketTile.GetComponent<Collider>().bounds.size.z);
+            flagObj = marketTile;
+            wave++;
+            spawnedTile = 0;
+
+        }
+        else
+        {
+            flag = Random.Range(0, 2);
+
+            GameObject obj = objectPool.GetPooledObject(flag);
+            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z);
+            flagObj = obj;
+            spawnedTile++;
+
+        }
 
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3011106578774253005}
   - component: {fileID: 1320104515938451534}
+  - component: {fileID: 454207540370191786}
   m_Layer: 0
   m_Name: SkillMarket
   m_TagString: Untagged
@@ -62,6 +63,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileType: 2
+--- !u!65 &454207540370191786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6211359205083798904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 24.916935, z: 15}
+  m_Center: {x: -2.54, y: 11.959469, z: 2.440115}
 --- !u!1 &6473443940742887264
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,8 +180,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.076474, y: 0.578, z: 16.052874}
-  m_Center: {x: -2.5223737, y: -0.21, z: 2.400323}
+  m_Size: {x: 15, y: 0.578, z: 18.11437}
+  m_Center: {x: -2.5223732, y: -0.21000001, z: 2.8766317}
 --- !u!1001 &492893158830811482
 PrefabInstance:
   m_ObjectHideFlags: 0
