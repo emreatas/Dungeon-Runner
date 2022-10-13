@@ -41,8 +41,6 @@ public class LevelGenerator : MonoBehaviour
         obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z);
         flagObj = obj;
 
-        BackgroundMovement.Instance.SpawnRightBackground();
-        BackgroundMovement.Instance.SpawnLeftBackground();
 
     }
 

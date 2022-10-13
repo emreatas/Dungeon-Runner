@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 450061666140201707}
   - component: {fileID: 1213999795792060538}
-  - component: {fileID: 1262574046672056128}
   m_Layer: 0
   m_Name: Backgroun3
   m_TagString: Untagged
@@ -52,18 +51,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.9976845, y: 14.789302, z: 15}
   m_Center: {x: 0.49073362, y: 6.894651, z: -0.85}
---- !u!114 &1262574046672056128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193329517067494826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef848518c2adf854b8ff649ba7af614e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1847489828000845917
 PrefabInstance:
   m_ObjectHideFlags: 0
