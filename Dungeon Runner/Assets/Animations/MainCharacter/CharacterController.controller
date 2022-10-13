@@ -157,10 +157,10 @@ BlendTree:
     m_DirectBlendParameter: RandomAvoidAnimValue
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: ead67b9281ac9394b85c0093c0e0ee7a, type: 3}
+    m_Motion: {fileID: 7400000, guid: 67301677a0bcfa745b029d8308a78c54, type: 3}
     m_Threshold: 2
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1.5
+    m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: RandomAvoidAnimValue
     m_Mirror: 0
@@ -654,7 +654,7 @@ AnimatorStateMachine:
     m_Position: {x: 710, y: -130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5951106774912732853}
-    m_Position: {x: 360, y: 60, z: 0}
+    m_Position: {x: 350, y: -20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -690,10 +690,10 @@ BlendTree:
     m_DirectBlendParameter: RandomAvoidAnimValue
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 1ac2de2521c45854888c979b73688056, type: 3}
+    m_Motion: {fileID: 7400000, guid: e3ea56d51ce524642b50861e4eae9368, type: 3}
     m_Threshold: 2
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1.5
+    m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: RandomAvoidAnimValue
     m_Mirror: 0
