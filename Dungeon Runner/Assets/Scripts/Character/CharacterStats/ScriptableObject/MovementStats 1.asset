@@ -10,17 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afc4b38be40877e4a965b1a8d582393d, type: 3}
-  m_Name: MovementStats
+  m_Name: MovementStats 1
   m_EditorClassIdentifier: 
-  verticalMovementSpeed: 5
+  verticalMovementSpeed: 0
   horizontalJumpSpeed: 8
   horizontalJumpRange: 5
-  verticalJumpRange: -2
+  verticalJumpRange: 5
   verticalJumpSpeed: 9.81
-<<<<<<< Updated upstream
-  groundCheckDistance: 0.3
-=======
-  groundCheckDistance: 0.2
->>>>>>> Stashed changes
+  groundCheckDistance: 0.1
   fallSpeed: 15
   slidingTime: 0.7
