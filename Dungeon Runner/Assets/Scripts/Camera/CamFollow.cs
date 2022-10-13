@@ -15,6 +15,6 @@ public class CamFollow : MonoBehaviour
     
     void FixedUpdate()
     {
-        gameObject.transform.position = (_followedbyCamObject.transform.position - distance );
+        gameObject.transform.position = (_followedbyCamObject.transform.position - distance);
     }
 }
