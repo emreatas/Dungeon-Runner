@@ -18,5 +18,5 @@ MonoBehaviour:
   verticalJumpRange: -2
   verticalJumpSpeed: 9.81
   groundCheckDistance: 0.3
-  fallSpeed: 2
+  fallSpeed: 15
   slidingTime: 0.7

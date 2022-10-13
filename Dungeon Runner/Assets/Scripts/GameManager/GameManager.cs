@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
 
 
     private int currentTile = 0;
-
     public int GetCurrentTile()
     {
         return currentTile;

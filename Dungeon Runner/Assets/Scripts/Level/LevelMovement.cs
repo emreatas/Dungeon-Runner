@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum TileType
+{
+    Obstacle,
+    NonObstacle,
+    Market
+}
 public class LevelMovement : MonoBehaviour
 {
-
+    [SerializeField] private TileType tileType;
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -13,16 +20,22 @@ public class LevelMovement : MonoBehaviour
             new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -30),
             15 * Time.deltaTime);
     }
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            LevelGenerator.Instance.SpawnNewTile();
+            switch (tileType)
+            {
+                case TileType.Obstacle:
+                    LevelGenerator.Instance.SpawnObstacleTile();
+                    break;
+                case TileType.NonObstacle:
+                    LevelGenerator.Instance.SpawnNonObstacleTile();
+                    break;
+                case TileType.Market:
+                    break;
+            }
 
         }
 

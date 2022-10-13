@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
 
     public static LevelGenerator Instance;
     private GameObject flagObj;
+    private bool obstacleTile = true;
 
     private void Awake()
     {
@@ -24,29 +25,31 @@ public class LevelGenerator : MonoBehaviour
         obj.transform.position = new Vector3(0, 0, 15);
         flagObj = obj;
 
-        for (int i = 0; i < 3; i++)
-        {
-            SpawnNewTile();
-        }
-
+        SpawnNonObstacleTile();
+        SpawnObstacleTile();
 
 
     }
 
-    public void SpawnNewTile()
+    public void SpawnObstacleTile()
     {
-        flag = Random.Range(0, 5);
+        flag = Random.Range(2, 5);
 
         GameObject obj = objectPool.GetPooledObject(flag);
         obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z);
         flagObj = obj;
 
-
     }
 
+    public void SpawnNonObstacleTile()
+    {
+        flag = Random.Range(0, 2);
 
+        GameObject obj = objectPool.GetPooledObject(flag);
+        obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z);
+        flagObj = obj;
 
-
+    }
 }
 
 
