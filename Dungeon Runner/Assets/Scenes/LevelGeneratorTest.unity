@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followedbyCamObject: {fileID: 1424710428}
-  _movementDistance: 5
+  _rotationDistance: 0
   _cameraMovementSpeed: 2
 --- !u!1001 &758652107
 PrefabInstance:
@@ -324,17 +324,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1842304178791916613, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1842304178791916619, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
-        type: 3}
-      propertyPath: characterStats
-      value: 
-      objectReference: {fileID: 11400000, guid: f985bf6f5bd97dd4c8147088e7c8b530,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1826b1e2824783c42b0cf8e2e9bf9a03, type: 3}
 --- !u!1 &971645077

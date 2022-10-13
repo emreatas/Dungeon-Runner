@@ -13,12 +13,12 @@ public class CamFollow : MonoBehaviour
     private float _leftPosition;
     private float _firstPos;
 
-    [SerializeField] private float _movementDistance;
+    [SerializeField] private float _rotationDistance;
 
 
     [SerializeField] private float _cameraMovementSpeed;
 
-    private bool _callLeft;
+   
 
 
 
@@ -30,12 +30,13 @@ public class CamFollow : MonoBehaviour
 
     private void GameManager_DashLeft()
     {
-        _callLeft = true;
+        Debug.Log("leftDash");
+        LeftDash();
     }
 
     private void GameManager_DashRight()
     {
-
+        RightDash();
 
     }
 
@@ -49,8 +50,7 @@ public class CamFollow : MonoBehaviour
         _distance = _followedbyCamObject.transform.position - gameObject.transform.position;
         _firstRotation = gameObject.transform.rotation;
         _firstPos = gameObject.transform.position.x;
-        _rightPosition = gameObject.transform.position.x + _movementDistance;
-        _leftPosition = gameObject.transform.position.x - _movementDistance;
+       
     }
 
 
@@ -58,30 +58,24 @@ public class CamFollow : MonoBehaviour
     {
         Vector3 followPos = (_followedbyCamObject.transform.position - _distance);
         gameObject.transform.position = new Vector3(followPos.x, followPos.y, gameObject.transform.position.z);
-        LeftDash(followPos);
+       
 
     }
 
 
-    private void LeftDash(Vector3 pos)
+    private void LeftDash()
     {
-        if (_callLeft)
-        {
-            if (pos.x != pos.x - _movementDistance)
-            {
-                pos.x = Mathf.MoveTowards(pos.x, pos.x - _movementDistance, _cameraMovementSpeed);
-            }
-            else
-            {
-                _callLeft = false;
-            }
-        }
+        //gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, new Quaternion(gameObject.transform.rotation.x - _rotationDistance, gameObject.transform.rotation.y, gameObject.transform.rotation.z,1), _cameraMovementSpeed * Time.fixedDeltaTime);
+        
+            gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, new Quaternion(gameObject.transform.rotation.x - _rotationDistance, gameObject.transform.rotation.y, gameObject.transform.rotation.z, 1), _cameraMovementSpeed * Time.fixedDeltaTime);
         
     }
 
-    private void RightDash(Vector3 pos)
+    private void RightDash()
     {
-
+            gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, new Quaternion(gameObject.transform.rotation.x + _rotationDistance, gameObject.transform.rotation.y, gameObject.transform.rotation.z, 1), _cameraMovementSpeed * Time.fixedDeltaTime);
+        
+       
     }
 
 
