@@ -17,6 +17,10 @@ MonoBehaviour:
   horizontalJumpRange: 5
   verticalJumpRange: -2
   verticalJumpSpeed: 9.81
+<<<<<<< Updated upstream
   groundCheckDistance: 0.3
+=======
+  groundCheckDistance: 0.2
+>>>>>>> Stashed changes
   fallSpeed: 15
   slidingTime: 0.7

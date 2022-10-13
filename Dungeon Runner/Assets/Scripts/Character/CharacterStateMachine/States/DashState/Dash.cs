@@ -20,6 +20,8 @@ public class Dash : Grounded
         
         if (sm.movingState.jumpType == Moving.JumpType.LeftJump)
         {
+
+            GameManager.Instance.OnDashLeft();
             sm.anim.SetBool("JumpLeft", true);
             sm.anim.SetFloat("RandomAvoidAnimValue", Random.Range(0, 2));
             _targetX = sm.gameObject.transform.position.x - sm.characterStats.horizontalJumpRange;
@@ -28,6 +30,7 @@ public class Dash : Grounded
         }
         if (sm.movingState.jumpType == Moving.JumpType.RightJump)
         {
+            GameManager.Instance.OnDashRight();
             sm.anim.SetBool("JumpRight", true);
             sm.anim.SetFloat("RandomAvoidAnimValue", Random.Range(0, 2));
             _targetX = sm.gameObject.transform.position.x + sm.characterStats.horizontalJumpRange;

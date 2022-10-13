@@ -13,7 +13,27 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public static event Action OnSlideLeft;
+    public static event Action DashLeft;
+    public static event Action DashRight;
+
+
+    public void OnDashLeft()
+    {
+        if (DashLeft!=null)
+        {
+            DashLeft();
+        }
+    }
+
+    public void OnDashRight()
+    {
+        if (DashRight!=null)
+        {
+            DashRight();
+        }
+    }
+
+
 
 
     private int currentTile = 0;
