@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MovementStats 1
   m_EditorClassIdentifier: 
   verticalMovementSpeed: 0
-  horizontalJumpSpeed: 8
+  horizontalJumpSpeed: 20
   horizontalJumpRange: 5
   verticalJumpRange: 5
   verticalJumpSpeed: 9.81

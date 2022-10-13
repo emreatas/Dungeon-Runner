@@ -20,17 +20,27 @@ public class Sliding : Grounded
     }
 
 
-
-
+    public override void Exit()
+    {
+        base.Exit();
+        sm.StopCoroutine(SlideToMove());
+        sm.anim.SetBool("Sliding", false);
+        sm.characterCollider.height = _colliderFirstHeight;
+        sm.characterCollider.center = _colliderFirstCenterPos;
+       
+    }
+    //Bunun yerine dash gibi slide range koyup kontrol ettir
     IEnumerator SlideToMove()
     {
         sm.characterCollider.height = 0.5f;
         sm.characterCollider.center = new Vector3(sm.characterCollider.center.x,0.2f, sm.characterCollider.center.z);
+        gravityMultipler = 3;
         yield return new WaitForSeconds(sm.characterStats.slidingTime);
-        sm.anim.SetBool("Sliding", false);
-        sm.characterCollider.height = _colliderFirstHeight;
-        sm.characterCollider.center = _colliderFirstCenterPos;
-        sm.ChangeState(sm.movingState);
+        if (sm.isGrounded)
+        {
+            sm.ChangeState(sm.movingState);
+        }
+        
 
     }
 }

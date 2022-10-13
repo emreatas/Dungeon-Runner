@@ -30,7 +30,7 @@ public class Jump : Air
         _canJump = sm.isGrounded;
         _jumpUpRange = sm.gameObject.transform.position.y + sm.characterStats.horizontalJumpRange;
         targetX = sm.gameObject.transform.position.x;
-
+        gravityMultipler = 1;
         sm.anim.SetFloat("RandomJumpAnimValue", Random.Range(0, 2));
         sm.anim.SetBool("JumpUp", true);
         

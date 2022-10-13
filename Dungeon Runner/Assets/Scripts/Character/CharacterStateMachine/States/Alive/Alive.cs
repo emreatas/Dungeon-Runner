@@ -8,6 +8,7 @@ public class Alive : BaseState
     protected MovementSM sm;
 
     public bool gravityEnable = true;
+    public float gravityMultipler=1;
   
 
     Vector2 _mouseFirstPos;
@@ -25,8 +26,10 @@ public class Alive : BaseState
     {
         base.UpdateLogic();
         GetMouseInput();
+        sm.anim.SetBool("Grounded", sm.isGrounded);
 
     }
+   
    
     public override void FixedUpdatePhysics()
     {
@@ -35,6 +38,7 @@ public class Alive : BaseState
         if (Physics.Raycast(sm.gameObject.transform.position, -sm.gameObject.transform.up, out hit, sm.characterStats.groundCheckDistance))
         {
             sm.isGrounded = true;
+            gravityMultipler = 1;
         }
         else
         {
@@ -52,7 +56,7 @@ public class Alive : BaseState
     {
         if (!sm.isGrounded && gravityEnable)
         {
-            sm.rb.velocity = new Vector3(sm.rb.velocity.x, -sm.characterStats.fallSpeed, sm.rb.velocity.z);
+            sm.rb.velocity = new Vector3(sm.rb.velocity.x, -sm.characterStats.fallSpeed*gravityMultipler, sm.rb.velocity.z);
             //sm.rb.MovePosition(new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y - 1 * 9.81f * Time.fixedDeltaTime, sm.gameObject.transform.position.z));
             //sm.gameObject.transform.position = new Vector3(sm.gameObject.transform.position.x, sm.gameObject.transform.position.y - 1 * 9.81f*sm.characterStats.fallSpeed * Time.fixedDeltaTime, sm.gameObject.transform.position.z);
         }
