@@ -35,6 +35,9 @@ public class LevelMovement : MonoBehaviour
                     break;
                 case TileType.Market:
                     LevelGenerator.Instance.SpawnNonObstacleTile();
+                    LevelGenerator.Instance.SpawnNonObstacleTile();
+                    LevelGenerator.Instance.SpawnObstacleTile();
+
 
                     break;
             }

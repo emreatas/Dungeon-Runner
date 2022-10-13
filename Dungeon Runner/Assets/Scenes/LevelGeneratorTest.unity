@@ -470,19 +470,19 @@ MonoBehaviour:
   _pools:
   - _objectPrefab: {fileID: 8474556604655089540, guid: d2896708dfb395546bdf10daddf36019,
       type: 3}
-    _poolSize: 5
+    _poolSize: 50
   - _objectPrefab: {fileID: 1204555846851581376, guid: da15befef6682bb408a2bed3c6d1b99a,
       type: 3}
-    _poolSize: 5
+    _poolSize: 50
   - _objectPrefab: {fileID: 3833778831720560251, guid: 5ae170489570af44080ca27f5dc2e6f1,
       type: 3}
-    _poolSize: 5
+    _poolSize: 50
   - _objectPrefab: {fileID: 2309013284305753121, guid: 8d5e563f1c5c7c9479b6d0c01afcecd3,
       type: 3}
-    _poolSize: 5
+    _poolSize: 50
   - _objectPrefab: {fileID: 1439475159527906364, guid: 1a49449b4eba5d14f8474ce5c1657072,
       type: 3}
-    _poolSize: 5
+    _poolSize: 50
   - _objectPrefab: {fileID: 6211359205083798904, guid: 251ad73e58ce5cb42a45e7e958379397,
       type: 3}
     _poolSize: 5
