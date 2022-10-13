@@ -7,11 +7,15 @@ public class LevelMovement : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,
             new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -30),
             15 * Time.deltaTime);
+    }
+    void Update()
+    {
+        
     }
 
     private void OnTriggerEnter(Collider other)
