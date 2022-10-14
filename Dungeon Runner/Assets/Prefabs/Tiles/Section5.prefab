@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef848518c2adf854b8ff649ba7af614e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileType: 0
 --- !u!65 &4617732407337094964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -484,7 +485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4137343348141920, guid: fe4714a7717330f45b688271fc898352, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4137343348141920, guid: fe4714a7717330f45b688271fc898352, type: 3}
       propertyPath: m_LocalPosition.z
@@ -584,16 +585,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228947815477482, guid: ca4554093a31ec64fbec523b815a5301, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 64154309235347398, guid: ca4554093a31ec64fbec523b815a5301,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 64154309235347398, guid: ca4554093a31ec64fbec523b815a5301,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -714,6 +705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Scav_Refinery_Pipe_01_Half_03
       objectReference: {fileID: 0}
+    - target: {fileID: 1486286256226872, guid: 3935cca806439a047b4b59595ce0966b, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4977319406155960, guid: 3935cca806439a047b4b59595ce0966b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -728,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4977319406155960, guid: 3935cca806439a047b4b59595ce0966b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.49001694
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4977319406155960, guid: 3935cca806439a047b4b59595ce0966b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1494,6 +1489,10 @@ PrefabInstance:
     - target: {fileID: 1213649158507202, guid: ca4554093a31ec64fbec523b815a5301, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Scav_Refinery_Pipe_01_Bend_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213649158507202, guid: ca4554093a31ec64fbec523b815a5301, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4228947815477482, guid: ca4554093a31ec64fbec523b815a5301, type: 3}
       propertyPath: m_RootOrder

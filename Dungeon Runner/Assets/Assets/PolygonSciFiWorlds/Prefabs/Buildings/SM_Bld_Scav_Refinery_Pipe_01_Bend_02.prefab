@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2245636073925262327}
   m_Layer: 0
   m_Name: SM_Bld_Scav_Refinery_Pipe_01_Bend_02
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,8 +111,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9000006, y: 1.575593, z: 3.3661592}
-  m_Center: {x: 0.00000023841858, y: 2.5783625, z: -0.81692195}
+  m_Size: {x: 2.9000006, y: 1.4171178, z: 3.3661592}
+  m_Center: {x: 0.00000023841858, y: 2.6576, z: -0.81692195}
 --- !u!65 &2245636073925262327
 BoxCollider:
   m_ObjectHideFlags: 0
