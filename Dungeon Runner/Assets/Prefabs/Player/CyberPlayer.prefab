@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf911bb5879eb964ab6b76a33282b18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTime: 0.09
+  activeTime: 0.02
   meshRefreshRate: 0.05
   meshDestroyDelay: 0.15
   position: {fileID: 1786451155815450744}

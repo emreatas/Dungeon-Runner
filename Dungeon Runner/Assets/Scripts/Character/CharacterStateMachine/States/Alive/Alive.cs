@@ -39,10 +39,13 @@ public class Alive : BaseState
         {
             sm.isGrounded = true;
             gravityMultipler = 1;
+            
+            //sm.trailEffect.isTrailActive = false;
         }
         else
         {
             sm.isGrounded = false;
+            sm.trailEffect.isTrailActive = true;
         }
 
         //Debug.Log("giriyorum Grounded");
