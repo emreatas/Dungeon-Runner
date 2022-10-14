@@ -15,7 +15,11 @@ public class Jump : Air
 
     private float targetX;
 
-  
+
+    private Vector3 _colliderFirstCenterPos;
+    private float _colliderFirstHeight;
+
+
 
     public Jump(MovementSM stateMachine) : base("Jump", stateMachine)
     {
@@ -28,12 +32,16 @@ public class Jump : Air
         base.Enter();
         sm.rb.useGravity = false;
         _canJump = sm.isGrounded;
+        _colliderFirstCenterPos = sm.characterCollider.center;
+        _colliderFirstHeight = sm.characterCollider.height;
         _jumpUpRange = sm.gameObject.transform.position.y + sm.characterStats.horizontalJumpRange;
         targetX = sm.gameObject.transform.position.x;
         gravityMultipler = 1;
         sm.anim.SetFloat("RandomJumpAnimValue", Random.Range(0, 2));
         sm.anim.SetBool("JumpUp", true);
         sm.trailEffect.isTrailActive = true;
+        sm.characterCollider.height = 0.5f;
+        sm.characterCollider.center = new Vector3(sm.characterCollider.center.x, 1.5f, sm.characterCollider.center.z);
 
 
     }
@@ -55,8 +63,12 @@ public class Jump : Air
     {
         base.Exit();
         sm.anim.SetBool("JumpUp", false);
+        Debug.Log("jumpexit1");
         _reachedPos = false;
         //jumpType = JumpType.Base;
+        sm.characterCollider.height = _colliderFirstHeight;
+        sm.characterCollider.center = _colliderFirstCenterPos;
+       
     }
 
 
@@ -76,6 +88,7 @@ public class Jump : Air
                 _reachedPos = true;
                 _canJump = false;
                 gravityEnable = true;
+               
 
             }
 
@@ -84,10 +97,13 @@ public class Jump : Air
         else
         {
             sm.rb.useGravity = true;
+            sm.characterCollider.height = _colliderFirstHeight;
+            sm.characterCollider.center = _colliderFirstCenterPos;
 
             if (sm.isGrounded)
             {
                 sm.ChangeState(sm.movingState);
+                
             }
 
 

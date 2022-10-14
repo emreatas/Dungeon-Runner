@@ -14,18 +14,12 @@ public class Moving : Grounded
     {
         base.Enter();
         //jumpType = JumpType.Base;
-
-
-
-    }
-    public override void UpdateLogic()
-    {
-      
-        base.UpdateLogic();
-        
        
 
+
+
     }
+    
 
 
 

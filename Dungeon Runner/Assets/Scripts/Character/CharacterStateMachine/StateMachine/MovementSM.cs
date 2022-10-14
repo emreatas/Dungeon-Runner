@@ -16,6 +16,8 @@ public class MovementSM : StateMachine
     public LeftDash leftDashState;
     [HideInInspector]
     public RightDash rightDashState;
+    [HideInInspector]
+    public Falling falling;
 
 
 
@@ -38,6 +40,7 @@ public class MovementSM : StateMachine
         slidingState = new Sliding(this);
         leftDashState = new LeftDash(this);
         rightDashState = new RightDash(this);
+        falling = new Falling(this);
 
     }
 

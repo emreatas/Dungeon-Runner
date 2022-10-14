@@ -7,6 +7,10 @@ public class Sliding : Grounded
 
     private Vector3 _colliderFirstCenterPos;
     private float _colliderFirstHeight;
+
+    
+
+
    
     public Sliding(MovementSM stateMachine) : base("Sliding", stateMachine) { }
 
@@ -18,7 +22,9 @@ public class Sliding : Grounded
         sm.anim.SetBool("Sliding", true);
         sm.StartCoroutine(SlideToMove());
         sm.trailEffect.isTrailActive = true;
+        gravityMultipler = 5;
     }
+    
 
 
     public override void Exit()
@@ -35,12 +41,18 @@ public class Sliding : Grounded
     {
         sm.characterCollider.height = 0.5f;
         sm.characterCollider.center = new Vector3(sm.characterCollider.center.x,0.2f, sm.characterCollider.center.z);
-        gravityMultipler = 3;
+        
         yield return new WaitForSeconds(sm.characterStats.slidingTime);
+        
         if (sm.isGrounded)
         {
             sm.ChangeState(sm.movingState);
         }
+        else
+        {
+            
+        }
+        
         
 
     }

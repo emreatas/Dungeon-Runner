@@ -26,20 +26,19 @@ public class Alive : BaseState
     {
         base.UpdateLogic();
         GetMouseInput();
-        sm.anim.SetBool("Grounded", sm.isGrounded);
+      
 
     }
-   
-   
-    public override void FixedUpdatePhysics()
+    public override void UpdatePhysics()
     {
-        base.FixedUpdatePhysics();
+        base.UpdatePhysics();
+        sm.anim.SetBool("Grounded", sm.isGrounded);
         RaycastHit hit;
         if (Physics.Raycast(sm.gameObject.transform.position, -sm.gameObject.transform.up, out hit, sm.characterStats.groundCheckDistance))
         {
             sm.isGrounded = true;
             gravityMultipler = 1;
-            
+
             //sm.trailEffect.isTrailActive = false;
         }
         else
@@ -47,6 +46,13 @@ public class Alive : BaseState
             sm.isGrounded = false;
             sm.trailEffect.isTrailActive = true;
         }
+    }
+
+
+    public override void FixedUpdatePhysics()
+    {
+        base.FixedUpdatePhysics();
+       
 
         //Debug.Log("giriyorum Grounded");
 
