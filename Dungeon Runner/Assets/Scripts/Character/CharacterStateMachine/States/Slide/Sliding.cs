@@ -17,6 +17,7 @@ public class Sliding : Grounded
         _colliderFirstHeight = sm.characterCollider.height;
         sm.anim.SetBool("Sliding", true);
         sm.StartCoroutine(SlideToMove());
+        sm.trailEffect.isTrailActive = true;
     }
 
 

@@ -24,7 +24,7 @@ public class RightDash : Alive
             sm.anim.SetFloat("RandomAvoidAnimValue", 2);
         }
         sm.anim.SetBool("JumpRight", true);
-
+        sm.trailEffect.isTrailActive = true;
         _targetX = sm.gameObject.transform.position.x + sm.characterStats.horizontalJumpRange;
     }
 

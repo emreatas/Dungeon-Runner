@@ -33,7 +33,8 @@ public class Jump : Air
         gravityMultipler = 1;
         sm.anim.SetFloat("RandomJumpAnimValue", Random.Range(0, 2));
         sm.anim.SetBool("JumpUp", true);
-        
+        sm.trailEffect.isTrailActive = true;
+
 
     }
 

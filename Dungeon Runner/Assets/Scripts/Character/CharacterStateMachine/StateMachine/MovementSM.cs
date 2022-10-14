@@ -25,6 +25,7 @@ public class MovementSM : StateMachine
     public CharacterStatsScriptable characterStats;
     public Animator anim;
     public CapsuleCollider characterCollider;
+    public TrailEffect trailEffect;
     public bool isGrounded;
 
 

@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 1842304178791916613}
   - component: {fileID: 1842304178791916618}
   - component: {fileID: 1842304178791916619}
+  - component: {fileID: 1549481459}
   m_Layer: 0
   m_Name: CyberPlayer
   m_TagString: Player
@@ -841,7 +842,26 @@ MonoBehaviour:
   characterStats: {fileID: 11400000, guid: f985bf6f5bd97dd4c8147088e7c8b530, type: 2}
   anim: {fileID: 1842304178791916616}
   characterCollider: {fileID: 1842304178791916618}
+  trailEffect: {fileID: 1549481459}
   isGrounded: 0
+--- !u!114 &1549481459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783781758942966756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf911bb5879eb964ab6b76a33282b18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeTime: 0.09
+  meshRefreshRate: 0.05
+  meshDestroyDelay: 0.15
+  position: {fileID: 1786451155815450744}
+  fresnelMat: {fileID: 2100000, guid: fa22f9e399e0c994f980e45059ef70e6, type: 2}
+  isTrailActive: 0
 --- !u!1 &1783799923900672902
 GameObject:
   m_ObjectHideFlags: 0

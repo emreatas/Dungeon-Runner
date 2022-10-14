@@ -25,7 +25,7 @@ public class LeftDash : Alive
             sm.anim.SetFloat("RandomAvoidAnimValue", 2);
         }
         sm.anim.SetBool("JumpLeft", true);
-
+        sm.trailEffect.isTrailActive = true;
         _targetX = sm.gameObject.transform.position.x - sm.characterStats.horizontalJumpRange;
     }
 
