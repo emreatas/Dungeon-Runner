@@ -8,8 +8,8 @@ public class Sliding : Grounded
     private Vector3 _colliderFirstCenterPos;
     private float _colliderFirstHeight;
 
-    
 
+    private float _timer;
 
    
     public Sliding(MovementSM stateMachine) : base("Sliding", stateMachine) { }
@@ -17,20 +17,44 @@ public class Sliding : Grounded
     public override void Enter()
     {
         base.Enter();
+        _timer = sm.characterStats.slidingTime;
         _colliderFirstCenterPos = sm.characterCollider.center;
         _colliderFirstHeight = sm.characterCollider.height;
         sm.anim.SetBool("Sliding", true);
-        sm.StartCoroutine(SlideToMove());
+        //sm.StartCoroutine(SlideToMove());
         sm.trailEffect.isTrailActive = true;
         gravityMultipler = 5;
+        sm.characterCollider.height = 0.5f;
+        sm.characterCollider.center = new Vector3(sm.characterCollider.center.x, 0.2f, sm.characterCollider.center.z);
     }
-    
+    public override void UpdateLogic()
+    {
+        base.UpdateLogic();
+        
+        if (_timer>0)
+        {
+            _timer -= Time.deltaTime;
+
+        }
+        else
+        {
+            if (sm.isGrounded)
+            {
+                sm.ChangeState(sm.movingState);
+            }
+            else
+            {
+                sm.ChangeState(sm.falling);
+            }
+
+        }
+    }
 
 
     public override void Exit()
     {
         base.Exit();
-        sm.StopCoroutine(SlideToMove());
+        //sm.StopCoroutine(SlideToMove());
         sm.anim.SetBool("Sliding", false);
         sm.characterCollider.height = _colliderFirstHeight;
         sm.characterCollider.center = _colliderFirstCenterPos;
@@ -39,19 +63,10 @@ public class Sliding : Grounded
     //Bunun yerine dash gibi slide range koyup kontrol ettir
     IEnumerator SlideToMove()
     {
-        sm.characterCollider.height = 0.5f;
-        sm.characterCollider.center = new Vector3(sm.characterCollider.center.x,0.2f, sm.characterCollider.center.z);
         
         yield return new WaitForSeconds(sm.characterStats.slidingTime);
         
-        if (sm.isGrounded)
-        {
-            sm.ChangeState(sm.movingState);
-        }
-        else
-        {
-            
-        }
+        
         
         
 
