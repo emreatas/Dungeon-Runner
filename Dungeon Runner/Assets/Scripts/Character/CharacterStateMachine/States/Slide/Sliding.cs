@@ -31,25 +31,29 @@ public class Sliding : Grounded
     {
         base.UpdateLogic();
         
-        if (_timer>0)
+       
+    }
+    public override void UpdatePhysics()
+    {
+        base.UpdatePhysics();
+      
+    }
+    public override void FixedUpdatePhysics()
+    {
+        base.FixedUpdatePhysics();
+        if (_timer > 0)
         {
-            _timer -= Time.deltaTime;
+            _timer -= Time.fixedDeltaTime;
 
         }
         else
         {
-            if (sm.isGrounded)
-            {
-                sm.ChangeState(sm.movingState);
-            }
-            else
-            {
-                sm.ChangeState(sm.falling);
-            }
+
+            sm.ChangeState(sm.idleState);
+
 
         }
     }
-
 
     public override void Exit()
     {

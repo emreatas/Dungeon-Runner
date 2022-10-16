@@ -44,6 +44,14 @@ public class MovementSM : StateMachine
 
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("dead");
+        }
+    }
+
 
     protected override BaseState GetInitialState()
     {

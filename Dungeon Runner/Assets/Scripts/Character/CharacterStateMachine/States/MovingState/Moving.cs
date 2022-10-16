@@ -14,7 +14,7 @@ public class Moving : Grounded
     {
         base.Enter();
         //jumpType = JumpType.Base;
-       
+  
 
 
 
