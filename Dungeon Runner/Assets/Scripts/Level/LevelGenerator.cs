@@ -44,6 +44,12 @@ public class LevelGenerator : MonoBehaviour
             wave++;
             spawnedTile = 0;
 
+            flag = Random.Range(2, 5);
+            GameObject obj = objectPool.GetPooledObject(flag);
+            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z - 0.1f);
+            flagObj = obj;
+            spawnedTile++;
+
         }
         else
         {
@@ -70,6 +76,12 @@ public class LevelGenerator : MonoBehaviour
             flagObj = marketTile;
             wave++;
             spawnedTile = 0;
+
+            flag = Random.Range(0, 2);
+            GameObject obj = objectPool.GetPooledObject(flag);
+            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z - 0.1f);
+            flagObj = obj;
+            spawnedTile++;
 
         }
         else

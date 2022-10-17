@@ -3,22 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum TileType
-{
-    Obstacle,
-    NonObstacle,
-    Market
-}
+
 public class LevelMovement : MonoBehaviour
 {
     [SerializeField] private TileType tileType;
+
+    [SerializeField] private List<GameObject> _collectableItem;
+    private int _movement;
+    public enum TileType
+    {
+        Obstacle,
+        NonObstacle,
+        Market
+    }
+
+
+
+
+
 
     // Update is called once per frame
     private void FixedUpdate()
     {
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,
             new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -30),
-            15 * Time.deltaTime);
+            _movement * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,9 +43,7 @@ public class LevelMovement : MonoBehaviour
                     LevelGenerator.Instance.SpawnNonObstacleTile();
                     break;
                 case TileType.Market:
-                    LevelGenerator.Instance.SpawnNonObstacleTile();
-                    LevelGenerator.Instance.SpawnNonObstacleTile();
-                    LevelGenerator.Instance.SpawnObstacleTile();
+
 
 
                     break;
@@ -47,6 +54,39 @@ public class LevelMovement : MonoBehaviour
     }
 
 
+
+    private void OnEnable()
+    {
+
+        _movement = 15;
+
+        GameManager.Dead += GameManager_Dead;
+
+
+        if (_collectableItem.Count != 0)
+        {
+
+            for (int i = 0; i < _collectableItem.Count; i++)
+            {
+
+                _collectableItem[i].SetActive(true);
+
+            }
+
+        }
+    }
+
+    private void GameManager_Dead()
+    {
+        _movement = 0;
+
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Dead -= GameManager_Dead;
+
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
