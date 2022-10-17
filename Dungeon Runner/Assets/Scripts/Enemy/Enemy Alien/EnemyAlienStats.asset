@@ -17,6 +17,6 @@ MonoBehaviour:
   playerTag: Player
   health: 0
   movementSpeed: 0
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 2
   fireTile: {fileID: 1309720990560646171, guid: 3b8e9dd9c8597624ab9ae03b8d66ff9e,
     type: 3}

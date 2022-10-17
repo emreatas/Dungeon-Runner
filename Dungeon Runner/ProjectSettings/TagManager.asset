@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Laser
   - Obstacle
+  - Collectable
+  - RifleBullet
+  - RifleBarrel
   layers:
   - Default
   - TransparentFX

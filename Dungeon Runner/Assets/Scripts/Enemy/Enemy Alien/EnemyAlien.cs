@@ -10,21 +10,27 @@ public class EnemyAlien : MonoBehaviour
     bool alreadyAttacked;
     public ParticleSystem laser;
     public Animator anim;
+    public Transform barrel;
+   
     void Update()
     {
-        FindPlayer();
         if (target == null)
         {
-            return;
+            Debug.Log("target null");
+            anim.SetBool("FireStart", false);
+            barrel.GetChild(0).gameObject.SetActive(false);
         }
         else
         {
+            Debug.Log("target not null");
             Vector3 direction = target.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             Vector3 rota = lookRotation.eulerAngles;
             transform.rotation = Quaternion.Euler(0f, rota.y, 0f);
+            barrel.GetChild(0).gameObject.SetActive(true);
+            anim.SetBool("FireStart", true);
         }
-        Fire();
+        FindPlayer();
     }
     void FindPlayer()
     {
@@ -54,54 +60,10 @@ public class EnemyAlien : MonoBehaviour
     }
     void Fire()
     {
-        if (isEnemyDetected)
-        {
-            AnimationPlay();
-            anim.SetBool("FireStart", true);
-            if (!alreadyAttacked)
-            {
-                Vector3 fireRota = GameObject.Find("Barrel").transform.position - target.transform.position;
-                Rigidbody rb = Instantiate(alienStats.fireTile, GameObject.Find("Barrel").transform.position, Quaternion.LookRotation(fireRota)).GetComponent<Rigidbody>();
-                rb.AddForce(transform.forward * 100f, ForceMode.Impulse);
-
-                alreadyAttacked = true;
-                Invoke(nameof(ResetAttack), alienStats.timeBetweenAttacks);
-            }
-        }
-        else
-        {
-            AnimationStop();
-            anim.SetBool("FireStart", false);
-        }
+        
     }
     private void ResetAttack()
     {
         alreadyAttacked = false;
-    }
-    void AnimationPlay()
-    {
-        Vector3 laserRota = target.transform.position - GameObject.Find("Barrel").transform.position + new Vector3(1f,1f,1f);
-        //Quaternion laserRotation = Quaternion.LookRotation(laserRota);
-        //Vector3 _laserRota = laserRotation.eulerAngles;
-        if (!GameObject.FindGameObjectWithTag("RifleBullet"))
-        {
-            ParticleSystem _laser = Instantiate(laser, GameObject.Find("Barrel").transform.position, Quaternion.LookRotation(laserRota));
-            _laser.transform.parent = transform;
-            _laser.Play();
-        }
-        else if (GameObject.FindGameObjectWithTag("RifleBullet").transform.position != transform.position)
-        {
-            Quaternion laserRotation = Quaternion.LookRotation(laserRota);
-            Vector3 _laserRota = laserRotation.eulerAngles;
-            GameObject.FindGameObjectWithTag("RifleBullet").transform.rotation = Quaternion.Euler(_laserRota);
-            //GameObject.FindGameObjectWithTag("Laser").transform.position = transform.position;
-        }
-    }
-    void AnimationStop()
-    {
-        if (GameObject.FindGameObjectWithTag("RifleBullet"))
-        {
-            Destroy(GameObject.FindGameObjectWithTag("RifleBullet"));
-        }
     }
 }
