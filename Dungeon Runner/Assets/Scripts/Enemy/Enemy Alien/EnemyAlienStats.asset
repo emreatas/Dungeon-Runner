@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17fe3400f280dee479ec0588ee304e30, type: 3}
-  m_Name: EnemyTurretData
+  m_Name: EnemyAlienStats
   m_EditorClassIdentifier: 
   range: 60
   sightRange: 40
   playerTag: Player
   health: 0
   movementSpeed: 0
-  timeBetweenAttacks: 2
-  fireTile: {fileID: 1757850141521676795, guid: 7d85970ad8276ae489497ff912be8e4c,
+  timeBetweenAttacks: 1
+  fireTile: {fileID: 1309720990560646171, guid: 3b8e9dd9c8597624ab9ae03b8d66ff9e,
     type: 3}
