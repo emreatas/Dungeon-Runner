@@ -3,7 +3,9 @@ guid: ddc84c3d3cd95bc478d9f41b94f99a55
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - alienStats: {fileID: 11400000, guid: 72007741fd6ab64489e1e3aedac5d1c9, type: 2}
+  - laser: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
