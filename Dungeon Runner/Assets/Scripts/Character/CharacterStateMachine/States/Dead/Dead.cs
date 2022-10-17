@@ -12,6 +12,7 @@ public class Dead : Alive
     public override void Enter()
     {
         base.Enter();
+        gravityMultipler = 5;
         sm.anim.SetBool("Dead", true);
         sm.anim.SetBool("Sliding", false);
         sm.anim.SetBool("JumpLeft", false);
