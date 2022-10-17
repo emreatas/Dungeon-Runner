@@ -184,7 +184,7 @@ public class Alive : BaseState
     IEnumerator ReturnFirstPos()
     {
         yield return new WaitForFixedUpdate();
-        sm.gameObject.transform.position = Vector3.MoveTowards(sm.gameObject.transform.position, _firstPos, 8f * Time.fixedDeltaTime);
+        sm.gameObject.transform.position = Vector3.MoveTowards(sm.gameObject.transform.position, _firstPos, 10f * Time.fixedDeltaTime);
         if (sm.gameObject.transform.position != _firstPos)
         {
             sm.StartCoroutine(ReturnFirstPos());
