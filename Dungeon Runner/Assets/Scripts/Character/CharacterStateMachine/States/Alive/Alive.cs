@@ -11,11 +11,12 @@ public class Alive : BaseState
     public float gravityMultipler=1;
 
     private bool _canTakeInput=true;
-  
 
-    Vector2 _mouseFirstPos;
-    Vector2 _mouseCurrentPos;
-    Vector2 _mouseDeltaPos;
+    private Vector3 _firstPos;
+
+    private Vector2 _mouseFirstPos;
+    private Vector2 _mouseCurrentPos;
+    private Vector2 _mouseDeltaPos;
 
 
     public Alive(string name, MovementSM stateMachine) : base(name, stateMachine)
@@ -25,6 +26,8 @@ public class Alive : BaseState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("enter alive");
+        _firstPos = sm.gameObject.transform.position;
 
        
     }
@@ -163,7 +166,12 @@ public class Alive : BaseState
 
     }
 
-
+    public override void Dead()
+    {
+        base.Dead();
+        sm.StartCoroutine(ReturnFirstPos());
+        sm.ChangeState(sm.dead);
+    }
 
 
     private Vector2 CalculateDeltaPosition(Vector2 firstPos, Vector2 secondPos)
@@ -173,7 +181,20 @@ public class Alive : BaseState
 
         return distanceVector;
     }
+    IEnumerator ReturnFirstPos()
+    {
+        yield return new WaitForFixedUpdate();
+        sm.gameObject.transform.position = Vector3.MoveTowards(sm.gameObject.transform.position, _firstPos, 8f * Time.fixedDeltaTime);
+        if (sm.gameObject.transform.position != _firstPos)
+        {
+            sm.StartCoroutine(ReturnFirstPos());
+        }
+        else
+        {
+            sm.StopCoroutine(ReturnFirstPos());
+        }
+    }
 
 
-    
+
 }

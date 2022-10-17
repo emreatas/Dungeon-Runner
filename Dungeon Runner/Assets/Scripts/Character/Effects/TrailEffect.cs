@@ -19,6 +19,21 @@ public class TrailEffect : MonoBehaviour
     public bool isTrailActive;
 
     private SkinnedMeshRenderer[] _skinnedMeshRenderers;
+
+    private void OnEnable()
+    {
+        GameManager.Dead += GameManager_Dead;
+    }
+
+    private void GameManager_Dead()
+    {
+        this.enabled = false;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Dead -= GameManager_Dead;
+    }
     void Start()
     {
         

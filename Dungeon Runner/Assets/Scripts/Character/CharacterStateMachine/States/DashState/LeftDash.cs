@@ -6,7 +6,7 @@ public class LeftDash : Alive
 {
     private float _targetX;
 
-    private Vector3 firstPos;
+  
     private bool _isdead;
     public LeftDash(MovementSM stateMachine) : base("LeftDash", stateMachine)
     {
@@ -16,7 +16,6 @@ public class LeftDash : Alive
     public override void Enter()
     {
         base.Enter();
-        firstPos = sm.gameObject.transform.position;
         GameManager.Instance.OnDashLeft();
         if (sm.isGrounded)
         {
@@ -47,13 +46,7 @@ public class LeftDash : Alive
 
     }
 
-    public override void Dead()
-    {
-        base.Dead();
-        sm.ChangeState(sm.dead);
-        sm.StartCoroutine(ReturnFirstPos());
-       
-    }
+   
 
 
     public void JumpSide()
@@ -78,18 +71,6 @@ public class LeftDash : Alive
 
     }
 
-    IEnumerator ReturnFirstPos()
-    {
-        yield return new WaitForFixedUpdate();
-        sm.gameObject.transform.position = Vector3.MoveTowards(sm.gameObject.transform.position, firstPos, 8f * Time.fixedDeltaTime);
-        if (sm.gameObject.transform.position != firstPos)
-        {
-            sm.StartCoroutine(ReturnFirstPos());
-        }
-        else
-        {
-            sm.StopCoroutine(ReturnFirstPos());
-        }
-    }
+   
    
 }
