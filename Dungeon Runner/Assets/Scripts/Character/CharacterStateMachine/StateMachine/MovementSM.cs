@@ -55,8 +55,16 @@ public class MovementSM : StateMachine
             Debug.Log("dead");
             GameManager.Instance.OnDead();
         }
+       
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collectable"))
+        {
+            other.gameObject.GetComponent<CollectableItem>().Collect();
+            
+        }
+    }
 
     protected override BaseState GetInitialState()
     {
