@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour
     public static event Action DashLeft;
     public static event Action DashRight;
 
+    public static event Action Dead;
 
+    #region Movement Events
     public void OnDashLeft()
     {
         if (DashLeft!=null)
@@ -32,8 +34,22 @@ public class GameManager : MonoBehaviour
             DashRight();
         }
     }
+    #endregion
 
 
+    #region Control Events
+    public void OnDead()
+    {
+        if (Dead!=null)
+        {
+            Dead();
+        }
+    }
+
+
+
+
+    #endregion
 
 
     private int currentTile = 0;

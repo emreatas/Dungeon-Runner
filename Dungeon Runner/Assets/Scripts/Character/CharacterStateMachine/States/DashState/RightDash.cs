@@ -5,6 +5,8 @@ using UnityEngine;
 public class RightDash : Alive
 {
     private float _targetX;
+
+    private Vector3 firstPos;
     public RightDash(MovementSM stateMachine) : base("RightDash", stateMachine)
     {
 
@@ -13,6 +15,7 @@ public class RightDash : Alive
     public override void Enter()
     {
         base.Enter();
+        firstPos = sm.gameObject.transform.position;
         GameManager.Instance.OnDashRight();
         if (sm.isGrounded)
         {
@@ -63,5 +66,6 @@ public class RightDash : Alive
 
 
     }
+   
 
 }

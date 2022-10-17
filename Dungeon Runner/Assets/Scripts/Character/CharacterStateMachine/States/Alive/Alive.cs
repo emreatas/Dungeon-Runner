@@ -33,7 +33,6 @@ public class Alive : BaseState
     {
         base.UpdateLogic();
         GetMouseInput();
-        Debug.Log(_canTakeInput);
         sm.anim.SetBool("Grounded", sm.isGrounded);
         RaycastHit hit;
         if (Physics.Raycast(sm.gameObject.transform.position, -sm.gameObject.transform.up, out hit, sm.characterStats.groundCheckDistance))
@@ -97,12 +96,12 @@ public class Alive : BaseState
                 
                 if (_mouseFirstPos != Vector2.zero)
                 {
-                    Debug.Log("girdim input");
+                    
                     _mouseCurrentPos = Input.mousePosition;
                     _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
                     float deltaX = _mouseDeltaPos.x;
                     float deltaY = _mouseDeltaPos.y;
-                    Debug.Log(_mouseDeltaPos);
+                
                     if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero)
                     {
 
@@ -153,7 +152,7 @@ public class Alive : BaseState
         if (Input.GetMouseButtonUp(0))
         {
             
-            Debug.Log("input true");
+            
             _mouseDeltaPos = Vector2.zero;
             _mouseFirstPos = Vector2.zero;
             _mouseCurrentPos = Vector2.zero;

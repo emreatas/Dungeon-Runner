@@ -4,7 +4,25 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    BaseState currentState;
+     BaseState currentState;
+
+    private void OnEnable()
+    {
+        GameManager.Dead += GameManager_Dead;
+    }
+    private void GameManager_Dead()
+    {
+        if (currentState!=null)
+        {
+            Debug.Log("CALL DEAD");
+            currentState.Dead();
+        }
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Dead -= GameManager_Dead;
+    }
 
     void Start()
     {
@@ -45,6 +63,8 @@ public class StateMachine : MonoBehaviour
         currentState = newState;
         newState.Enter();
     }
+
+  
 
     private void OnGUI()
     {

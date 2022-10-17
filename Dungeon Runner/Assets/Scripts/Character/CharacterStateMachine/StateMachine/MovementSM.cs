@@ -18,6 +18,8 @@ public class MovementSM : StateMachine
     public RightDash rightDashState;
     [HideInInspector]
     public Falling falling;
+    [HideInInspector]
+    public Dead dead;
 
 
 
@@ -41,14 +43,17 @@ public class MovementSM : StateMachine
         leftDashState = new LeftDash(this);
         rightDashState = new RightDash(this);
         falling = new Falling(this);
+        dead = new Dead(this);
 
     }
+   
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("dead");
+            GameManager.Instance.OnDead();
         }
     }
 

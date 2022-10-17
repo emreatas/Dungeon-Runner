@@ -63,7 +63,7 @@ public class Jump : Air
     {
         base.Exit();
         sm.anim.SetBool("JumpUp", false);
-        Debug.Log("jumpexit1");
+        
         _reachedPos = false;
         //jumpType = JumpType.Base;
         sm.characterCollider.height = _colliderFirstHeight;
@@ -83,7 +83,7 @@ public class Jump : Air
             sm.gameObject.transform.position = Vector3.Lerp(sm.gameObject.transform.position, targetVec, sm.characterStats.verticalJumpSpeed * Time.fixedDeltaTime);
             if (Vector3.Distance(sm.gameObject.transform.position, targetVec) < 0.1f)
             {
-                Debug.Log("eq");
+                
                 sm.gameObject.transform.position = new Vector3(targetX, targetVec.y, sm.gameObject.transform.position.z);
                 _reachedPos = true;
                 _canJump = false;

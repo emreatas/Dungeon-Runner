@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dead : BaseState
+public class Dead : Alive
 {
-    protected MovementSM sm;
+    
    public Dead(MovementSM stateMachine) : base("Dead", stateMachine)
     {
 
@@ -12,6 +12,7 @@ public class Dead : BaseState
     public override void Enter()
     {
         base.Enter();
+        sm.anim.SetBool("Dead", true);
         sm.anim.SetBool("Sliding", false);
         sm.anim.SetBool("JumpLeft", false);
         sm.anim.SetBool("JumpRight", false);

@@ -19,4 +19,6 @@ public class BaseState
     public virtual void FixedUpdatePhysics() { }
     public virtual void UpdatePhysics() { }
     public virtual void Exit() { }
+
+    public virtual void Dead() { }
 }
