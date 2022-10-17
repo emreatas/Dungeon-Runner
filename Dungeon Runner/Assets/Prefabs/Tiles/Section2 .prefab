@@ -688,6 +688,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: back 1
       objectReference: {fileID: 0}
+    - target: {fileID: 937492321659770758, guid: fa74bb518b053ee4a990dbf7c6d06a1e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4888071106535042465, guid: fa74bb518b053ee4a990dbf7c6d06a1e,
         type: 3}
       propertyPath: m_RootOrder
@@ -907,6 +912,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Backgroun2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825189841447629048, guid: 7212cb6b9c2dcc04a9824bb76f781fe9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7212cb6b9c2dcc04a9824bb76f781fe9, type: 3}

@@ -215,6 +215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Backgroun3
       objectReference: {fileID: 0}
+    - target: {fileID: 9193329517067494826, guid: 96b9aea2bb4d42041ba8bd2f043f3712,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96b9aea2bb4d42041ba8bd2f043f3712, type: 3}
 --- !u!4 &475402874627731004 stripped
@@ -230,9 +235,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3833778831720560250}
     m_Modifications:
+    - target: {fileID: 1129874053572554, guid: 6c4bdd6e256cbdd40a60dd10c8c9ece8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1343933867854744, guid: 6c4bdd6e256cbdd40a60dd10c8c9ece8, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Pod_Corridor_Square_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744012359343736, guid: 6c4bdd6e256cbdd40a60dd10c8c9ece8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4237300847939120, guid: 6c4bdd6e256cbdd40a60dd10c8c9ece8, type: 3}
       propertyPath: m_RootOrder
@@ -375,6 +388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 808063289170784512, guid: ece03654e77a1684f9077be805c91c50,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 5697576681785323684, guid: ece03654e77a1684f9077be805c91c50,
         type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5835527099335450428}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -796,6 +796,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64281055731032692, guid: 5083e3debd9f4b84fa38c513bd3bd09a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5083e3debd9f4b84fa38c513bd3bd09a, type: 3}
 --- !u!4 &4516671647393385071 stripped
@@ -815,6 +820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: back 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 937492321659770758, guid: fa74bb518b053ee4a990dbf7c6d06a1e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4888071106535042465, guid: fa74bb518b053ee4a990dbf7c6d06a1e,
         type: 3}
@@ -934,6 +944,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64315483879011212, guid: 98022ae5e1ecb0046b27fc127b3fe256,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98022ae5e1ecb0046b27fc127b3fe256, type: 3}
 --- !u!4 &5103718013384632862 stripped
@@ -995,6 +1010,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257681344573520, guid: 98022ae5e1ecb0046b27fc127b3fe256, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64315483879011212, guid: 98022ae5e1ecb0046b27fc127b3fe256,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1071,6 +1091,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Backgroun5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193329517067494826, guid: eb6d7b026c5fe4f49835a62d1beb17db,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb6d7b026c5fe4f49835a62d1beb17db, type: 3}
@@ -1232,6 +1257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257681344573520, guid: 98022ae5e1ecb0046b27fc127b3fe256, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64315483879011212, guid: 98022ae5e1ecb0046b27fc127b3fe256,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1568,6 +1598,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4995380617274390, guid: 5083e3debd9f4b84fa38c513bd3bd09a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64281055731032692, guid: 5083e3debd9f4b84fa38c513bd3bd09a,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

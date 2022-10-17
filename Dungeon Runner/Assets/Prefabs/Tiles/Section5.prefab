@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 6792354885111024562}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -901,6 +901,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Backgroun3
       objectReference: {fileID: 0}
+    - target: {fileID: 9193329517067494826, guid: 96b9aea2bb4d42041ba8bd2f043f3712,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96b9aea2bb4d42041ba8bd2f043f3712, type: 3}
 --- !u!4 &2951176724909146261 stripped
@@ -975,6 +980,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Backgroun2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825189841447629048, guid: 7212cb6b9c2dcc04a9824bb76f781fe9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7212cb6b9c2dcc04a9824bb76f781fe9, type: 3}

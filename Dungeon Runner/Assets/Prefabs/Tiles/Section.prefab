@@ -768,6 +768,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 808063289170784512, guid: ece03654e77a1684f9077be805c91c50,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 5697576681785323684, guid: ece03654e77a1684f9077be805c91c50,
         type: 3}
       propertyPath: m_RootOrder
@@ -922,6 +927,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: back 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 937492321659770758, guid: fa74bb518b053ee4a990dbf7c6d06a1e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4888071106535042465, guid: fa74bb518b053ee4a990dbf7c6d06a1e,
         type: 3}
