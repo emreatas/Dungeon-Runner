@@ -326,8 +326,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.023012, y: 2.5666006, z: 6.748313}
-  m_Center: {x: 0.024670959, y: 1.3507303, z: 0.14802516}
+  m_Size: {x: 3.023012, y: 2.361162, z: 6.695009}
+  m_Center: {x: 0.024670959, y: 1.248011, z: 0.12137318}
 --- !u!1 &8116194629270533488
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 8497176188333310593}
   m_Layer: 0
   m_Name: Run Collider
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,7 +353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8116194629270533488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
