@@ -123,18 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &78084611 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 259977482, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
-    type: 3}
-  m_PrefabInstance: {fileID: 647594230}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &186856382
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,19 +843,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1842304178791916619, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
-        type: 3}
-      propertyPath: attack
-      value: 
-      objectReference: {fileID: 1549481466}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1826b1e2824783c42b0cf8e2e9bf9a03, type: 3}
---- !u!1 &705334813 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1271979156064140, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
-    type: 3}
-  m_PrefabInstance: {fileID: 647594230}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &770124878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,21 +1540,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 647594230}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1549481466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549481458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7d711fdc80c4bd4ab43570af9ef31a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iK: {fileID: 78084611}
-  attackStats: {fileID: 11400000, guid: bd7f3ac2b82bf6643bfaab96bfc6fb84, type: 2}
-  knife: {fileID: 705334813}
 --- !u!1 &1843449431
 GameObject:
   m_ObjectHideFlags: 0

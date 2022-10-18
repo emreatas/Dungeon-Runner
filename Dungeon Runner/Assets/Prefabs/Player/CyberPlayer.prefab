@@ -920,6 +920,7 @@ GameObject:
   - component: {fileID: 1842304178791916619}
   - component: {fileID: 1549481459}
   - component: {fileID: 1549481465}
+  - component: {fileID: 1549481466}
   m_Layer: 0
   m_Name: CyberPlayer
   m_TagString: Player
@@ -1014,6 +1015,7 @@ MonoBehaviour:
   anim: {fileID: 1842304178791916616}
   characterCollider: {fileID: 1842304178791916618}
   trailEffect: {fileID: 1549481459}
+  attack: {fileID: 1549481466}
   isGrounded: 0
 --- !u!114 &1549481459
 MonoBehaviour:
@@ -1049,6 +1051,21 @@ MonoBehaviour:
   - m_Rig: {fileID: 1532343285}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &1549481466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783781758942966756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d711fdc80c4bd4ab43570af9ef31a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iK: {fileID: 259977482}
+  attackStats: {fileID: 11400000, guid: bd7f3ac2b82bf6643bfaab96bfc6fb84, type: 2}
+  knife: {fileID: 1271979156064140}
 --- !u!1 &1783799923900672902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2119,6 +2136,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 64413794303580864, guid: 109f6df3ba620054086c10ece7f3c1fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 109f6df3ba620054086c10ece7f3c1fd, type: 3}
+--- !u!1 &1271979156064140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1271978955560038, guid: 109f6df3ba620054086c10ece7f3c1fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 336368618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4427937273888512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4427936937585898, guid: 109f6df3ba620054086c10ece7f3c1fd,
