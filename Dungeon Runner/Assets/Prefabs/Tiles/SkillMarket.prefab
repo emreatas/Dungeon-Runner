@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileType: 2
+  _collectableItem: []
+  _collectableItemLane: []
 --- !u!65 &454207540370191786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,8 +122,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 24.916935, z: 15}
-  m_Center: {x: -2.54, y: 11.959469, z: 2.440115}
+  m_Size: {x: 15, y: 24.916935, z: 16.704517}
+  m_Center: {x: -2.54, y: 11.959469, z: 3.2923763}
 --- !u!1 &6473443940742887264
 GameObject:
   m_ObjectHideFlags: 0
