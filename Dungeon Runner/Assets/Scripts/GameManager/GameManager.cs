@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public static event Action Dead;
 
+    public static event Action GamePause;
+
     #region Movement Events
     public void OnDashLeft()
     {
@@ -49,6 +51,17 @@ public class GameManager : MonoBehaviour
 
 
 
+    #endregion
+
+
+    #region UI Events
+    public void OnGamePause()
+    {
+        if (GamePause!=null)
+        {
+            GamePause();
+        }
+    }
     #endregion
 
 
