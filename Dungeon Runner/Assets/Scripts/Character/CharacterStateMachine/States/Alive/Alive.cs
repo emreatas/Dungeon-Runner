@@ -28,6 +28,7 @@ public class Alive : BaseState
         base.Enter();
         Debug.Log("enter alive");
         _firstPos = sm.gameObject.transform.position;
+       
 
        
     }

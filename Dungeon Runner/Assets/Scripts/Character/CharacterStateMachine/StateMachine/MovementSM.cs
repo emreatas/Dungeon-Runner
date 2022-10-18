@@ -30,7 +30,7 @@ public class MovementSM : StateMachine
     public TrailEffect trailEffect;
     public bool isGrounded;
 
-
+    
   
 
 
@@ -47,7 +47,7 @@ public class MovementSM : StateMachine
 
     }
 
-   
+  
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -56,7 +56,7 @@ public class MovementSM : StateMachine
             Debug.Log("dead");
             GameManager.Instance.OnDead();
         }
-       
+           
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -71,4 +71,5 @@ public class MovementSM : StateMachine
     {
         return idleState;
     }
+    
 }
