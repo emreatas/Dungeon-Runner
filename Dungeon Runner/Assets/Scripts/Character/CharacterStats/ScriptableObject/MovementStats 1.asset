@@ -20,4 +20,4 @@ MonoBehaviour:
   groundCheckDistance: 0.08
   fallSpeed: 10
   slidingTime: 0.7
-  inputSensitivity: 50
+  inputSensitivity: 100
