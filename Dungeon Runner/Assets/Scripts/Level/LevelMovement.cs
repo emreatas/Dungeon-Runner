@@ -9,6 +9,8 @@ public class LevelMovement : MonoBehaviour
     [SerializeField] private TileType tileType;
 
     [SerializeField] private List<GameObject> _collectableItem;
+    [SerializeField] private List<GameObject> _collectableItemLane;
+
     private int _movement;
     public enum TileType
     {
@@ -74,6 +76,20 @@ public class LevelMovement : MonoBehaviour
             }
 
         }
+
+        if (_collectableItemLane.Count != 0)
+        {
+            int flag = 0;
+            flag = Random.Range(0, _collectableItemLane.Count);
+
+            for (int i = 0; i < _collectableItemLane.Count; i++)
+            {
+                _collectableItemLane[i].SetActive(false);
+            }
+            _collectableItemLane[flag].SetActive(true);
+        }
+
+
     }
 
     private void GameManager_Dead()

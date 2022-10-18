@@ -19624,6 +19624,10 @@ MonoBehaviour:
   - {fileID: 5763330247028511657}
   - {fileID: 2076773462602143466}
   - {fileID: 6582163289392652158}
+  _collectableItemLane:
+  - {fileID: 3157417989356930903}
+  - {fileID: 8856314364020593711}
+  - {fileID: 1474310346597626619}
 --- !u!65 &4617732407337094964
 BoxCollider:
   m_ObjectHideFlags: 0

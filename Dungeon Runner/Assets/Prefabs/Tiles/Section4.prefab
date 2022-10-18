@@ -24754,6 +24754,9 @@ MonoBehaviour:
   - {fileID: 2069955165001044297}
   - {fileID: 7366814880567866595}
   - {fileID: 8654042416740285800}
+  _collectableItemLane:
+  - {fileID: 3646097936445874191}
+  - {fileID: 8072603056864098617}
 --- !u!65 &2309013284305753122
 BoxCollider:
   m_ObjectHideFlags: 0
