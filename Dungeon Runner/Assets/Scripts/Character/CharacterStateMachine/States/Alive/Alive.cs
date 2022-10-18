@@ -106,7 +106,7 @@ public class Alive : BaseState
                     float deltaX = _mouseDeltaPos.x;
                     float deltaY = _mouseDeltaPos.y;
                 
-                    if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero)
+                    if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero&&Mathf.Abs(deltaX)>sm.characterStats.inputSensitivity)
                     {
 
                         if (deltaX > 0)
@@ -127,7 +127,7 @@ public class Alive : BaseState
                         }
 
                     }
-                    else if (_mouseDeltaPos != Vector2.zero)
+                    else if (_mouseDeltaPos != Vector2.zero && Mathf.Abs (deltaY) > sm.characterStats.inputSensitivity)
                     {
                         if (deltaY > 0)
                         {

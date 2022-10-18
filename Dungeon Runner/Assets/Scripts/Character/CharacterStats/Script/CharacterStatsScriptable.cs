@@ -28,6 +28,10 @@ public class CharacterStatsScriptable : ScriptableObject
     public float slidingTime;
 
 
+    [Header("Conrol")]
+    public float inputSensitivity;
+
+
    
        
 }
