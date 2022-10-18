@@ -26,7 +26,6 @@ public class Alive : BaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("enter alive");
         _firstPos = sm.gameObject.transform.position;
        
 
@@ -86,80 +85,86 @@ public class Alive : BaseState
     }
     private void GetMouseInput()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        if (!sm._isDead)
         {
-            _mouseFirstPos = Input.mousePosition;
-            _canTakeInput = true;
 
-        }
-        if (Input.GetMouseButton(0))
-        {
-            if (_canTakeInput)
+
+            if (Input.GetMouseButtonDown(0))
             {
-                
-                if (_mouseFirstPos != Vector2.zero)
+                _mouseFirstPos = Input.mousePosition;
+                _canTakeInput = true;
+                sm.attack.Attack();
+
+            }
+            if (Input.GetMouseButton(0))
+            {
+                if (_canTakeInput)
                 {
-                    
-                    _mouseCurrentPos = Input.mousePosition;
-                    _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
-                    float deltaX = _mouseDeltaPos.x;
-                    float deltaY = _mouseDeltaPos.y;
-                
-                    if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero&&Mathf.Abs(deltaX)>sm.characterStats.inputSensitivity)
+
+                    if (_mouseFirstPos != Vector2.zero)
                     {
 
-                        if (deltaX > 0)
+                        _mouseCurrentPos = Input.mousePosition;
+                        _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
+                        float deltaX = _mouseDeltaPos.x;
+                        float deltaY = _mouseDeltaPos.y;
+
+                        if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero && Mathf.Abs(deltaX) > sm.characterStats.inputSensitivity)
                         {
 
-                            sm.ChangeState(sm.rightDashState);
-                            
-                            _canTakeInput = false;
+                            if (deltaX > 0)
+                            {
+
+                                sm.ChangeState(sm.rightDashState);
+
+                                _canTakeInput = false;
+
+                            }
+                            else
+                            {
+
+                                sm.ChangeState(sm.leftDashState);
+
+                                _canTakeInput = false;
+
+                            }
 
                         }
-                        else
+                        else if (_mouseDeltaPos != Vector2.zero && Mathf.Abs(deltaY) > sm.characterStats.inputSensitivity)
                         {
+                            if (deltaY > 0)
+                            {
 
-                            sm.ChangeState(sm.leftDashState);
-                          
-                            _canTakeInput = false;
+                                sm.ChangeState(sm.jumpingState);
+
+                                _canTakeInput = false;
+
+                            }
+                            else
+                            {
+
+                                sm.ChangeState(sm.slidingState);
+
+                                _canTakeInput = false;
+                            }
 
                         }
+
+
+
 
                     }
-                    else if (_mouseDeltaPos != Vector2.zero && Mathf.Abs (deltaY) > sm.characterStats.inputSensitivity)
-                    {
-                        if (deltaY > 0)
-                        {
-
-                            sm.ChangeState(sm.jumpingState);
-                           
-                            _canTakeInput = false;
-
-                        }
-                        else
-                        {
-
-                            sm.ChangeState(sm.slidingState);
-                          
-                            _canTakeInput = false;
-                        }
-
-                    }
-
-
-                   
-                    
                 }
             }
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            
-            
-            _mouseDeltaPos = Vector2.zero;
-            _mouseFirstPos = Vector2.zero;
-            _mouseCurrentPos = Vector2.zero;
+            if (Input.GetMouseButtonUp(0))
+            {
+
+
+                _mouseDeltaPos = Vector2.zero;
+                _mouseFirstPos = Vector2.zero;
+                _mouseCurrentPos = Vector2.zero;
+            }
+
         }
 
 

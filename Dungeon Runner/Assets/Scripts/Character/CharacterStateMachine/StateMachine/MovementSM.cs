@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MovementSM : StateMachine
 {
     [HideInInspector]
@@ -28,6 +29,7 @@ public class MovementSM : StateMachine
     public Animator anim;
     public CapsuleCollider characterCollider;
     public TrailEffect trailEffect;
+    public CharacterAttack attack;
     public bool isGrounded;
 
     

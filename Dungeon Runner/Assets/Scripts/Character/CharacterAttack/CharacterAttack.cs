@@ -1,74 +1,96 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
-namespace UnityEngine.Animations.Rigging
+
+
+public class CharacterAttack : MonoBehaviour
 {
-    public class CharacterAttack : MonoBehaviour
+    public TwoBoneIKConstraint iK;
+    public AttackStatsScriptable attackStats;
+    private bool _reached = false;
+    private bool _isAttacking = false;
+    public GameObject knife;
+    private float _attackSpeed;
+    // Start is called before the first frame update
+    void Start()
     {
-        public TwoBoneIKConstraint iK;
-        public float coolDownTime;
-        bool _reached = false;
-        public GameObject knife;
-        // Start is called before the first frame update
-        void Start()
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void Attack()
+    {
+        if (!_isAttacking)
         {
             StartCoroutine(ThrowKnife());
-            
+            _isAttacking = true;
+           
         }
+        
+    }
 
-        // Update is called once per frame
-        void Update()
+    IEnumerator ThrowKnife()
+    {
+        yield return new WaitForEndOfFrame();
+        
+        if (!_reached)
         {
 
+            iK.weight = Mathf.MoveTowards(iK.weight, 1f, attackStats.attackSpeed * Time.deltaTime);
+
+            if (iK.weight == 1f)
+            {
+                _reached = true;
+                //knife.SetActive(false);
+            }
+            StartCoroutine(ThrowKnife());
+
         }
-
-
-
-        IEnumerator ThrowKnife()
+        else
         {
-            yield return new WaitForEndOfFrame();
-            if (!_reached)
-            {
-
-                iK.weight = Mathf.MoveTowards(iK.weight, 1f, 1f * Time.deltaTime);
-
-                if (iK.weight == 1f)
-                {
-                    _reached = true;
-                    //knife.SetActive(false);
-                }
-                StartCoroutine(ThrowKnife());
-
-            }
-            else
-            {
-                StopCoroutine(ThrowKnife());
-            }
-
-          
+            StopCoroutine(ThrowKnife());
+            StartCoroutine(ReloadKnife());
         }
 
 
+    }
 
-        public void ThrowKnifeX()
+    IEnumerator ReloadKnife()
+    {
+        yield return new WaitForEndOfFrame();
+       
+        if (_reached)
         {
-            if (_reached)
+
+            iK.weight = Mathf.MoveTowards(iK.weight, 0f, attackStats.reloadSpeed * Time.deltaTime);
+
+
+
+            if (iK.weight == 0f)
             {
-                while (iK.weight != 0f)
-                {
-                    iK.weight = Mathf.MoveTowards(iK.weight, 0f, 5f * Time.deltaTime);
-
-                }
-
-                if (iK.weight == 0f)
-                {
-                    _reached = false;
-                    //knife.SetActive(true);
-                }
+                _reached = false;
+                //knife.SetActive(true);
+                _isAttacking = false;
             }
-
+            StartCoroutine(ReloadKnife());
         }
     }
+
+
+    public void ThrowKnifeX()
+    {
+
+
+    }
 }
+
+
 
