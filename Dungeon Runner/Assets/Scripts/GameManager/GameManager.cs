@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public static event Action Dead;
 
-    public static event Action GamePause;
+    public static event Action<bool> GamePause;
 
     #region Movement Events
     public void OnDashLeft()
@@ -55,11 +55,11 @@ public class GameManager : MonoBehaviour
 
 
     #region UI Events
-    public void OnGamePause()
+    public void OnGamePause(bool isPaused)
     {
         if (GamePause!=null)
         {
-            GamePause();
+            GamePause(isPaused);
         }
     }
     #endregion
