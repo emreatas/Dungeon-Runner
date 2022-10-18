@@ -26,6 +26,7 @@ public class LevelGenerator : MonoBehaviour
         flagObj = obj;
 
         SpawnNonObstacleTile();
+        SpawnNonObstacleTile();
         SpawnObstacleTile();
 
 
