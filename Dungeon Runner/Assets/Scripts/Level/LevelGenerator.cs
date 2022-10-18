@@ -39,14 +39,14 @@ public class LevelGenerator : MonoBehaviour
         {
 
             GameObject marketTile = objectPool.GetPooledObject(5);
-            marketTile.transform.position = new Vector3(0, 0, flagObj.transform.position.z + marketTile.GetComponent<Collider>().bounds.size.z - 0.1f);
+            marketTile.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
             flagObj = marketTile;
             wave++;
             spawnedTile = 0;
 
             flag = Random.Range(2, 5);
             GameObject obj = objectPool.GetPooledObject(flag);
-            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z - 0.1f);
+            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
             flagObj = obj;
             spawnedTile++;
 
@@ -56,7 +56,7 @@ public class LevelGenerator : MonoBehaviour
             flag = Random.Range(2, 5);
 
             GameObject obj = objectPool.GetPooledObject(flag);
-            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z - 0.1f);
+            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
             flagObj = obj;
             spawnedTile++;
 
@@ -72,14 +72,14 @@ public class LevelGenerator : MonoBehaviour
         {
 
             GameObject marketTile = objectPool.GetPooledObject(5);
-            marketTile.transform.position = new Vector3(0, 0, flagObj.transform.position.z + marketTile.GetComponent<Collider>().bounds.size.z - 0.1f);
+            marketTile.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
             flagObj = marketTile;
             wave++;
             spawnedTile = 0;
 
             flag = Random.Range(0, 2);
             GameObject obj = objectPool.GetPooledObject(flag);
-            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z - 0.1f);
+            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
             flagObj = obj;
             spawnedTile++;
 
@@ -89,7 +89,7 @@ public class LevelGenerator : MonoBehaviour
             flag = Random.Range(0, 2);
 
             GameObject obj = objectPool.GetPooledObject(flag);
-            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + obj.GetComponent<Collider>().bounds.size.z - 0.1f);
+            obj.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
             flagObj = obj;
             spawnedTile++;
 
