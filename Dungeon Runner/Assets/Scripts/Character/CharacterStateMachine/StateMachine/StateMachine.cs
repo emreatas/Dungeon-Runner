@@ -6,6 +6,9 @@ public class StateMachine : MonoBehaviour
 {
      BaseState currentState;
 
+    [HideInInspector]
+    public bool _isDead;
+
     private void OnEnable()
     {
         GameManager.Dead += GameManager_Dead;
@@ -16,6 +19,8 @@ public class StateMachine : MonoBehaviour
         {
             Debug.Log("CALL DEAD");
             currentState.Dead();
+            _isDead = true;
+            
         }
     }
 

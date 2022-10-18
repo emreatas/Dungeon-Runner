@@ -23,8 +23,6 @@ public class MovementSM : StateMachine
 
 
 
-
-
     public Rigidbody rb;
     public CharacterStatsScriptable characterStats;
     public Animator anim;
@@ -32,6 +30,8 @@ public class MovementSM : StateMachine
     public TrailEffect trailEffect;
     public bool isGrounded;
 
+
+  
 
 
     private void Awake()
@@ -46,6 +46,7 @@ public class MovementSM : StateMachine
         dead = new Dead(this);
 
     }
+
    
 
     private void OnCollisionEnter(Collision collision)
@@ -59,7 +60,7 @@ public class MovementSM : StateMachine
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Collectable"))
+        if (other.gameObject.CompareTag("Collectable")&&!_isDead)
         {
             other.gameObject.GetComponent<CollectableItem>().Collect();
             
