@@ -49,7 +49,7 @@ public class RightDash : Alive
 
 
 
-        Debug.Log("kontroll");
+       
 
         Vector3 targetVec = new Vector3(_targetX, sm.gameObject.transform.position.y, sm.gameObject.transform.position.z);
         sm.gameObject.transform.position = Vector3.Lerp(sm.gameObject.transform.position, targetVec, sm.characterStats.horizontalJumpSpeed * Time.fixedDeltaTime);

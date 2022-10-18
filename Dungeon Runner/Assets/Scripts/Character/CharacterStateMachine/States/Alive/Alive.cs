@@ -93,21 +93,28 @@ public class Alive : BaseState
             {
                 _mouseFirstPos = Input.mousePosition;
                 _canTakeInput = true;
-                sm.attack.Attack();
+                
+
 
             }
             if (Input.GetMouseButton(0))
             {
                 if (_canTakeInput)
                 {
-
+                    
+                        
+                    
                     if (_mouseFirstPos != Vector2.zero)
                     {
-
+                        bool stateChanged = false;
                         _mouseCurrentPos = Input.mousePosition;
                         _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
                         float deltaX = _mouseDeltaPos.x;
                         float deltaY = _mouseDeltaPos.y;
+
+                       
+                            
+                        
 
                         if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero && Mathf.Abs(deltaX) > sm.characterStats.inputSensitivity)
                         {
@@ -118,7 +125,7 @@ public class Alive : BaseState
                                 sm.ChangeState(sm.rightDashState);
 
                                 _canTakeInput = false;
-
+                                stateChanged = true;
                             }
                             else
                             {
@@ -126,8 +133,10 @@ public class Alive : BaseState
                                 sm.ChangeState(sm.leftDashState);
 
                                 _canTakeInput = false;
+                                stateChanged = true;
 
                             }
+                           
 
                         }
                         else if (_mouseDeltaPos != Vector2.zero && Mathf.Abs(deltaY) > sm.characterStats.inputSensitivity)
@@ -138,6 +147,7 @@ public class Alive : BaseState
                                 sm.ChangeState(sm.jumpingState);
 
                                 _canTakeInput = false;
+                                stateChanged = true;
 
                             }
                             else
@@ -146,20 +156,27 @@ public class Alive : BaseState
                                 sm.ChangeState(sm.slidingState);
 
                                 _canTakeInput = false;
+                                stateChanged = true;
                             }
 
                         }
 
+                        if (!stateChanged)
+                        {
+                            Debug.Log(_mouseDeltaPos);
+                            sm.attack.Attack();
+                        }
 
 
 
                     }
+                    
                 }
             }
             if (Input.GetMouseButtonUp(0))
             {
 
-
+               
                 _mouseDeltaPos = Vector2.zero;
                 _mouseFirstPos = Vector2.zero;
                 _mouseCurrentPos = Vector2.zero;
