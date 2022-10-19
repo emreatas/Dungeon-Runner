@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d94eb78be246524ea2b8c632e32628d, type: 3}
   m_Name: CharacterAttackStats
   m_EditorClassIdentifier: 
-  attackSpeed: 3
-  reloadSpeed: 3
-  throwSpeed: 5
+  attackSpeed: 5
+  reloadSpeed: 5
+  throwSpeed: 3
