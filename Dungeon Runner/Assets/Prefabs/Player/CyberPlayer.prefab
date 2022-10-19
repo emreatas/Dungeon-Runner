@@ -1011,7 +1011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf04eddfc7ed41e44bcf1d0ae0da10ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isDead: 0
+  isDead: 0
+  isGamePaused: 0
   rb: {fileID: 1842304178791916613}
   characterStats: {fileID: 11400000, guid: f985bf6f5bd97dd4c8147088e7c8b530, type: 2}
   anim: {fileID: 1842304178791916616}
@@ -1085,7 +1086,7 @@ MonoBehaviour:
   _pools:
   - _objectPrefab: {fileID: 7609502216575096915, guid: 63cdb240f391b644dab51ea1744fbf16,
       type: 3}
-    _poolSize: 5
+    _poolSize: 50
 --- !u!1 &1783799923900672902
 GameObject:
   m_ObjectHideFlags: 0
