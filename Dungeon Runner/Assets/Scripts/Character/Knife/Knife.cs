@@ -5,10 +5,19 @@ using UnityEngine;
 public class Knife : MonoBehaviour
 {
     public KnifeData knifeData;
+    public TrailEffect trailEffect;
+    private Rigidbody _rb;
 
     private void OnEnable()
     {
         StartCoroutine(KnifeLifeTime(knifeData.knifeLifeTime));
+        trailEffect.isTrailActive = true;
+        
+    }
+    private void OnDisable()
+    {
+        _rb = GetComponent<Rigidbody>();
+        _rb.velocity = Vector3.zero;
     }
     void Start()
     {
@@ -18,7 +27,12 @@ public class Knife : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        this.gameObject.SetActive(false);
+        if (other.gameObject.CompareTag("Obstacle")||other.gameObject.CompareTag("Enemy"))
+        {
+            this.gameObject.SetActive(false);
+
+        }
+        
         
     }
 

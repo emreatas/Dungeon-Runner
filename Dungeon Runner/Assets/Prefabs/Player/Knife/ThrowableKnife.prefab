@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1971756494557236126}
   - component: {fileID: 2607876549015814700}
   - component: {fileID: 4866548536320165255}
+  - component: {fileID: 536791888491822313}
   m_Layer: 0
   m_Name: ThrowableKnife
   m_TagString: Untagged
@@ -128,3 +129,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
+  trailEffect: {fileID: 536791888491822313}
+--- !u!114 &536791888491822313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609502216575096915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf911bb5879eb964ab6b76a33282b18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeTime: 0.02
+  meshRefreshRate: 0.05
+  meshDestroyDelay: 0.15
+  position: {fileID: 7606964626492743903}
+  fresnelMat: {fileID: 2100000, guid: fa22f9e399e0c994f980e45059ef70e6, type: 2}
+  isTrailActive: 0

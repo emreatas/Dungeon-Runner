@@ -2,8 +2,5 @@
 
 public interface IHealth 
 {
-   public void Health()
-    {
-
-    }
+    void Health();
 }
