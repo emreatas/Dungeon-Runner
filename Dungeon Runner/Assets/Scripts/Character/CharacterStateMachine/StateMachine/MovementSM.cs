@@ -65,6 +65,7 @@ public class MovementSM : StateMachine
         if (other.gameObject.CompareTag("Collectable")&&!_isDead)
         {
             other.gameObject.GetComponent<CollectableItem>().Collect();
+            GameManager.Instance.OnCollectItem();
             
         }
     }
