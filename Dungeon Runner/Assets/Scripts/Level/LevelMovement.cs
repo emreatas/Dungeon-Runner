@@ -10,6 +10,7 @@ public class LevelMovement : MonoBehaviour
 
     [SerializeField] private List<GameObject> _collectableItem;
     [SerializeField] private List<GameObject> _collectableItemLane;
+    [SerializeField] private List<GameObject> _enemySpawnPoint;
 
     private int _movement;
     public enum TileType
@@ -65,29 +66,52 @@ public class LevelMovement : MonoBehaviour
         GameManager.Dead += GameManager_Dead;
 
 
-        if (_collectableItem.Count != 0)
+
+
+        switch (tileType)
         {
+            case TileType.Obstacle:
+                if (_collectableItem.Count != 0)
+                {
 
-            for (int i = 0; i < _collectableItem.Count; i++)
-            {
+                    for (int i = 0; i < _collectableItem.Count; i++)
+                    {
+                        _collectableItem[i].SetActive(true);
+                    }
+                }
+                if (_collectableItemLane.Count != 0)
+                {
+                    int flag = 0;
+                    flag = Random.Range(0, _collectableItemLane.Count);
 
-                _collectableItem[i].SetActive(true);
+                    for (int i = 0; i < _collectableItemLane.Count; i++)
+                    {
+                        _collectableItemLane[i].SetActive(false);
+                    }
+                    _collectableItemLane[flag].SetActive(true);
+                }
+                break;
+            case TileType.NonObstacle:
 
-            }
+                if (_enemySpawnPoint.Count != 0)
+                {
+                    int flag = 0;
+                    for (int i = 0; i < _enemySpawnPoint.Count; i++)
+                    {
+                        _enemySpawnPoint[i].SetActive(false);
+                    }
 
+                    _enemySpawnPoint[flag].SetActive(true);
+                    _enemySpawnPoint[(flag + 2) % _enemySpawnPoint.Count].SetActive(true);
+                }
+
+                break;
+            case TileType.Market:
+                break;
         }
 
-        if (_collectableItemLane.Count != 0)
-        {
-            int flag = 0;
-            flag = Random.Range(0, _collectableItemLane.Count);
 
-            for (int i = 0; i < _collectableItemLane.Count; i++)
-            {
-                _collectableItemLane[i].SetActive(false);
-            }
-            _collectableItemLane[flag].SetActive(true);
-        }
+
 
 
     }

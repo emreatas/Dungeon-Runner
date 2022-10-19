@@ -19,11 +19,12 @@ public class GameManager : MonoBehaviour
     public static event Action Dead;
 
     public static event Action<bool> GamePause;
+    public static event Action CollectItem;
 
     #region Movement Events
     public void OnDashLeft()
     {
-        if (DashLeft!=null)
+        if (DashLeft != null)
         {
             DashLeft();
         }
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void OnDashRight()
     {
-        if (DashRight!=null)
+        if (DashRight != null)
         {
             DashRight();
         }
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
     #region Control Events
     public void OnDead()
     {
-        if (Dead!=null)
+        if (Dead != null)
         {
             Dead();
         }
@@ -57,9 +58,17 @@ public class GameManager : MonoBehaviour
     #region UI Events
     public void OnGamePause(bool isPaused)
     {
-        if (GamePause!=null)
+        if (GamePause != null)
         {
             GamePause(isPaused);
+        }
+    }
+
+    public void OnCollectItem()
+    {
+        if (CollectItem != null)
+        {
+            CollectItem();
         }
     }
     #endregion
@@ -70,9 +79,9 @@ public class GameManager : MonoBehaviour
     {
         return currentTile;
     }
-    public void SetCurrentTile()
+    public void SetCurrentTile(int spawnedTile)
     {
-        currentTile++;
+        currentTile = spawnedTile;
 
     }
 
