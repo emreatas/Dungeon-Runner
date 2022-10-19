@@ -28,6 +28,7 @@ public class Knife : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle")||other.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("knife trigger");
             this.gameObject.SetActive(false);
 
         }

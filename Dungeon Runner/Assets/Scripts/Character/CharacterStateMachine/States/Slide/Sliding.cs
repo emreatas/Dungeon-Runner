@@ -48,8 +48,10 @@ public class Sliding : Grounded
         }
         else
         {
-
-            sm.ChangeState(sm.idleState);
+            sm.anim.SetBool("Sliding", false);
+            sm.characterCollider.height = _colliderFirstHeight;
+            sm.characterCollider.center = _colliderFirstCenterPos;
+            //sm.ChangeState(sm.idleState);
 
 
         }

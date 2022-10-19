@@ -22,7 +22,7 @@ public class CanvasController : MonoBehaviour
 
     private void GameManager_MarketTile()
     {
-        _marketPanel.SetActive(true);
+       // _marketPanel.SetActive(true);
     }
 
     private void GameManager_BuySkill(int obj)
