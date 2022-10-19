@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public static event Action<bool> GamePause;
     public static event Action CollectItem;
     public static event Action<int> BuySkill;
+    public static event Action MarketTile;
 
     #region Movement Events
     public void OnDashLeft()
@@ -80,6 +81,14 @@ public class GameManager : MonoBehaviour
         {
             BuySkill(cost);
             SetCurrency(-cost);
+        }
+    }
+
+    public void OnMarketTile()
+    {
+        if (MarketTile != null)
+        {
+            MarketTile();
         }
     }
     #endregion

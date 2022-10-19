@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class CanvasController : MonoBehaviour
 {
     [SerializeField] private GameObject _deadPanel;
+    [SerializeField] private GameObject _marketPanel;
     [SerializeField] private TextMeshProUGUI _collectItem;
 
 
@@ -16,6 +17,12 @@ public class CanvasController : MonoBehaviour
         GameManager.Dead += GameManager_Dead;
         GameManager.CollectItem += GameManager_CollectItem;
         GameManager.BuySkill += GameManager_BuySkill;
+        GameManager.MarketTile += GameManager_MarketTile;
+    }
+
+    private void GameManager_MarketTile()
+    {
+        _marketPanel.SetActive(true);
     }
 
     private void GameManager_BuySkill(int obj)
@@ -43,6 +50,8 @@ public class CanvasController : MonoBehaviour
         GameManager.Dead -= GameManager_Dead;
         GameManager.CollectItem -= GameManager_CollectItem;
         GameManager.BuySkill -= GameManager_BuySkill;
+        GameManager.MarketTile -= GameManager_MarketTile;
+
 
 
     }
