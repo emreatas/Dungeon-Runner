@@ -62,7 +62,7 @@ public class MovementSM : StateMachine
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Collectable")&&!_isDead)
+        if (other.gameObject.CompareTag("Collectable")&&!isDead)
         {
             other.gameObject.GetComponent<CollectableItem>().Collect();
             GameManager.Instance.OnCollectItem();

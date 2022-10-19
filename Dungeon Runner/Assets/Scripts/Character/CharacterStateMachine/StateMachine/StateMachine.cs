@@ -7,19 +7,31 @@ public class StateMachine : MonoBehaviour
      BaseState currentState;
 
     [HideInInspector]
-    public bool _isDead;
+    public bool isDead;
+    [HideInInspector]
+    public bool isGamePaused;
 
     private void OnEnable()
     {
         GameManager.Dead += GameManager_Dead;
+        GameManager.GamePause += GameManager_GamePause;
     }
+
+    private void GameManager_GamePause(bool obj)
+    {
+        if (currentState!=null)
+        {
+            isGamePaused = obj;
+        }
+    }
+
     private void GameManager_Dead()
     {
         if (currentState!=null)
         {
             Debug.Log("CALL DEAD");
             currentState.Dead();
-            _isDead = true;
+            isDead = true;
             
         }
     }
@@ -27,6 +39,7 @@ public class StateMachine : MonoBehaviour
     private void OnDisable()
     {
         GameManager.Dead -= GameManager_Dead;
+        GameManager.GamePause -= GameManager_GamePause;
     }
 
     void Start()

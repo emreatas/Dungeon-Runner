@@ -10,7 +10,7 @@ public class Knife : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(KnifeLifeTime(knifeData.knifeLifeTime));
-        
+        knifeData.Asd();
         
     }
     private void OnDisable()

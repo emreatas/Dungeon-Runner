@@ -82,7 +82,7 @@ public class Alive : BaseState
     }
     private void GetMouseInput()
     {
-        if (!sm._isDead)
+        if (!sm.isDead&&!sm.isGamePaused)
         {
             
 

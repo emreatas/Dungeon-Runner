@@ -9,4 +9,11 @@ public class KnifeData : ScriptableObject
 
     public float knifeDamage;
 
+
+    public void Asd()
+    {
+        Debug.Log("aaaaaaa");
+    }
+
+
 }
