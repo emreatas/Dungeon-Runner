@@ -5,13 +5,12 @@ using UnityEngine;
 public class Knife : MonoBehaviour
 {
     public KnifeData knifeData;
-    public TrailEffect trailEffect;
     private Rigidbody _rb;
 
     private void OnEnable()
     {
         StartCoroutine(KnifeLifeTime(knifeData.knifeLifeTime));
-        trailEffect.isTrailActive = true;
+        
         
     }
     private void OnDisable()
@@ -21,7 +20,7 @@ public class Knife : MonoBehaviour
     }
     void Start()
     {
-        
+
         
     }
 

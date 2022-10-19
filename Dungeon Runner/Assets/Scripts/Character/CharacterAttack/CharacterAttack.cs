@@ -60,6 +60,7 @@ public class CharacterAttack : MonoBehaviour
                 go = objectPooler.GetPooledObject(0);
                 go.transform.position = knifeSpawnPos.position;
                 go.GetComponent<Rigidbody>().AddForce(go.transform.up * attackStats.throwSpeed*100f);
+               
             }
             StartCoroutine(ThrowKnife());
 
