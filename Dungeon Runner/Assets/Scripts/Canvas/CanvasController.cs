@@ -14,9 +14,21 @@ public class CanvasController : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Dead += GameManager_Dead;
+        GameManager.CollectItem += GameManager_CollectItem;
+        GameManager.BuySkill += GameManager_BuySkill;
     }
 
+    private void GameManager_BuySkill(int obj)
+    {
+        _collectItem.text = "x" + GameManager.Instance.GetCurrency();
 
+
+    }
+
+    private void GameManager_CollectItem()
+    {
+        _collectItem.text = "x" + GameManager.Instance.GetCurrency();
+    }
 
     private void GameManager_Dead()
     {
@@ -29,13 +41,14 @@ public class CanvasController : MonoBehaviour
     private void OnDisable()
     {
         GameManager.Dead -= GameManager_Dead;
+        GameManager.CollectItem -= GameManager_CollectItem;
+        GameManager.BuySkill -= GameManager_BuySkill;
+
+
     }
 
 
-    private void Update()
-    {
-        _collectItem.text = "x" + GameManager.Instance.GetCurrency();
-    }
+
 
     public void PlayButton()
     {
