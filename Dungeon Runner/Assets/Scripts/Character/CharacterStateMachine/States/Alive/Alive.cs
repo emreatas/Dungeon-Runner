@@ -11,6 +11,7 @@ public class Alive : BaseState
     public float gravityMultipler=1;
 
     private bool _canTakeInput=true;
+    private bool _stateChanged = false;
 
     private Vector3 _firstPos;
 
@@ -27,6 +28,8 @@ public class Alive : BaseState
     {
         base.Enter();
         _firstPos = sm.gameObject.transform.position;
+        _stateChanged = true;
+        
        
 
        
@@ -53,13 +56,7 @@ public class Alive : BaseState
 
 
     }
-    public override void UpdatePhysics()
-    {
-        base.UpdatePhysics();
 
-      
-        
-    }
 
 
     public override void FixedUpdatePhysics()
@@ -87,13 +84,14 @@ public class Alive : BaseState
     {
         if (!sm._isDead)
         {
-
+            
 
             if (Input.GetMouseButtonDown(0))
             {
                 _mouseFirstPos = Input.mousePosition;
                 _canTakeInput = true;
-                
+                _stateChanged = false;
+
 
 
             }
@@ -106,7 +104,7 @@ public class Alive : BaseState
                     
                     if (_mouseFirstPos != Vector2.zero)
                     {
-                        bool stateChanged = false;
+                        
                         _mouseCurrentPos = Input.mousePosition;
                         _mouseDeltaPos = CalculateDeltaPosition(_mouseFirstPos, _mouseCurrentPos);
                         float deltaX = _mouseDeltaPos.x;
@@ -118,14 +116,14 @@ public class Alive : BaseState
 
                         if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY) && _mouseDeltaPos != Vector2.zero && Mathf.Abs(deltaX) > sm.characterStats.inputSensitivity)
                         {
-
+                            _stateChanged = true;
                             if (deltaX > 0)
                             {
 
                                 sm.ChangeState(sm.rightDashState);
 
                                 _canTakeInput = false;
-                                stateChanged = true;
+                                
                             }
                             else
                             {
@@ -133,7 +131,7 @@ public class Alive : BaseState
                                 sm.ChangeState(sm.leftDashState);
 
                                 _canTakeInput = false;
-                                stateChanged = true;
+                                
 
                             }
                            
@@ -141,13 +139,14 @@ public class Alive : BaseState
                         }
                         else if (_mouseDeltaPos != Vector2.zero && Mathf.Abs(deltaY) > sm.characterStats.inputSensitivity)
                         {
+                            _stateChanged = true;
                             if (deltaY > 0)
                             {
 
                                 sm.ChangeState(sm.jumpingState);
 
                                 _canTakeInput = false;
-                                stateChanged = true;
+                               
 
                             }
                             else
@@ -156,27 +155,27 @@ public class Alive : BaseState
                                 sm.ChangeState(sm.slidingState);
 
                                 _canTakeInput = false;
-                                stateChanged = true;
+                                
                             }
 
                         }
 
-                        if (!stateChanged)
-                        {
-                            Debug.Log(_mouseDeltaPos);
-                            sm.attack.Attack();
-                        }
+                        
 
 
 
                     }
-                    
+                   
                 }
             }
             if (Input.GetMouseButtonUp(0))
             {
+                if (!_stateChanged)
+                {
 
-               
+                    sm.attack.Attack();
+                }
+                Debug.Log("Statechanged upmouse");
                 _mouseDeltaPos = Vector2.zero;
                 _mouseFirstPos = Vector2.zero;
                 _mouseCurrentPos = Vector2.zero;

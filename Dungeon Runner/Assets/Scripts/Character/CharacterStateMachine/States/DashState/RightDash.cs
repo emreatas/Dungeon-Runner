@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RightDash : Alive
+public class RightDash : Grounded
 {
     private float _targetX;
 
