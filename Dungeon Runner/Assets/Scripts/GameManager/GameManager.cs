@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public static event Action<bool> GamePause;
     public static event Action CollectItem;
+    public static event Action<int> BuySkill;
 
     #region Movement Events
     public void OnDashLeft()
@@ -69,21 +70,33 @@ public class GameManager : MonoBehaviour
         if (CollectItem != null)
         {
             CollectItem();
+            SetCurrency(1);
+        }
+    }
+
+    public void OnBuySkill(int cost)
+    {
+        if (BuySkill != null)
+        {
+            BuySkill(cost);
+            SetCurrency(-cost);
         }
     }
     #endregion
 
+    #region Currency
 
-    private int currentTile = 0;
-    public int GetCurrentTile()
+    private int currentCurrency = 0;
+    public int GetCurrency()
     {
-        return currentTile;
+        return currentCurrency;
     }
-    public void SetCurrentTile(int spawnedTile)
+    public void SetCurrency(int cost)
     {
-        currentTile = spawnedTile;
+        currentCurrency += cost;
 
     }
 
+    #endregion
 
 }

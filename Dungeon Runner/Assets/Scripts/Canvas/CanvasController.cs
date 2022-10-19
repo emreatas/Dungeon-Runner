@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CanvasController : MonoBehaviour
 {
     [SerializeField] private GameObject _deadPanel;
+    [SerializeField] private TextMeshProUGUI _collectItem;
+
 
     private void OnEnable()
     {
         GameManager.Dead += GameManager_Dead;
     }
+
+
 
     private void GameManager_Dead()
     {
@@ -24,7 +29,12 @@ public class CanvasController : MonoBehaviour
     private void OnDisable()
     {
         GameManager.Dead -= GameManager_Dead;
+    }
 
+
+    private void Update()
+    {
+        _collectItem.text = "x" + GameManager.Instance.GetCurrency();
     }
 
     public void PlayButton()
