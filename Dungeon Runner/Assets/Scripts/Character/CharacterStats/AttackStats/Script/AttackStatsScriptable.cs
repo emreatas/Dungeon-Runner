@@ -8,4 +8,6 @@ public class AttackStatsScriptable : ScriptableObject
 {
     public float attackSpeed;
     public float reloadSpeed;
+
+    public float throwSpeed;
 }

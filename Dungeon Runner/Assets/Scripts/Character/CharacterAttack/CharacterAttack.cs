@@ -13,10 +13,16 @@ public class CharacterAttack : MonoBehaviour
     private bool _isAttacking = false;
     public GameObject knife;
     private float _attackSpeed;
+
+
+    [Header("Object Pooler")]
+    public ObjectPooler objectPooler;
+    public Transform knifeSpawnPos;
+
     // Start is called before the first frame update
     void Start()
     {
-
+       
 
     }
 
@@ -50,6 +56,10 @@ public class CharacterAttack : MonoBehaviour
             {
                 _reached = true;
                 //knife.SetActive(false);
+                GameObject go;
+                go = objectPooler.GetPooledObject(0);
+                go.transform.position = knifeSpawnPos.position;
+                go.GetComponent<Rigidbody>().AddForce(go.transform.up * attackStats.throwSpeed);
             }
             StartCoroutine(ThrowKnife());
 
