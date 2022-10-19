@@ -55,11 +55,12 @@ public class CharacterAttack : MonoBehaviour
             if (iK.weight == 1f)
             {
                 _reached = true;
-                //knife.SetActive(false);
+                knife.SetActive(false);
                 GameObject go;
                 go = objectPooler.GetPooledObject(0);
                 go.transform.position = knifeSpawnPos.position;
-                go.GetComponent<Rigidbody>().AddForce(go.transform.up * attackStats.throwSpeed);
+                go.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                go.GetComponent<Rigidbody>().AddForce(go.transform.up * attackStats.throwSpeed*10000*Time.deltaTime);
             }
             StartCoroutine(ThrowKnife());
 
@@ -87,7 +88,7 @@ public class CharacterAttack : MonoBehaviour
             if (iK.weight == 0f)
             {
                 _reached = false;
-                //knife.SetActive(true);
+                knife.SetActive(true);
                 _isAttacking = false;
             }
             StartCoroutine(ReloadKnife());

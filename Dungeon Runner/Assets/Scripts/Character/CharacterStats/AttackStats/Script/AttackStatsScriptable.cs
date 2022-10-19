@@ -10,4 +10,6 @@ public class AttackStatsScriptable : ScriptableObject
     public float reloadSpeed;
 
     public float throwSpeed;
+
+
 }

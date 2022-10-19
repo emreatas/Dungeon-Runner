@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7624336808096475509}
   - component: {fileID: 1971756494557236126}
   - component: {fileID: 2607876549015814700}
+  - component: {fileID: 4866548536320165255}
   m_Layer: 0
   m_Name: ThrowableKnife
   m_TagString: Untagged
@@ -114,3 +115,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4866548536320165255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609502216575096915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b6565d3265333468849b48a48e16bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
