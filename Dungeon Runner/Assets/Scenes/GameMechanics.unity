@@ -582,7 +582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ffc32900d33a74d92c84644a4f0346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterStats: {fileID: 11400000, guid: b6b5fa17c19682d4d9cbab8b41baf33a, type: 2}
 --- !u!136 &554463486
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1540,6 +1539,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 647594230}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1549481468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549481458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638b909ab21b2ce40807090f731af48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
+  skillData: {fileID: 11400000, guid: 311907c112073c649ba7a8d00de1f634, type: 2}
+  knifeDamage: 0
+  knifeRange: 0
 --- !u!1 &1843449431
 GameObject:
   m_ObjectHideFlags: 0

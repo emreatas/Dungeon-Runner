@@ -12,7 +12,7 @@ public class CharacterAttack : MonoBehaviour
     private bool _reached = false;
     private bool _isAttacking = false;
     public GameObject knife;
-    private float _attackSpeed;
+   
 
 
     [Header("Object Pooler")]
