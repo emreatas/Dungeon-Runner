@@ -24671,8 +24671,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3479354, y: 0.84888244, z: 4.5916486}
-  m_Center: {x: 0.6739677, y: -0.04588125, z: 2.0360153}
+  m_Size: {x: 0.28555155, y: 0.84888405, z: 4.591648}
+  m_Center: {x: -0.35722423, y: -0.045881096, z: 2.036015}
 --- !u!1 &2309013284305753121
 GameObject:
   m_ObjectHideFlags: 0
@@ -24757,6 +24757,7 @@ MonoBehaviour:
   _collectableItemLane:
   - {fileID: 3646097936445874191}
   - {fileID: 8072603056864098617}
+  _enemySpawnPoint: []
 --- !u!65 &2309013284305753122
 BoxCollider:
   m_ObjectHideFlags: 0
