@@ -782,6 +782,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1549481467, guid: 1826b1e2824783c42b0cf8e2e9bf9a03, type: 3}
+      propertyPath: _pools.Array.data[0]._poolSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1783781758942966756, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
         type: 3}
       propertyPath: m_Name
@@ -1552,7 +1556,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
-  skillData: {fileID: 11400000, guid: 311907c112073c649ba7a8d00de1f634, type: 2}
   knifeDamage: 0
   knifeRange: 0
 --- !u!1 &1843449431
