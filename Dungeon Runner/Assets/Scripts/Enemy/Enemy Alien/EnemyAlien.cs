@@ -8,29 +8,22 @@ public class EnemyAlien : MonoBehaviour
     public EnemyScriptable alienStats;
     private bool isEnemyDetected;
     bool alreadyAttacked;
-    public ParticleSystem laser;
     public Animator anim;
-    public Transform barrel;
-   
     void Update()
     {
+        FindPlayer();
         if (target == null)
         {
-            Debug.Log("target null");
             anim.SetBool("FireStart", false);
-            barrel.GetChild(0).gameObject.SetActive(false);
         }
         else
         {
-            Debug.Log("target not null");
             Vector3 direction = target.position - transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             Vector3 rota = lookRotation.eulerAngles;
-            transform.rotation = Quaternion.Euler(0f, rota.y, 0f);
-            barrel.GetChild(0).gameObject.SetActive(true);
+            transform.rotation = Quaternion.Euler(0f, rota.y + 3f, 0f);
             anim.SetBool("FireStart", true);
         }
-        FindPlayer();
     }
     void FindPlayer()
     {
