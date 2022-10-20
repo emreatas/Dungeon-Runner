@@ -16,6 +16,8 @@ public class LevelGenerator : MonoBehaviour
         Instance = this;
     }
 
+
+
     [SerializeField] private ObjectPooler objectPool = null;
     int flag = 0;
 
@@ -28,6 +30,9 @@ public class LevelGenerator : MonoBehaviour
         SpawnNonObstacleTile();
         SpawnNonObstacleTile();
         SpawnObstacleTile();
+
+        GameManager.Instance.OnLevelWave(wave);
+
 
 
     }
@@ -43,6 +48,8 @@ public class LevelGenerator : MonoBehaviour
             marketTile.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
             flagObj = marketTile;
             wave++;
+            GameManager.Instance.OnLevelWave(wave);
+
             spawnedTile = 0;
 
             flag = Random.Range(2, 5);
@@ -76,6 +83,8 @@ public class LevelGenerator : MonoBehaviour
             marketTile.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
             flagObj = marketTile;
             wave++;
+            GameManager.Instance.OnLevelWave(wave);
+
             spawnedTile = 0;
 
             flag = Random.Range(0, 2);

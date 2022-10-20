@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public static event Action CollectItem;
     public static event Action<int> BuySkill;
     public static event Action MarketTile;
+    public static event Action<int> LevelWave;
 
     #region Movement Events
     public void OnDashLeft()
@@ -56,6 +57,20 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Level Wave
+
+    public void OnLevelWave(int wave)
+    {
+        if (LevelWave != null)
+        {
+            LevelWave(wave);
+        }
+    }
+
+
+
+
+    #endregion
 
     #region UI Events
     public void OnGamePause(bool isPaused)
