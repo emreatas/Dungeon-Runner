@@ -47,7 +47,7 @@ public class LevelMovement : MonoBehaviour
                     break;
                 case TileType.Market:
 
-                   // GameManager.Instance.OnGamePause(true);
+                    // GameManager.Instance.OnGamePause(true);
                     //GameManager.Instance.OnMarketTile();
 
                     break;
@@ -96,7 +96,15 @@ public class LevelMovement : MonoBehaviour
 
                 if (_enemySpawnPoint.Count != 0)
                 {
-                    int flag = 0;
+                    for (int i = 0; i < _enemySpawnPoint.Count; i++)
+                    {
+                        _enemySpawnPoint[i].SetActive(false);
+                    }
+                }
+
+                if (_enemySpawnPoint.Count != 0)
+                {
+                    int flag = Random.Range(0, _enemySpawnPoint.Count);
                     for (int i = 0; i < _enemySpawnPoint.Count; i++)
                     {
                         _enemySpawnPoint[i].SetActive(false);
