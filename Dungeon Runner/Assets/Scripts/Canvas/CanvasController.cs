@@ -53,7 +53,7 @@ public class CanvasController : MonoBehaviour
         GameManager.MarketTile -= GameManager_MarketTile;
 
 
-
+      
     }
 
 
