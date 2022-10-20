@@ -8,8 +8,7 @@ TagManager:
   - Laser
   - Obstacle
   - Collectable
-  - RifleBullet
-  - RifleBarrel
+  - Bullet
   layers:
   - Default
   - TransparentFX
