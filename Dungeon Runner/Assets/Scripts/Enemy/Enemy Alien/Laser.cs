@@ -15,7 +15,7 @@ public class Laser : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position,transform.forward,out hit))
         {
-            if (hit.collider.gameObject.CompareTag("Player"))
+            if (hit.collider.gameObject.CompareTag("Player") && !EnemyAlien.inFireDistance)
             {
                 _line.enabled = true;
                 _line.SetPosition(0, barrel.position);
@@ -26,6 +26,5 @@ public class Laser : MonoBehaviour
         {
             _line.enabled = false;
         }
-
     }
 }

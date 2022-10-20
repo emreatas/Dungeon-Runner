@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class EnemyAlien : MonoBehaviour
 {
-    private Transform target;
+
     public EnemyScriptable alienStats;
-    private bool isEnemyDetected;
-    bool alreadyAttacked;
     public Animator anim;
+    public Transform barrel;
+    public static bool inFireDistance = false;
+
+    private Transform target;
+    private float fireRate = 1f;
+    private float fireCountDown = 0f;
+
+    [SerializeField]
+    private ObjectPooler bulletPool;
+
     void Update()
     {
         FindPlayer();
@@ -23,6 +31,12 @@ public class EnemyAlien : MonoBehaviour
             Vector3 rota = lookRotation.eulerAngles;
             transform.rotation = Quaternion.Euler(0f, rota.y + 3f, 0f);
             anim.SetBool("FireStart", true);
+            if (fireCountDown <= 0f && inFireDistance)
+            {
+                Fire();
+                fireCountDown = 1f / fireRate;
+            }
+            fireCountDown -= Time.deltaTime;
         }
     }
     void FindPlayer()
@@ -36,27 +50,30 @@ public class EnemyAlien : MonoBehaviour
                 target = player.transform;
                 if(distanceToPlayer <= alienStats.sightRange)
                 {
-                    isEnemyDetected = true;
+                    inFireDistance = true;
                 }
                 else
                 {
-                    isEnemyDetected = false;
+                    inFireDistance = false;
                 }
-                
             }
             else
             {
                 target = null;
-                isEnemyDetected = false;
+                inFireDistance = false;
             }
         }
     }
     void Fire()
     {
-        
+        GameObject obj = bulletPool.GetPooledObject(0);
+        if(!obj.activeSelf)
+        {
+            obj.SetActive(true);
+        }
+        obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        obj.transform.position = barrel.position;
+        obj.GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000f);
     }
-    private void ResetAttack()
-    {
-        alreadyAttacked = false;
-    }
+
 }
