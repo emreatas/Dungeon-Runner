@@ -28,10 +28,13 @@ public class GameManager : MonoBehaviour
     public static event Action ActivateDoubleKnife;
     public static event Action IncreaseThrowSpeed;
     public static event Action IncreaseAttackSpeed;
+    public static event Action IncreaseReloadSpeed;
 
     public static event Action IncreaseDamage;
     public static event Action IncreaseRange;
-    
+
+
+    public static event Action ActivateSideKnife;
 
     #region Movement Events
     public void OnDashLeft()
@@ -168,6 +171,22 @@ public class GameManager : MonoBehaviour
         if (IncreaseRange!=null)
         {
             IncreaseRange();
+        }
+    }
+
+    public void OnIncreaseReloadSpeed()
+    {
+        if (IncreaseReloadSpeed!=null)
+        {
+            IncreaseReloadSpeed();
+        }
+    }
+
+    public void OnActivateSideKnife()
+    {
+        if (ActivateSideKnife!=null)
+        {
+            ActivateSideKnife();
         }
     }
 	

@@ -27,10 +27,33 @@ public class CharacterAttack : MonoBehaviour
     private int holder=0;
     private int spawnCount = 1;
 
-
+    private void Awake()
+    {
+        _attackSpeed = attackStats.attackSpeed;
+        _reloadSpeed = attackStats.reloadSpeed;
+        _throwSpeed = attackStats.throwSpeed;
+    }
     private void OnEnable()
     {
         GameManager.ActivateDoubleKnife += GameManager_ActivateDoubleKnife;
+        GameManager.IncreaseAttackSpeed += GameManager_IncreaseAttackSpeed;
+        GameManager.IncreaseReloadSpeed += GameManager_IncreaseReloadSpeed;
+        GameManager.IncreaseThrowSpeed += GameManager_IncreaseThrowSpeed;
+    }
+
+    private void GameManager_IncreaseThrowSpeed()
+    {
+        _throwSpeed += _throwSpeed * 2f;
+    }
+
+    private void GameManager_IncreaseReloadSpeed()
+    {
+        _reloadSpeed += _reloadSpeed * 2f;
+    }
+
+    private void GameManager_IncreaseAttackSpeed()
+    {
+        _attackSpeed += _attackSpeed * 2f;
     }
 
     private void GameManager_ActivateDoubleKnife()
@@ -41,16 +64,13 @@ public class CharacterAttack : MonoBehaviour
     private void OnDisable()
     {
         GameManager.ActivateDoubleKnife -= GameManager_ActivateDoubleKnife;
+        GameManager.IncreaseAttackSpeed -= GameManager_IncreaseAttackSpeed;
+        GameManager.IncreaseReloadSpeed -= GameManager_IncreaseReloadSpeed;
+        GameManager.IncreaseThrowSpeed -= GameManager_IncreaseThrowSpeed;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _attackSpeed = attackStats.attackSpeed;
-        _reloadSpeed = attackStats.reloadSpeed;
-        _throwSpeed = attackStats.throwSpeed;
-
-    }
+   
+   
 
    
 

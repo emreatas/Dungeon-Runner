@@ -34,7 +34,7 @@ public class Knife : KnifeManager
             this.gameObject.SetActive(false);
             if (other.gameObject.CompareTag("Enemy"))
             {
-                
+                SpawnSideKnife();
             }
 
         }
@@ -51,12 +51,31 @@ public class Knife : KnifeManager
             
             this.gameObject.SetActive(false);
         }
-            
-            
+  
 
-        
-        
+    }
 
+
+    private void SpawnSideKnife()
+    {
+        if (isSideKnifeActive)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject go;
+                go=Instantiate(this.gameObject);
+                if (i==1)
+                {
+                    go.transform.rotation = Quaternion.Euler(0, -180, -90);
+                    go.GetComponent<Rigidbody>().AddForce(go.transform.up * attackData.throwSpeed);
+                }
+                else
+                {
+                    go.transform.rotation = Quaternion.Euler(0, 0, -90);
+                    go.GetComponent<Rigidbody>().AddForce(go.transform.up * attackData.throwSpeed);
+                }
+            }
+        }
     }
 
 }
