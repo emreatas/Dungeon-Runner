@@ -1021,6 +1021,7 @@ MonoBehaviour:
   characterCollider: {fileID: 1842304178791916618}
   trailEffect: {fileID: 1549481459}
   attack: {fileID: 1549481466}
+  charachterHealth: {fileID: 1549481478}
   isGrounded: 0
 --- !u!114 &1549481459
 MonoBehaviour:
@@ -1103,7 +1104,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
   attackData: {fileID: 11400000, guid: bd7f3ac2b82bf6643bfaab96bfc6fb84, type: 2}
-  isSideKnifeActive: 0
   knifeDamage: 0
   knifeRange: 0
 --- !u!114 &1549481478

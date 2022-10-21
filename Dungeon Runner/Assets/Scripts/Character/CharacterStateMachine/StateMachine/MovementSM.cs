@@ -30,6 +30,7 @@ public class MovementSM : StateMachine
     public CapsuleCollider characterCollider;
     public TrailEffect trailEffect;
     public CharacterAttack attack;
+    public CharacterHealth charachterHealth;
     public bool isGrounded;
 
     
@@ -71,6 +72,14 @@ public class MovementSM : StateMachine
         if (other.gameObject.CompareTag("Enemy"))
         {
             GameManager.Instance.OnDead();
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            charachterHealth.TakeDamege(other.gameObject.GetComponent<AlienBullet>().GetBulletDamage());
+            if (charachterHealth.characterCurrentHealth==0)
+            {
+                GameManager.Instance.OnDead();
+            }
         }
     }
 

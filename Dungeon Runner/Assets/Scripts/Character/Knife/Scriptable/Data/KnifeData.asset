@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: KnifeData
   m_EditorClassIdentifier: 
   knifeLifeTime: 1
-  knifeDamage: 0
+  knifeDamage: 20
