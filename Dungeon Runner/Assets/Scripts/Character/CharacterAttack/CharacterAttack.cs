@@ -188,7 +188,7 @@ public class CharacterAttack : MonoBehaviour
             spawnedKnife[1].transform.position = new Vector3(knifeSpawnPos.position.x - 2.5f, knifeSpawnPos.position.y, knifeSpawnPos.position.z);
             for (int i = 0; i < spawnedKnife.Count; i++)
             {
-                spawnedKnife[i].GetComponent<Rigidbody>().AddForce(go.transform.up * _throwSpeed * 100f);
+                spawnedKnife[i].GetComponent<Rigidbody>().AddForce(spawnedKnife[i].transform.up * _throwSpeed * 100f);
             }
         }
      
