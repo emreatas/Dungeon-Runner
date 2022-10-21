@@ -76,7 +76,7 @@ public class EnemyAlien : MonoBehaviour
         }
         obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
         obj.transform.position = barrel.position;
-        obj.GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000f);
+        obj.GetComponent<Rigidbody>().AddForce(barrel.transform.forward * obj.GetComponent<AlienBullet>().GetBulletSpeed());
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -95,7 +95,7 @@ public class EnemyAlien : MonoBehaviour
         GameManager.LevelWave += GameManager_LevelWave;
         isDied = false;
         anim.SetBool("Die", false);
-        alienStats.health = wave * 10;
+        alienStats.health = (wave+1) * 10;
     }
     private void GameManager_LevelWave(int obj)
     {
