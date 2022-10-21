@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class EnemyAlien : MonoBehaviour
 {
@@ -9,19 +10,16 @@ public class EnemyAlien : MonoBehaviour
     public Animator anim;
     public Transform barrel;
     public static bool inFireDistance = false;
+    public GameObject rig;
 
     private Transform target;
     private float fireRate = 2f;
     private float fireCountDown = 0f;
     private int wave;
+    private bool isDied = false;
 
     [SerializeField]
     private ObjectPooler bulletPool;
-
-    private void Start()
-    {
-                
-    }
     void Update()
     {
         FindPlayer();
@@ -35,8 +33,8 @@ public class EnemyAlien : MonoBehaviour
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             Vector3 rota = lookRotation.eulerAngles;
             transform.rotation = Quaternion.Euler(0f, rota.y + 3f, 0f);
-            anim.SetBool("FireStart", true);
-            if (fireCountDown <= 0f && inFireDistance)
+            
+            if (fireCountDown <= 0f && inFireDistance && !isDied)
             {
                 Fire();
                 fireCountDown = 1f / fireRate;
@@ -88,13 +86,16 @@ public class EnemyAlien : MonoBehaviour
             alienStats.health -= 5;
             if(alienStats.health <= 0)
             {
-                
+                isDied = true;
+                anim.SetBool("Die", true);
             }
         }
     }
     void OnEnable()
     {
         GameManager.LevelWave += GameManager_LevelWave;
+        isDied = false;
+        anim.SetBool("Die", false);
         alienStats.health = wave * 10;
     }
 
