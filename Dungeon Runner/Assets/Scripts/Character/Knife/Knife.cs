@@ -10,7 +10,7 @@ public class Knife : KnifeManager
     [HideInInspector]
     public float damage;
 
-    public ParticleSystem ps;
+   // public ParticleSystem ps;
   
 
   
@@ -25,7 +25,7 @@ public class Knife : KnifeManager
     {
         _rb = GetComponent<Rigidbody>();
         _rb.velocity = Vector3.zero;
-        ps.Stop();
+        //ps.Stop();
     }
 
    
@@ -37,8 +37,8 @@ public class Knife : KnifeManager
             this.gameObject.SetActive(false);
             if (other.gameObject.CompareTag("Enemy"))
             {
-                SpawnSideKnife();
-                ps.Play();
+                //SpawnSideKnife();
+                //ps.Play();
             }
             
         }
@@ -63,7 +63,7 @@ public class Knife : KnifeManager
     }
 
 
-    private void SpawnSideKnife()
+    /*private void SpawnSideKnife()
     {
         if (isSideKnifeActive)
         {
@@ -83,6 +83,6 @@ public class Knife : KnifeManager
                 }
             }
         }
-    }
+    }*/
 
 }

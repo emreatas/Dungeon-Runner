@@ -9,8 +9,7 @@ public class KnifeManager :MonoBehaviour
     public AttackStatsScriptable attackData;
 
 
-    [HideInInspector]
-    public bool isSideKnifeActive=false;
+    
 
     [HideInInspector]
     public float knifeDamage;
@@ -20,13 +19,10 @@ public class KnifeManager :MonoBehaviour
     {
         GameManager.IncreaseDamage += GameManager_IncreaseDamage;
         GameManager.IncreaseRange += GameManager_IncreaseRange;
-        GameManager.ActivateSideKnife += GameManager_ActivateSideKnife;
+      
     }
 
-    private void GameManager_ActivateSideKnife()
-    {
-        isSideKnifeActive = true;
-    }
+   
 
     private void GameManager_IncreaseRange()
     {
@@ -41,7 +37,7 @@ public class KnifeManager :MonoBehaviour
     {
         GameManager.IncreaseDamage -= GameManager_IncreaseDamage;
         GameManager.IncreaseRange -= GameManager_IncreaseRange;
-        GameManager.ActivateSideKnife -= GameManager_ActivateSideKnife;
+        
     }
 
     private void Awake()

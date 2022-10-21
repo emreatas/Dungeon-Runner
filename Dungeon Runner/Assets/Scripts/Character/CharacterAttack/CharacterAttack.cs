@@ -27,11 +27,16 @@ public class CharacterAttack : MonoBehaviour
     private int holder=0;
     private int spawnCount = 1;
 
+
+    [Header("Skill")]
+    private bool _tripleKnife;
+
     private void Awake()
     {
         _attackSpeed = attackStats.attackSpeed;
         _reloadSpeed = attackStats.reloadSpeed;
         _throwSpeed = attackStats.throwSpeed;
+        _tripleKnife = false;
     }
     private void OnEnable()
     {
@@ -39,6 +44,12 @@ public class CharacterAttack : MonoBehaviour
         GameManager.IncreaseAttackSpeed += GameManager_IncreaseAttackSpeed;
         GameManager.IncreaseReloadSpeed += GameManager_IncreaseReloadSpeed;
         GameManager.IncreaseThrowSpeed += GameManager_IncreaseThrowSpeed;
+        GameManager.ActivateSideKnife += GameManager_ActivateSideKnife;
+    }
+
+    private void GameManager_ActivateSideKnife()
+    {
+        _tripleKnife = true;
     }
 
     private void GameManager_IncreaseThrowSpeed()
@@ -67,12 +78,10 @@ public class CharacterAttack : MonoBehaviour
         GameManager.IncreaseAttackSpeed -= GameManager_IncreaseAttackSpeed;
         GameManager.IncreaseReloadSpeed -= GameManager_IncreaseReloadSpeed;
         GameManager.IncreaseThrowSpeed -= GameManager_IncreaseThrowSpeed;
+        GameManager.ActivateSideKnife -= GameManager_ActivateSideKnife;
     }
 
-   
-   
-
-   
+  
 
     public void Attack()
     {
@@ -99,6 +108,7 @@ public class CharacterAttack : MonoBehaviour
                 _reached = true;
                 knife.SetActive(false);
                 StartCoroutine(SpawnKnife(spawnCount));
+                TripleKnife();
 
 
 
@@ -160,6 +170,28 @@ public class CharacterAttack : MonoBehaviour
 
 
 
+    }
+
+    private void TripleKnife()
+    {
+        if (_tripleKnife)
+        {
+            List<GameObject> spawnedKnife = new List<GameObject>();
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject go;
+                go = objectPooler.GetPooledObject(0);
+                spawnedKnife.Add(go);
+            }
+            spawnedKnife[0].transform.position = knifeSpawnPos.position;
+            spawnedKnife[1].transform.position = new Vector3(knifeSpawnPos.position.x + 2.5f, knifeSpawnPos.position.y, knifeSpawnPos.position.z);
+            spawnedKnife[1].transform.position = new Vector3(knifeSpawnPos.position.x - 2.5f, knifeSpawnPos.position.y, knifeSpawnPos.position.z);
+            for (int i = 0; i < spawnedKnife.Count; i++)
+            {
+                spawnedKnife[i].GetComponent<Rigidbody>().AddForce(go.transform.up * _throwSpeed * 100f);
+            }
+        }
+     
     }
 }
 
