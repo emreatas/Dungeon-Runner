@@ -22,12 +22,21 @@ public class CanvasController : MonoBehaviour
 
     private void GameManager_MarketTile()
     {
-       // _marketPanel.SetActive(true);
+        _marketPanel.SetActive(true);
+        Time.timeScale = 0;
+        GameManager.Instance.OnGamePause(true);
+
     }
 
     private void GameManager_BuySkill(int obj)
     {
         _collectItem.text = "x" + GameManager.Instance.GetCurrency();
+        _marketPanel.SetActive(false);
+        Time.timeScale = 1;
+
+        GameManager.Instance.OnGamePause(false);
+
+
 
 
     }
@@ -53,7 +62,7 @@ public class CanvasController : MonoBehaviour
         GameManager.MarketTile -= GameManager_MarketTile;
 
 
-      
+
     }
 
 

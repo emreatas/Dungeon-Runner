@@ -47,8 +47,8 @@ public class LevelMovement : MonoBehaviour
                     break;
                 case TileType.Market:
 
-                    // GameManager.Instance.OnGamePause(true);
-                    //GameManager.Instance.OnMarketTile();
+                    GameManager.Instance.OnGamePause(true);
+                    GameManager.Instance.OnMarketTile();
 
                     break;
             }

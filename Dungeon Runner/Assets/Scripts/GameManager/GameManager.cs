@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnDamageIncrease()
+    public void OnIncreaseDamage()
     {
         if (IncreaseDamage!=null)
         {
