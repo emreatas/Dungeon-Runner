@@ -78,15 +78,16 @@ public class EnemyAlien : MonoBehaviour
         obj.transform.position = barrel.position;
         obj.GetComponent<Rigidbody>().AddForce(barrel.transform.forward * obj.GetComponent<AlienBullet>().GetBulletSpeed());
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Knife")
         {
-            alienStats.health -= 5;
+            alienStats.health -= (int)collision.GetComponent<Knife>().damage;
             if(alienStats.health <= 0)
             {
                 isDied = true;
                 anim.SetBool("Die", true);
+                targetWeight = 0f;
             }
         }
     }
@@ -95,7 +96,7 @@ public class EnemyAlien : MonoBehaviour
         GameManager.LevelWave += GameManager_LevelWave;
         isDied = false;
         anim.SetBool("Die", false);
-        alienStats.health = (wave+1) * 10;
+        alienStats.health = 20 + wave * 20;
     }
     private void GameManager_LevelWave(int obj)
     {
