@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fe3400f280dee479ec0588ee304e30, type: 3}
   m_Name: EnemyAlienStats
   m_EditorClassIdentifier: 
-  range: 30
+  range: 50
   sightRange: 20
   playerTag: Player
   health: 0
+  fireRate: 0.2
