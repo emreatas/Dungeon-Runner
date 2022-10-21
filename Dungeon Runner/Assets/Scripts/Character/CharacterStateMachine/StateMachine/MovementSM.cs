@@ -68,6 +68,10 @@ public class MovementSM : StateMachine
             GameManager.Instance.OnCollectItem();
             
         }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            GameManager.Instance.OnDead();
+        }
     }
 
     protected override BaseState GetInitialState()
