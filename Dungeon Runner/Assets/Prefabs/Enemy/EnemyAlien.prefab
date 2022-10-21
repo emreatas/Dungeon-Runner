@@ -2539,7 +2539,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974668477769868033}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.2109551, y: 0, z: -4.804873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2599,7 +2599,8 @@ MonoBehaviour:
   alienStats: {fileID: 11400000, guid: 72007741fd6ab64489e1e3aedac5d1c9, type: 2}
   anim: {fileID: 924592728638264917}
   barrel: {fileID: 1221702830769389842}
-  rig: {fileID: 2189329252051142258}
+  aimTarget: {fileID: 3667980208414585502}
+  rig: {fileID: 4852481802210799914}
   bulletPool: {fileID: 9121829053606170852}
 --- !u!114 &9121829053606170852
 MonoBehaviour:
