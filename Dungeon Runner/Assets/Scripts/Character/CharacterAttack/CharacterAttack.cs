@@ -189,7 +189,7 @@ public class CharacterAttack : MonoBehaviour
 
             spawnedKnife[0].transform.rotation = Quaternion.Euler(0, -90f, -90f);
             spawnedKnife[1].transform.rotation = Quaternion.Euler(0, -145f, -90f);
-            spawnedKnife[2].transform.rotation = Quaternion.Euler(0, -135f, -90f);
+            spawnedKnife[2].transform.rotation = Quaternion.Euler(0, -35f, -90f);
 
 
             for (int i = 0; i < spawnedKnife.Count; i++)
