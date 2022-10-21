@@ -13,7 +13,6 @@ public class EnemyAlien : MonoBehaviour
     public Rig rig;
 
     private Transform target;
-    private float fireRate = 2f;
     private float fireCountDown = 0f;
     private int wave;
     private bool isDied = false;
@@ -35,7 +34,7 @@ public class EnemyAlien : MonoBehaviour
             if (fireCountDown <= 0f && inFireDistance && !isDied)
             {
                 Fire();
-                fireCountDown = 1f / fireRate;
+                fireCountDown = 1f / alienStats.fireRate;
             }
             fireCountDown -= Time.deltaTime;
         }
@@ -56,11 +55,13 @@ public class EnemyAlien : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("Uzakta");
                     inFireDistance = false;
                 }
             }
             else
             {
+                Debug.Log("Uzakta");
                 target = null;
                 inFireDistance = false;
             }

@@ -282,8 +282,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509575980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.93, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -43.93, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1554167079}
@@ -399,7 +399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1363233954}
-  characterHealthData: {fileID: 0}
+  characterHealthData: {fileID: 11400000, guid: b58f3c4752030014da01dd13002b140f,
+    type: 2}
   characterCurrentHealth: 0
 --- !u!1 &1554167076
 GameObject:
