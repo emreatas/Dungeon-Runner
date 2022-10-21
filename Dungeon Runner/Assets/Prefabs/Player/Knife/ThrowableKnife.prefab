@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7609502216575096915}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: 0.28534955, y: -0.28534955, z: -0.64697427, w: 0.64697427}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -37,7 +37,7 @@ Transform:
   - {fileID: 9013244597226093354}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -47.6, z: -90}
 --- !u!33 &7632276492360395565
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -131,11 +131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
   attackData: {fileID: 11400000, guid: bd7f3ac2b82bf6643bfaab96bfc6fb84, type: 2}
-  isSideKnifeActive: 0
   knifeDamage: 0
   knifeRange: 0
   damage: 0
-  ps: {fileID: 9197509782318952548}
 --- !u!96 &3194477597362317222
 TrailRenderer:
   serializedVersion: 2
@@ -309,12 +307,6 @@ PrefabInstance:
 --- !u!4 &9013244597226093354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4192843778237182, guid: a22bb852cf433044e8752ea7fe62f570,
-    type: 3}
-  m_PrefabInstance: {fileID: 9014974358864435668}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &9197509782318952548 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198018749353404848, guid: a22bb852cf433044e8752ea7fe62f570,
     type: 3}
   m_PrefabInstance: {fileID: 9014974358864435668}
   m_PrefabAsset: {fileID: 0}

@@ -184,8 +184,14 @@ public class CharacterAttack : MonoBehaviour
                 spawnedKnife.Add(go);
             }
             spawnedKnife[0].transform.position = knifeSpawnPos.position;
-            spawnedKnife[1].transform.position = new Vector3(knifeSpawnPos.position.x + 2.5f, knifeSpawnPos.position.y, knifeSpawnPos.position.z);
-            spawnedKnife[1].transform.position = new Vector3(knifeSpawnPos.position.x - 2.5f, knifeSpawnPos.position.y, knifeSpawnPos.position.z);
+            spawnedKnife[1].transform.position = knifeSpawnPos.position;
+            spawnedKnife[2].transform.position = knifeSpawnPos.position;
+
+            spawnedKnife[0].transform.rotation = Quaternion.Euler(0, -90f, -90f);
+            spawnedKnife[1].transform.rotation = Quaternion.Euler(0, -145f, -90f);
+            spawnedKnife[2].transform.rotation = Quaternion.Euler(0, -135f, -90f);
+
+
             for (int i = 0; i < spawnedKnife.Count; i++)
             {
                 spawnedKnife[i].GetComponent<Rigidbody>().AddForce(spawnedKnife[i].transform.up * _throwSpeed * 100f);
