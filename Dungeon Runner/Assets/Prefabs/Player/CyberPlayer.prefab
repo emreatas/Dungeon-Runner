@@ -1119,6 +1119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 969871634}
+  characterHealthData: {fileID: 11400000, guid: b58f3c4752030014da01dd13002b140f,
+    type: 2}
+  characterCurrentHealth: 0
 --- !u!1 &1783799923900672902
 GameObject:
   m_ObjectHideFlags: 0
