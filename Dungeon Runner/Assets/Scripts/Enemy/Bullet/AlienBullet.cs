@@ -18,7 +18,7 @@ public class AlienBullet : MonoBehaviour
     void OnEnable()
     {
         GameManager.LevelWave += GameManager_LevelWave;
-        bulletSpeed = 1000f + (wave+1) * 100f;
+        bulletSpeed = 1000f + (wave+1) * 1000f;
         bulletDamage = (wave + 1) * 5;
     }
 
