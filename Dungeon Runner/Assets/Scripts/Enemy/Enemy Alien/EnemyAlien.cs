@@ -9,10 +9,10 @@ public class EnemyAlien : MonoBehaviour
     public Animator anim;
     public Transform barrel;
     public static bool inFireDistance = false;
+    public Transform aimTarget;
     public Rig rig;
 
     private Transform target;
-    private Transform aimTarget;
     private float fireRate = 2f;
     private float fireCountDown = 0f;
     private int wave;
@@ -48,6 +48,7 @@ public class EnemyAlien : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
             if (distanceToPlayer <= alienStats.range)
             {
+                aimTarget.position = player.GetComponent<CharacterHealth>().lookAt.position;
                 if(distanceToPlayer <= alienStats.sightRange)
                 {
                     inFireDistance = true;
