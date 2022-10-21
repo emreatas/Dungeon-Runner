@@ -48,6 +48,7 @@ public class EnemyAlien : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
             if (distanceToPlayer <= alienStats.range)
             {
+                target = player.transform;
                 aimTarget.position = player.GetComponent<CharacterHealth>().lookAt.position;
                 if(distanceToPlayer <= alienStats.sightRange)
                 {
