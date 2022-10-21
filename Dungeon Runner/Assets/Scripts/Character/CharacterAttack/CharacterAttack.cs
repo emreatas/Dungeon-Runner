@@ -12,25 +12,47 @@ public class CharacterAttack : MonoBehaviour
     private bool _reached = false;
     private bool _isAttacking = false;
     public GameObject knife;
-   
+
+    [Header("Stats")]
+    private float _attackSpeed;
+    private float _reloadSpeed;
+    private float _throwSpeed;
 
 
     [Header("Object Pooler")]
     public ObjectPooler objectPooler;
     public Transform knifeSpawnPos;
 
+
+    private int holder=0;
+    private int spawnCount = 1;
+
+
+    private void OnEnable()
+    {
+        GameManager.ActivateDoubleKnife += GameManager_ActivateDoubleKnife;
+    }
+
+    private void GameManager_ActivateDoubleKnife()
+    {
+        spawnCount++;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.ActivateDoubleKnife -= GameManager_ActivateDoubleKnife;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _attackSpeed = attackStats.attackSpeed;
+        _reloadSpeed = attackStats.reloadSpeed;
+        _throwSpeed = attackStats.throwSpeed;
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+   
 
     public void Attack()
     {
@@ -38,29 +60,29 @@ public class CharacterAttack : MonoBehaviour
         {
             StartCoroutine(ThrowKnife());
             _isAttacking = true;
-           
+
         }
-        
+
     }
 
     IEnumerator ThrowKnife()
     {
         yield return new WaitForEndOfFrame();
-        
+
         if (!_reached)
         {
 
-            iK.weight = Mathf.MoveTowards(iK.weight, 1f, attackStats.attackSpeed * Time.deltaTime);
+            iK.weight = Mathf.MoveTowards(iK.weight, 1f, _attackSpeed * Time.deltaTime);
 
             if (iK.weight == 1f)
             {
                 _reached = true;
                 knife.SetActive(false);
-                GameObject go;
-                go = objectPooler.GetPooledObject(0);
-                go.transform.position = knifeSpawnPos.position;
-                go.GetComponent<Rigidbody>().AddForce(go.transform.up * attackStats.throwSpeed*100f);
-               
+                StartCoroutine(SpawnKnife(spawnCount));
+
+
+
+
             }
             StartCoroutine(ThrowKnife());
 
@@ -77,11 +99,11 @@ public class CharacterAttack : MonoBehaviour
     IEnumerator ReloadKnife()
     {
         yield return new WaitForEndOfFrame();
-       
+
         if (_reached)
         {
 
-            iK.weight = Mathf.MoveTowards(iK.weight, 0f, attackStats.reloadSpeed * Time.deltaTime);
+            iK.weight = Mathf.MoveTowards(iK.weight, 0f, _reloadSpeed * Time.deltaTime);
 
 
 
@@ -96,8 +118,26 @@ public class CharacterAttack : MonoBehaviour
     }
 
 
-    public void ThrowKnifeX()
+    IEnumerator SpawnKnife(int spawnCount)
     {
+        if (holder!=spawnCount)
+        {
+            GameObject go;
+            go = objectPooler.GetPooledObject(0);
+            go.transform.position = knifeSpawnPos.position;
+            go.GetComponent<Rigidbody>().AddForce(go.transform.up * _throwSpeed * 100f);
+            holder++;
+            yield return new WaitForSeconds(0.2f);
+            StartCoroutine(SpawnKnife(spawnCount));
+            
+        }
+        else
+        {
+            StopCoroutine(SpawnKnife(spawnCount));
+            holder = 0;
+        }
+        
+
 
 
     }

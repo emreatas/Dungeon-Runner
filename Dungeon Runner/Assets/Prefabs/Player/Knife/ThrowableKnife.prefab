@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
+  knifeDamage: 0
+  knifeRange: 0
+  damage: 0
 --- !u!96 &3194477597362317222
 TrailRenderer:
   serializedVersion: 2

@@ -24,6 +24,15 @@ public class GameManager : MonoBehaviour
     public static event Action MarketTile;
     public static event Action<int> LevelWave;
 
+
+    public static event Action ActivateDoubleKnife;
+    public static event Action IncreaseThrowSpeed;
+    public static event Action IncreaseAttackSpeed;
+
+    public static event Action IncreaseDamage;
+    public static event Action IncreaseRange;
+    
+
     #region Movement Events
     public void OnDashLeft()
     {
@@ -122,5 +131,45 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    public void OnActivateDoubleKnife()
+    {
+        if (ActivateDoubleKnife!=null)
+        {
+            ActivateDoubleKnife();
+        }
+    }
+    public void OnIncreaseThrowSpeed()
+    {
+        if (IncreaseThrowSpeed!=null)
+        {
+            IncreaseThrowSpeed();
+        }
+    }
+    
+    public void OnIncreaseAttackSpeed()
+    {
+        if (IncreaseAttackSpeed!=null)
+        {
+            IncreaseAttackSpeed();
+        }
+    }
+
+    public void OnDamageIncrease()
+    {
+        if (IncreaseDamage!=null)
+        {
+            IncreaseDamage();
+        }
+    }
+
+    public void OnIncreaseRange()
+    {
+        if (IncreaseRange!=null)
+        {
+            IncreaseRange();
+        }
+    }
+	
 
 }

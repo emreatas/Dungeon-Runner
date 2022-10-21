@@ -9,14 +9,14 @@ public class Knife : KnifeManager
 
     [HideInInspector]
     public float damage;
-    private float _range;
+  
 
   
 
     private void OnEnable()
     {
-        StartCoroutine(KnifeLifeTime(knifeData.knifeLifeTime));
-
+        StartCoroutine(KnifeLifeTime(knifeRange));
+       
 
     }
     private void OnDisable()
@@ -48,7 +48,7 @@ public class Knife : KnifeManager
         yield return new WaitForSeconds(lifeTime);
         if (gameObject.activeSelf)
         {
-            //KnifeSkillFunction();
+            
             this.gameObject.SetActive(false);
         }
             
