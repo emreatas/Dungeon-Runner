@@ -33,6 +33,10 @@ public class AlienBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        gameObject.SetActive(false);
+        if (!other.gameObject.CompareTag("Untagged"))
+        {
+            gameObject.SetActive(false);
+        }
+        
     }
 }
