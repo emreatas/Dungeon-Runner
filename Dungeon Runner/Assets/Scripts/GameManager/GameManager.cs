@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public static event Action MarketTile;
     public static event Action<int> LevelWave;
 
-
+    #region Skill Events
     public static event Action ActivateDoubleKnife;
     public static event Action IncreaseThrowSpeed;
     public static event Action IncreaseAttackSpeed;
@@ -33,8 +33,10 @@ public class GameManager : MonoBehaviour
     public static event Action IncreaseDamage;
     public static event Action IncreaseRange;
 
-
     public static event Action ActivateSideKnife;
+    #endregion
+
+
 
     #region Movement Events
     public void OnDashLeft()

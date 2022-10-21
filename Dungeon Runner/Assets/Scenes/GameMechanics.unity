@@ -1556,6 +1556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
+  attackData: {fileID: 11400000, guid: bd7f3ac2b82bf6643bfaab96bfc6fb84, type: 2}
+  isSideKnifeActive: 0
   knifeDamage: 0
   knifeRange: 0
 --- !u!1 &1843449431

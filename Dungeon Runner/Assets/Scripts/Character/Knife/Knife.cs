@@ -9,6 +9,8 @@ public class Knife : KnifeManager
 
     [HideInInspector]
     public float damage;
+
+    public ParticleSystem ps;
   
 
   
@@ -23,6 +25,7 @@ public class Knife : KnifeManager
     {
         _rb = GetComponent<Rigidbody>();
         _rb.velocity = Vector3.zero;
+        ps.Stop();
     }
 
    
@@ -38,7 +41,7 @@ public class Knife : KnifeManager
             }
 
         }
-        
+        ps.Play();
         
     }
 
