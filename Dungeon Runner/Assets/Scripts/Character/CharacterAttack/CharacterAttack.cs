@@ -107,8 +107,9 @@ public class CharacterAttack : MonoBehaviour
             {
                 _reached = true;
                 knife.SetActive(false);
-                StartCoroutine(SpawnKnife(spawnCount));
                 TripleKnife();
+                StartCoroutine(SpawnKnife(spawnCount));
+                
 
 
 
