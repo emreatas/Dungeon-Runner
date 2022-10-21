@@ -30,4 +30,9 @@ public class AlienBullet : MonoBehaviour
     {
         GameManager.LevelWave += GameManager_LevelWave;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        gameObject.SetActive(false);
+    }
 }

@@ -20,6 +20,9 @@ public class EnemyAlien : MonoBehaviour
 
     [SerializeField]
     private ObjectPooler bulletPool;
+
+
+    
     void Update()
     {
         rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
@@ -38,6 +41,7 @@ public class EnemyAlien : MonoBehaviour
             }
             fireCountDown -= Time.deltaTime;
         }
+        Debug.Log("Alien caný: " + alienStats.health);
     }
     void FindPlayer()
     {
@@ -55,16 +59,15 @@ public class EnemyAlien : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Uzakta");
                     inFireDistance = false;
                 }
             }
             else
             {
-                Debug.Log("Uzakta");
                 target = null;
                 inFireDistance = false;
             }
+            
         }
     }
     void Fire()
@@ -82,28 +85,39 @@ public class EnemyAlien : MonoBehaviour
     {
         if(collision.gameObject.tag == "Knife")
         {
+            Debug.Log("Vurduk");
             alienStats.health -= (int)collision.GetComponent<Knife>().damage;
             if(alienStats.health <= 0)
             {
                 isDied = true;
                 anim.SetBool("Die", true);
                 targetWeight = 0f;
+                gameObject.GetComponent<Collider>().enabled = false;
             }
         }
     }
     void OnEnable()
     {
         GameManager.LevelWave += GameManager_LevelWave;
+        GameManager.Dead += GameManager_Dead;
         isDied = false;
         anim.SetBool("Die", false);
+        gameObject.GetComponent<Collider>().enabled = true;
         alienStats.health = 20 + wave * 20;
     }
+
+    private void GameManager_Dead()
+    {
+        inFireDistance = false;
+    }
+
     private void GameManager_LevelWave(int obj)
     {
         wave = obj;
     }
     private void OnDisable()
     {
+        GameManager.Dead -= GameManager_Dead;
         GameManager.LevelWave -= GameManager_LevelWave;
     }
 }
