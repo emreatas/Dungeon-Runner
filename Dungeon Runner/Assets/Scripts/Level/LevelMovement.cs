@@ -65,7 +65,6 @@ public class LevelMovement : MonoBehaviour
 
 
 
-        _movement = 15;
 
         GameManager.Dead += GameManager_Dead;
         GameManager.LevelWave += GameManager_LevelWave;
