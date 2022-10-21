@@ -23,12 +23,16 @@ public class LevelGenerator : MonoBehaviour
 
     private void Start()
     {
-        GameObject obj = objectPool.GetPooledObject(flag);
+        GameObject obj = objectPool.GetPooledObject(1);
         obj.transform.position = new Vector3(0, 0, 15);
         flagObj = obj;
+        GameObject obj2 = objectPool.GetPooledObject(1);
+        obj2.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
+        flagObj = obj2;
+        GameObject ob3 = objectPool.GetPooledObject(1);
+        ob3.transform.position = new Vector3(0, 0, flagObj.transform.position.z + 15 - 0.1f);
+        flagObj = ob3;
 
-        SpawnNonObstacleTile();
-        SpawnNonObstacleTile();
         SpawnObstacleTile();
 
         GameManager.Instance.OnLevelWave(wave);
