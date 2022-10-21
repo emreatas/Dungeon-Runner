@@ -18,6 +18,7 @@ public class Knife : KnifeManager
     private void OnEnable()
     {
         StartCoroutine(KnifeLifeTime(knifeRange));
+        damage = knifeDamage;
        
 
     }
