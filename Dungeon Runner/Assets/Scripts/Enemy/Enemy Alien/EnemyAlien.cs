@@ -5,35 +5,33 @@ using UnityEngine.Animations.Rigging;
 
 public class EnemyAlien : MonoBehaviour
 {
-
     public EnemyScriptable alienStats;
     public Animator anim;
     public Transform barrel;
     public static bool inFireDistance = false;
-    public GameObject rig;
+    public Rig rig;
 
     private Transform target;
+    private Transform aimTarget;
     private float fireRate = 2f;
     private float fireCountDown = 0f;
     private int wave;
     private bool isDied = false;
+    private float targetWeight = 0f;
 
     [SerializeField]
     private ObjectPooler bulletPool;
     void Update()
     {
+        rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
         FindPlayer();
         if (target == null)
         {
-            anim.SetBool("FireStart", false);
+            targetWeight = 0f;
         }
         else
         {
-            Vector3 direction = target.position - transform.position;
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            Vector3 rota = lookRotation.eulerAngles;
-            transform.rotation = Quaternion.Euler(0f, rota.y + 3f, 0f);
-            
+            targetWeight = 1f;
             if (fireCountDown <= 0f && inFireDistance && !isDied)
             {
                 Fire();
@@ -50,7 +48,6 @@ public class EnemyAlien : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
             if (distanceToPlayer <= alienStats.range)
             {
-                target = player.transform;
                 if(distanceToPlayer <= alienStats.sightRange)
                 {
                     inFireDistance = true;
@@ -78,7 +75,6 @@ public class EnemyAlien : MonoBehaviour
         obj.transform.position = barrel.position;
         obj.GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000f);
     }
-
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Knife")
@@ -98,7 +94,6 @@ public class EnemyAlien : MonoBehaviour
         anim.SetBool("Die", false);
         alienStats.health = wave * 10;
     }
-
     private void GameManager_LevelWave(int obj)
     {
         wave = obj;
