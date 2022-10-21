@@ -7,7 +7,5 @@ public class EnemyScriptable : ScriptableObject
     public float range, sightRange;
     public string playerTag = "Player";
     public int health;
-    public int movementSpeed;
-    public float timeBetweenAttacks;
-    public GameObject fireTile;
+    public float fireRate;
 }

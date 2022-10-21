@@ -21,6 +21,10 @@ public class Laser : MonoBehaviour
                 _line.SetPosition(0, barrel.position);
                 _line.SetPosition(1, hit.point);
             }
+            else
+            {
+                _line.enabled = false;
+            }
         }
         else
         {
