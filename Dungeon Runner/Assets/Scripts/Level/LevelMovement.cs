@@ -66,7 +66,7 @@ public class LevelMovement : MonoBehaviour
 
         GameManager.Dead += GameManager_Dead;
         GameManager.LevelWave += GameManager_LevelWave;
-        _movement = (wave+1) * 5;
+        _movement = (wave + 1) * 15;
 
 
 
@@ -128,7 +128,7 @@ public class LevelMovement : MonoBehaviour
 
     private void GameManager_LevelWave(int obj)
     {
-       // _movement = (obj + 1) * 5;
+        // _movement = (obj + 1) * 5;
         wave = obj;
     }
 
