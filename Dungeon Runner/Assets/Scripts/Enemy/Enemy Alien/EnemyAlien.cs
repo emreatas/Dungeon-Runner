@@ -41,7 +41,6 @@ public class EnemyAlien : MonoBehaviour
             }
             fireCountDown -= Time.deltaTime;
         }
-        Debug.Log("Alien caný: " + alienStats.health);
     }
     void FindPlayer()
     {

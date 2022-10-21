@@ -10,6 +10,7 @@ public class CanvasController : MonoBehaviour
     [SerializeField] private GameObject _deadPanel;
     [SerializeField] private GameObject _marketPanel;
     [SerializeField] private TextMeshProUGUI _collectItem;
+    [SerializeField] private Image _healthImage;
 
 
     private void OnEnable()

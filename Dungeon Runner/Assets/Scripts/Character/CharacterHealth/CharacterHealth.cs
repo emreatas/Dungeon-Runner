@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterHealth : MonoBehaviour,IDamageable
+public class CharacterHealth : MonoBehaviour, IDamageable
 {
     public Transform lookAt;
     public CharacterHealthStats characterHealthData;
@@ -15,7 +15,7 @@ public class CharacterHealth : MonoBehaviour,IDamageable
 
     private void GameManager_LevelWave(int obj)
     {
-        characterCurrentHealth += (obj+1) * 10;
+        characterCurrentHealth += (obj + 1) * 10;
     }
 
     private void OnDisable()
@@ -32,8 +32,5 @@ public class CharacterHealth : MonoBehaviour,IDamageable
         characterCurrentHealth -= damage;
     }
 
-    private void Update()
-    {
-        Debug.Log(characterCurrentHealth);
-    }
+
 }
