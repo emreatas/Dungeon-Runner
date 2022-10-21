@@ -782,10 +782,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1549481467, guid: 1826b1e2824783c42b0cf8e2e9bf9a03, type: 3}
-      propertyPath: _pools.Array.data[0]._poolSize
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 1783781758942966756, guid: 1826b1e2824783c42b0cf8e2e9bf9a03,
         type: 3}
       propertyPath: m_Name
@@ -1543,23 +1539,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 647594230}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1549481468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549481458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 638b909ab21b2ce40807090f731af48b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
-  attackData: {fileID: 11400000, guid: bd7f3ac2b82bf6643bfaab96bfc6fb84, type: 2}
-  isSideKnifeActive: 0
-  knifeDamage: 0
-  knifeRange: 0
 --- !u!1 &1843449431
 GameObject:
   m_ObjectHideFlags: 0

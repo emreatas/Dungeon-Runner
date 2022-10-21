@@ -39,10 +39,14 @@ public class Knife : KnifeManager
             {
                 SpawnSideKnife();
             }
+            
+        }
+        if (!other.gameObject.CompareTag("Knife"))
+        {
             ps.Play();
         }
         
-        
+
     }
 
 

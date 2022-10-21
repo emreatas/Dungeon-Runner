@@ -922,6 +922,8 @@ GameObject:
   - component: {fileID: 1549481465}
   - component: {fileID: 1549481466}
   - component: {fileID: 1549481467}
+  - component: {fileID: 1549481468}
+  - component: {fileID: 1549481478}
   m_Layer: 0
   m_Name: CyberPlayer
   m_TagString: Player
@@ -1087,6 +1089,36 @@ MonoBehaviour:
   - _objectPrefab: {fileID: 7609502216575096915, guid: 63cdb240f391b644dab51ea1744fbf16,
       type: 3}
     _poolSize: 50
+--- !u!114 &1549481468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783781758942966756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638b909ab21b2ce40807090f731af48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knifeData: {fileID: 11400000, guid: c52b0af7d56428d44b0725b125c06291, type: 2}
+  attackData: {fileID: 11400000, guid: bd7f3ac2b82bf6643bfaab96bfc6fb84, type: 2}
+  isSideKnifeActive: 0
+  knifeDamage: 0
+  knifeRange: 0
+--- !u!114 &1549481478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783781758942966756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8679b564c9b7a4d867dce092dd219c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookAt: {fileID: 969871634}
 --- !u!1 &1783799923900672902
 GameObject:
   m_ObjectHideFlags: 0
