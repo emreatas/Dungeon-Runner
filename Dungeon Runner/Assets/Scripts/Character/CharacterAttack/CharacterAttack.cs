@@ -188,8 +188,8 @@ public class CharacterAttack : MonoBehaviour
             spawnedKnife[2].transform.position = knifeSpawnPos.position;
 
             spawnedKnife[0].transform.rotation = Quaternion.Euler(0, -90f, -90f);
-            spawnedKnife[1].transform.rotation = Quaternion.Euler(0, -145f, -90f);
-            spawnedKnife[2].transform.rotation = Quaternion.Euler(0, -35f, -90f);
+            spawnedKnife[1].transform.rotation = Quaternion.Euler(0, -125f, -90f);
+            spawnedKnife[2].transform.rotation = Quaternion.Euler(0, -55f, -90f);
 
 
             for (int i = 0; i < spawnedKnife.Count; i++)
