@@ -25,6 +25,7 @@ public class LevelMovement : MonoBehaviour
 
 
 
+
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -62,9 +63,12 @@ public class LevelMovement : MonoBehaviour
     private void OnEnable()
     {
 
+
+
         _movement = 15;
 
         GameManager.Dead += GameManager_Dead;
+        GameManager.LevelWave += GameManager_LevelWave;
 
 
 
@@ -125,6 +129,11 @@ public class LevelMovement : MonoBehaviour
 
     }
 
+    private void GameManager_LevelWave(int obj)
+    {
+        _movement = (obj + 1) * 5;
+    }
+
     private void GameManager_Dead()
     {
         _movement = 0;
@@ -134,6 +143,8 @@ public class LevelMovement : MonoBehaviour
     private void OnDisable()
     {
         GameManager.Dead -= GameManager_Dead;
+        GameManager.LevelWave -= GameManager_LevelWave;
+
 
     }
     private void OnTriggerExit(Collider other)
