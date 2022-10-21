@@ -11,12 +11,17 @@ public class EnemyAlien : MonoBehaviour
     public static bool inFireDistance = false;
 
     private Transform target;
-    private float fireRate = 1f;
+    private float fireRate = 2f;
     private float fireCountDown = 0f;
+    private int wave;
 
     [SerializeField]
     private ObjectPooler bulletPool;
 
+    private void Start()
+    {
+                
+    }
     void Update()
     {
         FindPlayer();
@@ -76,4 +81,29 @@ public class EnemyAlien : MonoBehaviour
         obj.GetComponent<Rigidbody>().AddForce(barrel.transform.forward * 1000f);
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Knife")
+        {
+            alienStats.health -= 5;
+            if(alienStats.health <= 0)
+            {
+                
+            }
+        }
+    }
+    void OnEnable()
+    {
+        GameManager.LevelWave += GameManager_LevelWave;
+        alienStats.health = wave * 10;
+    }
+
+    private void GameManager_LevelWave(int obj)
+    {
+        wave = obj;
+    }
+    private void OnDisable()
+    {
+        GameManager.LevelWave -= GameManager_LevelWave;
+    }
 }
