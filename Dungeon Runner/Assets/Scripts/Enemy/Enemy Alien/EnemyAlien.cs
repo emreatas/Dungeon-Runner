@@ -21,6 +21,9 @@ public class EnemyAlien : MonoBehaviour
     [SerializeField]
     private ObjectPooler bulletPool;
 
+    [SerializeField]
+    private ParticleSystem bloodPs;
+
 
     
     void Update()
@@ -86,6 +89,7 @@ public class EnemyAlien : MonoBehaviour
         {
             Debug.Log("Vurduk");
             alienStats.health -= (int)collision.GetComponent<Knife>().damage;
+            bloodPs.Play();
             if(alienStats.health <= 0)
             {
                 isDied = true;
