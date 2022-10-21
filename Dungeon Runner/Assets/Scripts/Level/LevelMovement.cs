@@ -12,7 +12,8 @@ public class LevelMovement : MonoBehaviour
     [SerializeField] private List<GameObject> _collectableItemLane;
     [SerializeField] private List<GameObject> _enemySpawnPoint;
 
-    private int _movement;
+    [SerializeField] private int _movement;
+    private int wave;
     public enum TileType
     {
         Obstacle,
@@ -62,10 +63,10 @@ public class LevelMovement : MonoBehaviour
     private void OnEnable()
     {
 
-        _movement = 15;
 
         GameManager.Dead += GameManager_Dead;
-
+        GameManager.LevelWave += GameManager_LevelWave;
+        _movement = (wave+1) * 5;
 
 
 
@@ -125,6 +126,12 @@ public class LevelMovement : MonoBehaviour
 
     }
 
+    private void GameManager_LevelWave(int obj)
+    {
+       // _movement = (obj + 1) * 5;
+        wave = obj;
+    }
+
     private void GameManager_Dead()
     {
         _movement = 0;
@@ -133,7 +140,8 @@ public class LevelMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.Dead -= GameManager_Dead;
+        GameManager.Dead -= GameManager_Dead; GameManager.LevelWave -= GameManager_LevelWave;
+
 
     }
     private void OnTriggerExit(Collider other)
