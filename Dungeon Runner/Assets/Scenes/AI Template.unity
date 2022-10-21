@@ -399,6 +399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 1363233954}
+  characterHealthData: {fileID: 0}
+  characterCurrentHealth: 0
 --- !u!1 &1554167076
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,24 +634,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!114 &3013497459995611534 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4852481802210799914, guid: 6407ba72bdbd04249a5e716aefaf14bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 7675661553915846820}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &6368693594188943930 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3667980208414585502, guid: 6407ba72bdbd04249a5e716aefaf14bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 7675661553915846820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7675661553915846820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -662,16 +646,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyAlien
       objectReference: {fileID: 0}
-    - target: {fileID: 974668477769868047, guid: 6407ba72bdbd04249a5e716aefaf14bf,
-        type: 3}
-      propertyPath: rig
-      value: 
-      objectReference: {fileID: 3013497459995611534}
-    - target: {fileID: 974668477769868047, guid: 6407ba72bdbd04249a5e716aefaf14bf,
-        type: 3}
-      propertyPath: aimTarget
-      value: 
-      objectReference: {fileID: 6368693594188943930}
     - target: {fileID: 977599907031204693, guid: 6407ba72bdbd04249a5e716aefaf14bf,
         type: 3}
       propertyPath: m_RootOrder
@@ -726,11 +700,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4448069302031045137, guid: 6407ba72bdbd04249a5e716aefaf14bf,
-        type: 3}
-      propertyPath: m_Weight
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6407ba72bdbd04249a5e716aefaf14bf, type: 3}
