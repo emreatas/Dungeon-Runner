@@ -39,9 +39,9 @@ public class Knife : KnifeManager
             {
                 SpawnSideKnife();
             }
-
+            ps.Play();
         }
-        ps.Play();
+        
         
     }
 
