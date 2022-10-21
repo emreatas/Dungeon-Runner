@@ -26,6 +26,7 @@ public class CanvasController : MonoBehaviour
         Time.timeScale = 0;
         GameManager.Instance.OnGamePause(true);
 
+
     }
 
     private void GameManager_BuySkill(int obj)
