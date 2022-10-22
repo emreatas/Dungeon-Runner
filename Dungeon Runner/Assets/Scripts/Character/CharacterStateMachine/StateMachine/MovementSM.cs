@@ -76,7 +76,8 @@ public class MovementSM : StateMachine
         if (other.gameObject.CompareTag("Bullet"))
         {
             charachterHealth.TakeDamege(other.gameObject.GetComponent<AlienBullet>().GetBulletDamage());
-            if (charachterHealth.characterCurrentHealth==0)
+            GameManager.Instance.OnCharacterHealthChange(charachterHealth.characterCurrentHealth);
+            if (charachterHealth.characterCurrentHealth<=0)
             {
                 GameManager.Instance.OnDead();
             }

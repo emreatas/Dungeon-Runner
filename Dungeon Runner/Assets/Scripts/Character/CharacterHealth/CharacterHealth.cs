@@ -11,16 +11,26 @@ public class CharacterHealth : MonoBehaviour, IDamageable
     private void OnEnable()
     {
         GameManager.LevelWave += GameManager_LevelWave;
+        GameManager.Dead += GameManager_Dead;
+    }
+
+    private void GameManager_Dead()
+    {
+        characterCurrentHealth = 0;
+        GameManager.Instance.OnCharacterHealthChange(characterCurrentHealth);
+
     }
 
     private void GameManager_LevelWave(int obj)
     {
         characterCurrentHealth += (obj + 1) * 10;
+        GameManager.Instance.OnCharacterHealthChange(characterCurrentHealth);
     }
 
     private void OnDisable()
     {
         GameManager.LevelWave -= GameManager_LevelWave;
+        GameManager.Dead -= GameManager_Dead;
     }
     private void Start()
     {

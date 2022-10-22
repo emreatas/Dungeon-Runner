@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     public static event Action MarketTile;
     public static event Action<int> LevelWave;
 
+
+
+    public static event Action<float> CharacterHealthChange;
+
     #region Skill Events
     public static event Action ActivateDoubleKnife;
     public static event Action IncreaseThrowSpeed;
@@ -137,6 +141,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Skill Event Functions
     public void OnActivateDoubleKnife()
     {
         if (ActivateDoubleKnife!=null)
@@ -191,6 +196,14 @@ public class GameManager : MonoBehaviour
             ActivateSideKnife();
         }
     }
-	
+    #endregion
+
+    public void OnCharacterHealthChange(float currentHealth)
+    {
+        if (CharacterHealthChange!=null)
+        {
+            CharacterHealthChange(currentHealth);
+        }
+    }
 
 }
