@@ -30,40 +30,56 @@ public class SkillButtonScript : MonoBehaviour
         _costText.text = "x" + _cost;
     }
 
+
+    private void OnEnable()
+    {
+        if (GameManager.Instance.GetCurrency() < _cost)
+        {
+            _costText.color = Color.red;
+        }
+        else
+        {
+            _costText.color = Color.green;
+        }
+    }
+
     public void BuySkill()
     {
-        GameManager.Instance.OnBuySkill(_cost);
 
-        switch (_skill)
+        if (GameManager.Instance.GetCurrency() >= _cost)
         {
-            case Skill.ActivateDoubleKnife:
-                GameManager.Instance.OnActivateDoubleKnife();
-                break;
+            GameManager.Instance.OnBuySkill(_cost);
 
-            case Skill.IncreaseThrowSpeed:
-                GameManager.Instance.OnIncreaseThrowSpeed();
-                break;
+            switch (_skill)
+            {
+                case Skill.ActivateDoubleKnife:
+                    GameManager.Instance.OnActivateDoubleKnife();
+                    break;
 
-            case Skill.IncreaseAttackSpeed:
-                GameManager.Instance.OnIncreaseAttackSpeed();
-                break;
+                case Skill.IncreaseThrowSpeed:
+                    GameManager.Instance.OnIncreaseThrowSpeed();
+                    break;
 
-            case Skill.IncreaseDamage:
-                GameManager.Instance.OnIncreaseDamage();
-                break;
+                case Skill.IncreaseAttackSpeed:
+                    GameManager.Instance.OnIncreaseAttackSpeed();
+                    break;
 
-            case Skill.IncreaseRange:
-                GameManager.Instance.OnIncreaseRange();
-                break;
+                case Skill.IncreaseDamage:
+                    GameManager.Instance.OnIncreaseDamage();
+                    break;
 
-            case Skill.IncreaseReloadSpeed:
-                GameManager.Instance.OnIncreaseReloadSpeed();
-                break;
+                case Skill.IncreaseRange:
+                    GameManager.Instance.OnIncreaseRange();
+                    break;
 
-            case Skill.ActivateSideKnife:
-                GameManager.Instance.OnActivateSideKnife();
-                break;
+                case Skill.IncreaseReloadSpeed:
+                    GameManager.Instance.OnIncreaseReloadSpeed();
+                    break;
+
+                case Skill.ActivateSideKnife:
+                    GameManager.Instance.OnActivateSideKnife();
+                    break;
+            }
         }
-
     }
 }

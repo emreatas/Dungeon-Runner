@@ -12,6 +12,8 @@ public class CanvasController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _collectItem;
     [SerializeField] private Image _healthImage;
 
+    [SerializeField] private List<GameObject> _skills;
+
 
     private void OnEnable()
     {
@@ -19,6 +21,14 @@ public class CanvasController : MonoBehaviour
         GameManager.CollectItem += GameManager_CollectItem;
         GameManager.BuySkill += GameManager_BuySkill;
         GameManager.MarketTile += GameManager_MarketTile;
+        GameManager.CharacterHealthChange += GameManager_CharacterHealthChange;
+    }
+
+    private void GameManager_CharacterHealthChange(float obj)
+    {
+
+        _healthImage.fillAmount = obj / 100;
+
     }
 
     private void GameManager_MarketTile()
@@ -28,6 +38,21 @@ public class CanvasController : MonoBehaviour
         GameManager.Instance.OnGamePause(true);
 
 
+        for (int i = 0; i < _skills.Count; i++)
+        {
+            _skills[i].SetActive(false);
+        }
+        int skillFlag = 0;
+        while (skillFlag != 3)
+        {
+            int flag = Random.Range(0, _skills.Count);
+            if (!_skills[flag].activeSelf)
+            {
+                _skills[flag].SetActive(true);
+                skillFlag++;
+            }
+        }
+
     }
 
     private void GameManager_BuySkill(int obj)
@@ -35,7 +60,6 @@ public class CanvasController : MonoBehaviour
         _collectItem.text = "x" + GameManager.Instance.GetCurrency();
         _marketPanel.SetActive(false);
         Time.timeScale = 1;
-
         GameManager.Instance.OnGamePause(false);
 
 
@@ -62,6 +86,7 @@ public class CanvasController : MonoBehaviour
         GameManager.CollectItem -= GameManager_CollectItem;
         GameManager.BuySkill -= GameManager_BuySkill;
         GameManager.MarketTile -= GameManager_MarketTile;
+        GameManager.CharacterHealthChange -= GameManager_CharacterHealthChange;
 
 
 
@@ -92,6 +117,17 @@ public class CanvasController : MonoBehaviour
         pausePanel.SetActive(false);
         GameManager.Instance.OnGamePause(false);
     }
+
+
+    public void SkipButton()
+    {
+
+        _marketPanel.SetActive(false);
+        Time.timeScale = 1;
+        GameManager.Instance.OnGamePause(false);
+
+    }
+
 
     public void RestartButton()
     {

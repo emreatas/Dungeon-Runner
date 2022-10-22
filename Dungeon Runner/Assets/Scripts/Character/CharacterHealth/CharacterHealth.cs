@@ -34,7 +34,10 @@ public class CharacterHealth : MonoBehaviour, IDamageable
     }
     private void Start()
     {
+
         characterCurrentHealth = characterHealthData.characterBaseHealth;
+
+        GameManager.Instance.OnCharacterHealthChange(characterCurrentHealth);
     }
 
     public void TakeDamege(float damage)
