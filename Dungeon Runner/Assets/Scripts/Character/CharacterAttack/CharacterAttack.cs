@@ -8,10 +8,14 @@ using UnityEngine.Animations.Rigging;
 public class CharacterAttack : MonoBehaviour
 {
     public TwoBoneIKConstraint iK;
+    public TwoBoneIKConstraint shieldIk;
     public AttackStatsScriptable attackStats;
     private bool _reached = false;
     private bool _isAttacking = false;
     public GameObject knife;
+
+    [SerializeField]
+    private GameObject _shield;
 
     [Header("Stats")]
     private float _attackSpeed;
@@ -45,6 +49,13 @@ public class CharacterAttack : MonoBehaviour
         GameManager.IncreaseReloadSpeed += GameManager_IncreaseReloadSpeed;
         GameManager.IncreaseThrowSpeed += GameManager_IncreaseThrowSpeed;
         GameManager.ActivateSideKnife += GameManager_ActivateSideKnife;
+        GameManager.ActivateShield += GameManager_ActivateShield;
+    }
+
+    private void GameManager_ActivateShield()
+    {
+        shieldIk.weight = 1f;
+        _shield.SetActive(true);
     }
 
     private void GameManager_ActivateSideKnife()
@@ -79,6 +90,7 @@ public class CharacterAttack : MonoBehaviour
         GameManager.IncreaseReloadSpeed -= GameManager_IncreaseReloadSpeed;
         GameManager.IncreaseThrowSpeed -= GameManager_IncreaseThrowSpeed;
         GameManager.ActivateSideKnife -= GameManager_ActivateSideKnife;
+        GameManager.ActivateShield -= GameManager_ActivateShield;
     }
 
   

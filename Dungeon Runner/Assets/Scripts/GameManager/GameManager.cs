@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public static event Action IncreaseRange;
 
     public static event Action ActivateSideKnife;
+    public static event Action ActivateShield;
     #endregion
 
 
@@ -194,6 +195,13 @@ public class GameManager : MonoBehaviour
         if (ActivateSideKnife!=null)
         {
             ActivateSideKnife();
+        }
+    }
+    public void OnActivateShield()
+    {
+        if (ActivateShield!=null)
+        {
+            ActivateShield();
         }
     }
     #endregion

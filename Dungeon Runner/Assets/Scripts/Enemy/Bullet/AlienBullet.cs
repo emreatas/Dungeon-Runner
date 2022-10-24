@@ -37,6 +37,8 @@ public class AlienBullet : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+       
+       
         
     }
 }
