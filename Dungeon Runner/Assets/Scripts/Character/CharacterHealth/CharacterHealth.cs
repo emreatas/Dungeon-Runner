@@ -23,7 +23,15 @@ public class CharacterHealth : MonoBehaviour, IDamageable
 
     private void GameManager_LevelWave(int obj)
     {
+
         characterCurrentHealth += (obj + 1) * 10;
+        if (characterCurrentHealth > 100)
+        {
+            characterCurrentHealth = 100;
+        }
+        Debug.Log("girdim");
+
+
         GameManager.Instance.OnCharacterHealthChange(characterCurrentHealth);
     }
 
@@ -44,6 +52,9 @@ public class CharacterHealth : MonoBehaviour, IDamageable
     {
         characterCurrentHealth -= damage;
     }
-
+    private void Update()
+    {
+        Debug.Log(characterCurrentHealth);
+    }
 
 }

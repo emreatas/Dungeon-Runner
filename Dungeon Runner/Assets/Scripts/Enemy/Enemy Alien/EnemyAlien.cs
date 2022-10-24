@@ -96,6 +96,7 @@ public class EnemyAlien : MonoBehaviour
                 anim.SetBool("Die", true);
                 targetWeight = 0f;
                 gameObject.GetComponent<Collider>().enabled = false;
+                GameManager.Instance.OnCollectItem();
             }
         }
     }
