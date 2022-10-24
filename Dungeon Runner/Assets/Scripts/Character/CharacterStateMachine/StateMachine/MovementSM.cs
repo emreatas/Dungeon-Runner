@@ -54,12 +54,7 @@ public class MovementSM : StateMachine
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            Debug.Log("dead");
-            GameManager.Instance.OnDead();
-        }
-           
+         
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -82,6 +77,12 @@ public class MovementSM : StateMachine
                 GameManager.Instance.OnDead();
             }
         }
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("dead");
+            GameManager.Instance.OnDead();
+        }
+
     }
 
     protected override BaseState GetInitialState()
