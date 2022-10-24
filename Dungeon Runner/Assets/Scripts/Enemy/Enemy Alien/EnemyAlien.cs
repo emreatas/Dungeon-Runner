@@ -26,13 +26,29 @@ public class EnemyAlien : MonoBehaviour
 
     private int _health;
 
-
-
-
-
-
-
-
+    void OnEnable()
+    {
+        GameManager.LevelWave += GameManager_LevelWave;
+        GameManager.Dead += GameManager_Dead;
+        isDied = false;
+        anim.SetBool("Die", false);
+        gameObject.GetComponent<Collider>().enabled = true;
+        alienStats.health = 20 + wave * 20;
+        _health = alienStats.health;
+    }
+    private void GameManager_Dead()
+    {
+        inFireDistance = false;
+    }
+    private void GameManager_LevelWave(int obj)
+    {
+        wave = obj;
+    }
+    private void OnDisable()
+    {
+        GameManager.Dead -= GameManager_Dead;
+        GameManager.LevelWave -= GameManager_LevelWave;
+    }
     void Update()
     {
         rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
@@ -107,32 +123,5 @@ public class EnemyAlien : MonoBehaviour
             }
         }
 
-    }
-    void OnEnable()
-    {
-
-
-        GameManager.LevelWave += GameManager_LevelWave;
-        GameManager.Dead += GameManager_Dead;
-        isDied = false;
-        anim.SetBool("Die", false);
-        gameObject.GetComponent<Collider>().enabled = true;
-        alienStats.health = 20 + wave * 20;
-        _health = alienStats.health;
-    }
-
-    private void GameManager_Dead()
-    {
-        inFireDistance = false;
-    }
-
-    private void GameManager_LevelWave(int obj)
-    {
-        wave = obj;
-    }
-    private void OnDisable()
-    {
-        GameManager.Dead -= GameManager_Dead;
-        GameManager.LevelWave -= GameManager_LevelWave;
     }
 }
