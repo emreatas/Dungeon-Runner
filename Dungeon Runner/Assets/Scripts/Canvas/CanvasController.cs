@@ -7,12 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class CanvasController : MonoBehaviour
 {
+
+    public static CanvasController Instance;
+
+
+
     [SerializeField] private GameObject _deadPanel;
     [SerializeField] private GameObject _marketPanel;
     [SerializeField] private TextMeshProUGUI _collectItem;
     [SerializeField] private Image _healthImage;
 
-    [SerializeField] private List<GameObject> _skills;
+   public List<GameObject> _skills;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
 
     private void OnEnable()
@@ -40,9 +50,14 @@ public class CanvasController : MonoBehaviour
 
         for (int i = 0; i < _skills.Count; i++)
         {
-            _skills[i].SetActive(false);
+            if (_skills[i] != null)
+            {
+                _skills[i].SetActive(false);
+
+            }
         }
         int skillFlag = 0;
+
         while (skillFlag != 3)
         {
             int flag = Random.Range(0, _skills.Count);
@@ -51,6 +66,8 @@ public class CanvasController : MonoBehaviour
                 _skills[flag].SetActive(true);
                 skillFlag++;
             }
+
+
         }
 
     }

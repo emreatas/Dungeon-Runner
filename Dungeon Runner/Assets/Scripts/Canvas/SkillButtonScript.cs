@@ -15,7 +15,7 @@ public class SkillButtonScript : MonoBehaviour
         IncreaseDamage,
         IncreaseRange,
         IncreaseReloadSpeed,
-        ActivateSideKnife
+        ActivateSideKnife,
 
     }
 
@@ -25,9 +25,14 @@ public class SkillButtonScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _costText;
 
 
+
+
     private void Start()
     {
         _costText.text = "x" + _cost;
+
+
+
     }
 
 
@@ -54,6 +59,10 @@ public class SkillButtonScript : MonoBehaviour
             {
                 case Skill.ActivateDoubleKnife:
                     GameManager.Instance.OnActivateDoubleKnife();
+
+                    gameObject.SetActive(false);
+                    CanvasController.Instance._skills.Remove(gameObject);
+
                     break;
 
                 case Skill.IncreaseThrowSpeed:
@@ -78,8 +87,16 @@ public class SkillButtonScript : MonoBehaviour
 
                 case Skill.ActivateSideKnife:
                     GameManager.Instance.OnActivateSideKnife();
+                    gameObject.SetActive(false);
+
+                    CanvasController.Instance._skills.Remove(gameObject);
+
                     break;
+
             }
+
+
+
         }
     }
 }

@@ -227,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cost: 20
   _skill: 0
+  _buyable: 1
   _costText: {fileID: 2020592333649707890}
 --- !u!1 &4580037560831517241
 GameObject:
