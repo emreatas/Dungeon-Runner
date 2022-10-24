@@ -9775,7 +9775,7 @@ GameObject:
   - component: {fileID: 5835527099335450428}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24668,7 +24668,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2169395235514789995}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.28555155, y: 0.84888405, z: 4.591648}
@@ -24758,6 +24758,7 @@ MonoBehaviour:
   - {fileID: 3646097936445874191}
   - {fileID: 8072603056864098617}
   _enemySpawnPoint: []
+  _movement: 0
 --- !u!65 &2309013284305753122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70638,10 +70639,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Tank_01
       objectReference: {fileID: 0}
-    - target: {fileID: 1450998255903408, guid: 4668588a9e17c9f4aa539ee9c8f57a4c, type: 3}
-      propertyPath: m_TagString
-      value: Obstacle
-      objectReference: {fileID: 0}
     - target: {fileID: 4593282014200748, guid: 4668588a9e17c9f4aa539ee9c8f57a4c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -70686,32 +70683,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 64305748388539582, guid: 4668588a9e17c9f4aa539ee9c8f57a4c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4668588a9e17c9f4aa539ee9c8f57a4c, type: 3}
---- !u!1 &1074373952048323049 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1450998255903408, guid: 4668588a9e17c9f4aa539ee9c8f57a4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1075752032378895193}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &3419058638337013772
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074373952048323049}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.6397157, y: 2.5791793, z: 2.9563446}
-  m_Center: {x: 0, y: 1.2895896, z: -0.0000015497208}
 --- !u!4 &1080168292608801013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4593282014200748, guid: 4668588a9e17c9f4aa539ee9c8f57a4c,
@@ -71317,25 +71290,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3443541367128273777}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3445204284445737303 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1752260287787558, guid: 52097721080d0184c84bb45f12e49b1d,
-    type: 3}
-  m_PrefabInstance: {fileID: 3443541367128273777}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &7612418386201571601
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3445204284445737303}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3237103, y: 2.8999999, z: 5}
-  m_Center: {x: 0, y: 0, z: -2.5}
 --- !u!1001 &3549362066024339541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71484,11 +71438,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: back 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 937492321659770758, guid: fa74bb518b053ee4a990dbf7c6d06a1e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4888071106535042465, guid: fa74bb518b053ee4a990dbf7c6d06a1e,
         type: 3}
@@ -71825,32 +71774,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Backgroun5
       objectReference: {fileID: 0}
-    - target: {fileID: 9193329517067494826, guid: eb6d7b026c5fe4f49835a62d1beb17db,
-        type: 3}
-      propertyPath: m_TagString
-      value: Obstacle
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb6d7b026c5fe4f49835a62d1beb17db, type: 3}
---- !u!1 &3750783680289898182 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9193329517067494826, guid: eb6d7b026c5fe4f49835a62d1beb17db,
-    type: 3}
-  m_PrefabInstance: {fileID: 5447158307115047788}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &860761697700284124
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750783680289898182}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.7803802, y: 23.12306, z: 15.290489}
-  m_Center: {x: -2.9645176, y: 10.65, z: 2.4932346}
 --- !u!4 &5595371989623093639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 450061666140201707, guid: eb6d7b026c5fe4f49835a62d1beb17db,
@@ -72071,25 +71996,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52097721080d0184c84bb45f12e49b1d, type: 3}
---- !u!1 &5793262489029869029 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1752260287787558, guid: 52097721080d0184c84bb45f12e49b1d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5792741971675680707}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &2411899490741784371
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5793262489029869029}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3237103, y: 2.8999999, z: 5}
-  m_Center: {x: 0, y: 0, z: -2.5}
 --- !u!4 &5795107077543614561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4414604170975138, guid: 52097721080d0184c84bb45f12e49b1d,
@@ -72684,10 +72590,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Scav_Refinery_Pipe_02_Half_03
       objectReference: {fileID: 0}
-    - target: {fileID: 1752260287787558, guid: 52097721080d0184c84bb45f12e49b1d, type: 3}
-      propertyPath: m_TagString
-      value: Obstacle
-      objectReference: {fileID: 0}
     - target: {fileID: 4414604170975138, guid: 52097721080d0184c84bb45f12e49b1d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -72732,32 +72634,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 64093520594558276, guid: 52097721080d0184c84bb45f12e49b1d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52097721080d0184c84bb45f12e49b1d, type: 3}
---- !u!1 &8599517610642445830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1752260287787558, guid: 52097721080d0184c84bb45f12e49b1d,
-    type: 3}
-  m_PrefabInstance: {fileID: 8597835817883198496}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &5012347394423958542
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599517610642445830}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3237103, y: 2.8999999, z: 5}
-  m_Center: {x: 0, y: 0, z: -2.5}
 --- !u!4 &8601322305389441922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4414604170975138, guid: 52097721080d0184c84bb45f12e49b1d,

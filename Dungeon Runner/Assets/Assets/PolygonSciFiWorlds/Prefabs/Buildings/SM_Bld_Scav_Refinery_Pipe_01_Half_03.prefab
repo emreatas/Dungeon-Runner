@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 4977319406155960}
   - component: {fileID: 33212815423673654}
   - component: {fileID: 23328055194432108}
-  - component: {fileID: 64761946928540170}
-  - component: {fileID: 6641402949020376744}
+  - component: {fileID: 4191953684853013577}
   m_Layer: 0
   m_Name: SM_Bld_Scav_Refinery_Pipe_01_Half_03
   m_TagString: Obstacle
@@ -27,11 +26,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486286256226872}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2449532033135387457}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64761946928540170
+--- !u!64 &4191953684853013577
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,17 +98,49 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 43378956363177470, guid: 4e6ad7d88dbbfc847a257a2ece3f18df, type: 2}
---- !u!65 &6641402949020376744
+  m_Mesh: {fileID: 4300000, guid: 14a82942999792b40bb020d41a81a2e7, type: 3}
+--- !u!1 &1559707183445611461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2449532033135387457}
+  - component: {fileID: 8592339018907861356}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Obstacle
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2449532033135387457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559707183445611461}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4977319406155960}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8592339018907861356
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486286256226872}
+  m_GameObject: {fileID: 1559707183445611461}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.02922, y: 1.5502433, z: 5.0000024}
-  m_Center: {x: -0.000016808513, y: 0.09547275, z: -2.5000012}
+  m_Size: {x: 2.9895737, y: 1.5259359, z: 5.026389}
+  m_Center: {x: 0.02051282, y: 0.11639562, z: -2.500538}

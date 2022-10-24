@@ -24,8 +24,15 @@ public class EnemyAlien : MonoBehaviour
     [SerializeField]
     private ParticleSystem bloodPs;
 
+    private int _health;
 
-    
+
+
+
+
+
+
+
     void Update()
     {
         rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
@@ -55,7 +62,7 @@ public class EnemyAlien : MonoBehaviour
             {
                 target = player.transform;
                 aimTarget.position = player.GetComponent<CharacterHealth>().lookAt.position;
-                if(distanceToPlayer <= alienStats.sightRange)
+                if (distanceToPlayer <= alienStats.sightRange)
                 {
                     inFireDistance = true;
                 }
@@ -69,13 +76,13 @@ public class EnemyAlien : MonoBehaviour
                 target = null;
                 inFireDistance = false;
             }
-            
+
         }
     }
     void Fire()
     {
         GameObject obj = bulletPool.GetPooledObject(0);
-        if(!obj.activeSelf)
+        if (!obj.activeSelf)
         {
             obj.SetActive(true);
         }
@@ -85,12 +92,12 @@ public class EnemyAlien : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag == "Knife")
+        if (collision.gameObject.tag == "Knife")
         {
             Debug.Log("Vurduk");
-            alienStats.health -= (int)collision.GetComponent<Knife>().damage;
+            _health -= (int)collision.GetComponent<Knife>().damage;
             bloodPs.Play();
-            if(alienStats.health <= 0)
+            if (_health <= 0)
             {
                 isDied = true;
                 anim.SetBool("Die", true);
@@ -99,15 +106,19 @@ public class EnemyAlien : MonoBehaviour
                 GameManager.Instance.OnCollectItem();
             }
         }
+
     }
     void OnEnable()
     {
+
+
         GameManager.LevelWave += GameManager_LevelWave;
         GameManager.Dead += GameManager_Dead;
         isDied = false;
         anim.SetBool("Die", false);
         gameObject.GetComponent<Collider>().enabled = true;
         alienStats.health = 20 + wave * 20;
+        _health = alienStats.health;
     }
 
     private void GameManager_Dead()

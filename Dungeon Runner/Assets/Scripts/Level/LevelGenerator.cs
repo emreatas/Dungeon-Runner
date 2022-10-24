@@ -45,7 +45,7 @@ public class LevelGenerator : MonoBehaviour
     {
 
 
-        if (spawnedTile == wave * 20 + 20)
+        if (spawnedTile == wave * 15 + 15)
         {
 
             GameObject marketTile = objectPool.GetPooledObject(5);
@@ -80,7 +80,7 @@ public class LevelGenerator : MonoBehaviour
     {
 
 
-        if (spawnedTile == wave * 20 + 20)
+        if (spawnedTile == wave * 15 + 15)
         {
 
             GameObject marketTile = objectPool.GetPooledObject(5);

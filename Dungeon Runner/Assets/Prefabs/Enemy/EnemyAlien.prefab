@@ -2604,6 +2604,7 @@ MonoBehaviour:
   rig: {fileID: 4852481802210799914}
   bulletPool: {fileID: 9121829053606170852}
   bloodPs: {fileID: 4777442720068654247}
+  _healthImage: {fileID: 0}
 --- !u!114 &9121829053606170852
 MonoBehaviour:
   m_ObjectHideFlags: 0

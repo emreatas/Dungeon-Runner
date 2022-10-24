@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 8046394956438045152}
   - {fileID: 4181210891365732486}
   - {fileID: 9217006459976962193}
+  _movement: 0
 --- !u!65 &1204555846851581379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1131,25 +1132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5211590607820756901, guid: 7212cb6b9c2dcc04a9824bb76f781fe9,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 13.456996
-      objectReference: {fileID: 0}
-    - target: {fileID: 5211590607820756901, guid: 7212cb6b9c2dcc04a9824bb76f781fe9,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 2.3831925
-      objectReference: {fileID: 0}
     - target: {fileID: 6825189841447629048, guid: 7212cb6b9c2dcc04a9824bb76f781fe9,
         type: 3}
       propertyPath: m_Name
       value: Backgroun2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6825189841447629048, guid: 7212cb6b9c2dcc04a9824bb76f781fe9,
-        type: 3}
-      propertyPath: m_TagString
-      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7212cb6b9c2dcc04a9824bb76f781fe9, type: 3}
